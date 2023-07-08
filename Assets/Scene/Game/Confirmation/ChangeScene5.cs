@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement; //유니티에서 씬에 관련된 제어를 해주기 위해 추가
+using static System.Net.Mime.MediaTypeNames;
+using System.Diagnostics;
 
 public class ChangeScene5 : MonoBehaviour
 {
@@ -58,5 +61,17 @@ public class ChangeScene5 : MonoBehaviour
                 break;
         }
     }
- 
+
+    public Button btn;
+    public Sprite sprites;
+
+    public void ChangeImageBtn()
+    {
+        UnityEngine.UI.Image buttonImage = btn.image;
+        buttonImage.sprite = sprites;
+        UnityEngine.Debug.Log(btn);
+        UnityEngine.Debug.Log(buttonImage);
+
+        UnityEngine.Debug.Log(this.gameObject.name);
+    }
 }

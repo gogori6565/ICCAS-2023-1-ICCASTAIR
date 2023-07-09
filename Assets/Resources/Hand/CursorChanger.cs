@@ -8,7 +8,7 @@ public class CursorChanger : MonoBehaviour
 
     private void Start()
     {
-        customCursor = Resources.Load<Texture2D>("Ме");
+        customCursor = Resources.Load<Texture2D>("Hand/Ме");
         if (customCursor != null)
         {
             Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);

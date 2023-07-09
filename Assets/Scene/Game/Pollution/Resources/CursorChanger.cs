@@ -18,10 +18,15 @@ public class CursorChanger : MonoBehaviour
             Debug.LogError("손 이미지 파일을 로드할 수 없습니다.");
         }
     }
+    
+    private void OnDisable()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
 
     // Update is called once per frame
     void Update()
         {
-            
+
     }
 }

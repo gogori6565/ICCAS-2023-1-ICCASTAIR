@@ -1311,9 +1311,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 936796922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: c2235b90841731f45880c3e0b505158e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tvObj: {fileID: 0}
+  psObj: {fileID: 0}
+  lightObj: {fileID: 0}
+  tvOFF: {fileID: 0}
+  psOFF: {fileID: 0}
+  lightOFF: {fileID: 0}
   btn: {fileID: 936796925}
   sprites: {fileID: 21300000, guid: af5195d1fe29ab4469b23a3eb8369f76, type: 3}
 --- !u!114 &936796925
@@ -1361,7 +1367,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 936796924}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
+        m_TargetAssemblyTypeName: LivingRoomScene, Assembly-CSharp
         m_MethodName: ChangeImageBtn
         m_Mode: 1
         m_Arguments:
@@ -3156,9 +3162,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2066826380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: c2235b90841731f45880c3e0b505158e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tvObj: {fileID: 0}
+  psObj: {fileID: 0}
+  lightObj: {fileID: 0}
+  tvOFF: {fileID: 0}
+  psOFF: {fileID: 0}
+  lightOFF: {fileID: 0}
   btn: {fileID: 2066826383}
   sprites: {fileID: 21300000, guid: fcfdd3d527f1e734e9b549c90e89aff2, type: 3}
 --- !u!114 &2066826383
@@ -3206,7 +3218,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2066826382}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
+        m_TargetAssemblyTypeName: LivingRoomScene, Assembly-CSharp
         m_MethodName: ChangeImageBtn
         m_Mode: 1
         m_Arguments:
@@ -3303,9 +3315,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113719084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: c2235b90841731f45880c3e0b505158e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tvObj: {fileID: 0}
+  psObj: {fileID: 0}
+  lightObj: {fileID: 0}
+  tvOFF: {fileID: 0}
+  psOFF: {fileID: 0}
+  lightOFF: {fileID: 0}
   btn: {fileID: 2113719087}
   sprites: {fileID: 21300000, guid: c04c1a9a18a3050498745654a99fb9b3, type: 3}
 --- !u!114 &2113719087
@@ -3353,7 +3371,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2113719086}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
+        m_TargetAssemblyTypeName: LivingRoomScene, Assembly-CSharp
         m_MethodName: ChangeImageBtn
         m_Mode: 1
         m_Arguments:

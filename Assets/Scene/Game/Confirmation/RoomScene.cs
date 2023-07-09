@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RoomScene : MonoBehaviour
 {
     public Button comObj, psObj;
-    public Sprite comON, comOFF, psON, psOFF;
+    public Sprite comOFF, psOFF;
     string comOFFPath, psOFFpath;
 
     void Start()

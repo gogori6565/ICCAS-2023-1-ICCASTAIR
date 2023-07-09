@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 335041861}
   - component: {fileID: 335041864}
   m_Layer: 0
-  m_Name: Multitab_Room
+  m_Name: PowerStrip_Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 335041864}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomScene, Assembly-CSharp
         m_MethodName: ChangeImageBtn
         m_Mode: 1
         m_Arguments:
@@ -653,9 +653,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 335041859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c8db5e39f8935c498ebeb8ce2e82290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comObj: {fileID: 0}
+  psObj: {fileID: 0}
+  comON: {fileID: 0}
+  comOFF: {fileID: 0}
+  psON: {fileID: 0}
+  psOFF: {fileID: 0}
   btn: {fileID: 335041861}
   sprites: {fileID: 21300000, guid: af5195d1fe29ab4469b23a3eb8369f76, type: 3}
 --- !u!1 &338130022
@@ -1219,7 +1225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 858479322}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomScene, Assembly-CSharp
         m_MethodName: ChangeImageBtn
         m_Mode: 1
         m_Arguments:
@@ -1277,9 +1283,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 858479317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c8db5e39f8935c498ebeb8ce2e82290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comObj: {fileID: 0}
+  psObj: {fileID: 0}
+  comON: {fileID: 0}
+  comOFF: {fileID: 0}
+  psON: {fileID: 0}
+  psOFF: {fileID: 0}
   btn: {fileID: 858479319}
   sprites: {fileID: 21300000, guid: 545e927fef187344f8924c2d66d791e1, type: 3}
 --- !u!1 &963966733

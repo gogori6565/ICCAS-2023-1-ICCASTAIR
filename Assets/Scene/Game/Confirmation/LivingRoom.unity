@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 936796925}
   - component: {fileID: 936796924}
   m_Layer: 0
-  m_Name: Multitab_LivingRoom
+  m_Name: PowerStrip_LivingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

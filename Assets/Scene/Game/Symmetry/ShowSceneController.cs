@@ -10,7 +10,7 @@ public class ShowSceneController : MonoBehaviour
     public static int[] selectSymmetryStuff; // 대칭 물건 index
     public static int[] selectNotSymmetryStuff; // 비대칭 물건 index
     public static ArrayList stuffList;
-    public static int diff = 3; // 선택된 난이도
+    public static int diff = 1; // 선택된 난이도
     // Start is called before the first frame update
     void Start()
     {
@@ -314,6 +314,7 @@ public class ShowSceneController : MonoBehaviour
         public int changed = 0; // (변경x, 변경 = 0, 1)
         public int state = 0; // (위치변경x, 위치변경y , 각도변경 = 0, 1, 2)
         public float degree = 0; // 바뀐정도
+        public int touch = 0;
 
         public stuffState(int index, int changed, int state, float degree)
         {

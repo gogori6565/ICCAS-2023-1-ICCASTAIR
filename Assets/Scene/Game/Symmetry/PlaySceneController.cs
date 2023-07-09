@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlaySceneController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlaySceneController : MonoBehaviour
     int[] selectSymmetryStuff; // 대칭 물건 index
     int[] selectNotSymmetryStuff; // 비대칭 물건 index
     ArrayList stuffList;
-    int diff = 2; // 선택된 난이도
+    int diff; // 선택된 난이도
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +34,54 @@ public class PlaySceneController : MonoBehaviour
         gameSetting(diff, diff * 5);
     }
 
+    int touchSymmetryCount = 0;
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0)) // Left click
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 좌표 가져오기
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f); // 해당 좌표 오브젝트 찾기
+
+            if(hit.collider != null)
+            {
+                GameObject click_obj = hit.transform.gameObject;
+                foreach (ShowSceneController.stuffState i in stuffList)
+                {
+                    if(room2AllStuff[i.index] == click_obj)
+                    {
+                        if(i.changed == 0) // 건드린 물건이 대칭일때
+                        {
+                            if(i.touch == 0) // 처음 건드리는 물건이면
+                            {
+                                if (i.state == 0)
+                                {
+                                    click_obj.transform.Translate(new Vector3(i.degree, 0, 0));
+                                }
+                                else if (i.state == 1)
+                                {
+                                    click_obj.transform.Translate(new Vector3(0, i.degree, 0));
+                                }
+                                else if (i.state == 2)
+                                {
+                                    click_obj.transform.Rotate(0, 0, i.degree);
+                                }
+                                touchSymmetryCount++;
+                                i.touch = 1;
+                                Debug.Log("대칭물건 : " + click_obj.name + " 건드림");
+                                if (touchSymmetryCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
+                                {
+                                    Debug.Log("Game Clear");
+                                }
+                            }
+                        }else if(i.changed == 1) // 건드린 물건이 비대칭일때
+                        {
+                            Debug.Log("비대칭물건 : " + click_obj.name + " 건드림");
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void startSetting(int difficulty, int size) // size : 총 물건 개수  
@@ -84,6 +129,22 @@ public class PlaySceneController : MonoBehaviour
                     room2AllStuff[i.index].transform.Rotate(0, 0, i.degree);
                 }
             }
+        }
+    }
+
+    public int getSymmetryCount(int diff)
+    {
+        if(diff == 1)
+        {
+            return 3;
+        }
+        else if(diff == 2)
+        {
+            return 5;
+        }
+        else
+        {
+            return 8;
         }
     }
 }

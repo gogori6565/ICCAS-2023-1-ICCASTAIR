@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class LivingRoomScene : MonoBehaviour
 {
-    public Button tvObj, psObj, lightObj;
-    public Sprite tvOFF, psOFF, lightOFF;
-    string tvOFFPath, psOFFpath, lightOFFpath;
+    public Button tvObj, psObj, lightObj, fanObj, windowObj;
+    public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
+    string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
     void Start()
     {
         tvObj = GameObject.Find("tv").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_LivingRoom").GetComponent<Button>();
         lightObj = GameObject.Find("Light_LivingRoom").GetComponent<Button>();
+        fanObj = GameObject.Find("Fan_LivingRoom").GetComponent<Button>();
+        windowObj = GameObject.Find("Window_LivingRoom").GetComponent<Button>();
 
         tvOFFPath = "on_off/tv off";
         tvOFF = LoadSpriteFromPath(tvOFFPath);
@@ -23,6 +25,12 @@ public class LivingRoomScene : MonoBehaviour
 
         lightOFFpath = "on_off/Àüµî off";
         lightOFF = LoadSpriteFromPath(lightOFFpath);
+
+        fanOFFpath = "on_off/¼±Ç³±â off";
+        fanOFF = LoadSpriteFromPath(fanOFFpath);
+
+        windowOFFpath = "on_off/Ã¢¹® ´ÝÈû";
+        windowOFF = LoadSpriteFromPath(windowOFFpath);
 
         if (GV.tv == 1)
         {
@@ -38,6 +46,16 @@ public class LivingRoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+        }
+        if (GV.Fan_LivingRoom == 1)
+        {
+            UnityEngine.UI.Image fanImage = fanObj.image;
+            fanImage.sprite = fanOFF;
+        }
+        if (GV.Window_LivingRoom == 1)
+        {
+            UnityEngine.UI.Image windowImage = windowObj.image;
+            windowImage.sprite = windowOFF;
         }
     }
 
@@ -68,6 +86,12 @@ public class LivingRoomScene : MonoBehaviour
                 break;
             case "PowerStrip_LivingRoom":
                 GV.PowerStrip_LivingRoom = 1;
+                break;
+            case "Fan_LivingRoom":
+                GV.Fan_LivingRoom = 1;
+                break;
+            case "Window_LivingRoom":
+                GV.Window_LivingRoom = 1;
                 break;
         }
     }

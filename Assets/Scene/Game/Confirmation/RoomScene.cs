@@ -7,20 +7,32 @@ using UnityEngine.UI;
 
 public class RoomScene : MonoBehaviour
 {
-    public Button comObj, psObj;
-    public Sprite comOFF, psOFF;
-    string comOFFPath, psOFFpath;
+    public Button comObj, psObj, lightObj, fanObj, windowObj;
+    public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
+    string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
     void Start()
     {
         comObj = GameObject.Find("computer").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_Room").GetComponent<Button>();
+        lightObj = GameObject.Find("Light_Room").GetComponent<Button>();
+        fanObj = GameObject.Find("Fan_Room").GetComponent<Button>();
+        windowObj = GameObject.Find("Window_Room").GetComponent<Button>();
 
         comOFFPath = "on_off/ÄÄÇ»ÅÍ ²¨Áü";
         comOFF = LoadSpriteFromPath(comOFFPath);
 
         psOFFpath = "on_off/¸ÖÆ¼ÅÇ off";
         psOFF = LoadSpriteFromPath(psOFFpath);
+
+        lightOFFpath = "on_off/¹æ Àüµî off";
+        lightOFF = LoadSpriteFromPath(lightOFFpath);
+
+        fanOFFpath = "on_off/¼±Ç³±â off";
+        fanOFF = LoadSpriteFromPath(fanOFFpath);
+
+        windowOFFpath = "on_off/Ã¢¹® ´ÝÈû";
+        windowOFF = LoadSpriteFromPath(windowOFFpath);
 
         if (GV.computer == 1)
         {
@@ -31,6 +43,21 @@ public class RoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image psImage = psObj.image;
             psImage.sprite = psOFF;
+        }
+        if (GV.Light_Room == 1)
+        {
+            UnityEngine.UI.Image lightImage = lightObj.image;
+            lightImage.sprite = lightOFF;
+        }
+        if (GV.Fan_Room == 1)
+        {
+            UnityEngine.UI.Image fanImage = fanObj.image;
+            fanImage.sprite = fanOFF;
+        }
+        if (GV.Window_Room == 1)
+        {
+            UnityEngine.UI.Image windowImage = windowObj.image;
+            windowImage.sprite = windowOFF;
         }
     }
 
@@ -56,8 +83,17 @@ public class RoomScene : MonoBehaviour
             case "computer":
                 GV.computer = 1;
                 break;
+            case "Light_Room":
+                GV.Light_Room = 1;
+                break;
             case "PowerStrip_Room":
                 GV.PowerStrip_Room = 1;
+                break;
+            case "Fan_Room":
+                GV.Fan_Room = 1;
+                break;
+            case "Window_Room":
+                GV.Window_Room = 1;
                 break;
         }
     }

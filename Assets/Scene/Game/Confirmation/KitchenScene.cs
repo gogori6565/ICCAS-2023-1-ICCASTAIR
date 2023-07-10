@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class KitchenScene : MonoBehaviour
 {
-    public Button grObj, gvObj, lightObj;
-    public Sprite grOFF, gvOFF, lightOFF;
-    string grOFFPath, gvOFFpath, lightOFFpath;
+    public Button grObj, gvObj, lightObj, faucetObj, windowObj;
+    public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
+    string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
 
     void Start()
     {
         grObj = GameObject.Find("GasRange").GetComponent<Button>();
         gvObj = GameObject.Find("GasValve").GetComponent<Button>();
         lightObj = GameObject.Find("Light_Kitchen").GetComponent<Button>();
+        faucetObj = GameObject.Find("faucet").GetComponent<Button>();
+        windowObj = GameObject.Find("Window_Kitchen").GetComponent<Button>();
 
         grOFFPath = "on_off/가스레인지 off";
         grOFF = LoadSpriteFromPath(grOFFPath);
@@ -23,6 +25,12 @@ public class KitchenScene : MonoBehaviour
 
         lightOFFpath = "on_off/전등 off";
         lightOFF = LoadSpriteFromPath(lightOFFpath);
+
+        faucetOFFpath = "on_off/수도꼭지 off";
+        faucetOFF = LoadSpriteFromPath(faucetOFFpath);
+
+        windowOFFpath = "on_off/창문 닫힘";
+        windowOFF = LoadSpriteFromPath(windowOFFpath);
 
         if (GV.GasRange == 1)
         {
@@ -38,6 +46,16 @@ public class KitchenScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+        }
+        if (GV.faucet == 1)
+        {
+            UnityEngine.UI.Image faucetImage = faucetObj.image;
+            faucetImage.sprite = faucetOFF;
+        }
+        if (GV.Window_Kitchen == 1)
+        {
+            UnityEngine.UI.Image windowImage = windowObj.image;
+            windowImage.sprite = windowOFF;
         }
     }
 
@@ -68,6 +86,12 @@ public class KitchenScene : MonoBehaviour
                 break;
             case "Light_Kitchen":
                 GV.Light_Kitchen = 1;
+                break;
+            case "faucet":
+                GV.faucet = 1;
+                break;
+            case "Window_Kitchen":
+                GV.Window_Kitchen = 1;
                 break;
         }
     }

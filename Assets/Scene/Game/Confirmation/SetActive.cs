@@ -26,9 +26,22 @@ public class SetActive : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Carkey":
-
+                GV.Carkey = 1;
                 break;
-            case "Housekey":
+            case "HouseKey":
+                GV.HouseKey = 1;
+                break;
+            case "FirstAidKit":
+                GV.FirstAidKit = 1;
+                break;
+            case "Tissue":
+                GV.Tissue = 1;
+                break;
+            case "Phone":
+                GV.Phone = 1;
+                break;
+            case "Wallet":
+                GV.Wallet = 1;
                 break;
         }
     }

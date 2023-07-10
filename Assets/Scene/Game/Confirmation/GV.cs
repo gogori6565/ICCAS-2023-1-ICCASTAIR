@@ -46,13 +46,13 @@ public class GV : MonoBehaviour
             "Turn off fan in the living room",
             "Turn off power strip in the room",
             "Turn off power strip in the living room",
-            "Turn off gas stove",
+            "Turn off gas range",
             "Turn off gas valve",
             "Turn off faucet",
             "Turn off computer",
             "Close living room window",
             "Close kitchen window",
-            "Close bedroom window",
+            "Close room window",
             "Take the wallet",
             "Take the phone",
             "Take the car keys",
@@ -63,7 +63,7 @@ public class GV : MonoBehaviour
     }
 
     public static List<int> randomNumbers = new List<int>(); // 중복되지 않는 랜덤한 숫자를 저장할 전역 변수 리스트
-    public static int ListNum = 5; //난이도 별로 상이 (하-5, 중-7, 상-10)
+    public static int ListNum = 10; //난이도 별로 상이 (하-5, 중-7, 상-10)
 
     public void GameStart()
     {

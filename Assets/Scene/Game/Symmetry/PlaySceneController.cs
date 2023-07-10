@@ -15,10 +15,14 @@ public class PlaySceneController : MonoBehaviour
     int[] selectNotSymmetryStuff; // 비대칭 물건 index
     ArrayList stuffList;
     int diff; // 선택된 난이도
+    public static gameData myGameData;
 
     // Start is called before the first frame update
     void Start()
     {
+        myGameData = new gameData();
+        myGameData.setEmpty();
+
         Room1 = GameObject.Find("Canvas").transform.Find("Room").gameObject;
         Room2 = GameObject.Find("Canvas").transform.Find("Room2").gameObject;
 
@@ -29,6 +33,7 @@ public class PlaySceneController : MonoBehaviour
         selectNotSymmetryStuff = ShowSceneController.selectNotSymmetryStuff;
         stuffList = ShowSceneController.stuffList;
         diff = ShowSceneController.diff;
+        myGameData.diff = diff;
 
         startSetting(diff, diff * 5);
         gameSetting(diff, diff * 5);
@@ -66,17 +71,28 @@ public class PlaySceneController : MonoBehaviour
                                 {
                                     click_obj.transform.Rotate(0, 0, i.degree);
                                 }
-                                touchSymmetryCount++;
+                                myGameData.symmetryTouchCount++;
                                 i.touch = 1;
-                                Debug.Log("대칭물건 : " + click_obj.name + " 건드림");
-                                if (touchSymmetryCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
+                                //Debug.Log("대칭물건 : " + click_obj.name + " 건드림");
+                                if (myGameData.symmetryTouchCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
                                 {
+                                    myGameData.timeRemain = (int)PlaySceneTimer.setTime;
                                     Debug.Log("Game Clear");
+                                    Debug.Log("대칭물건 건든 횟수 : " + myGameData.symmetryTouchCount + "회 / "
+                                        + "비대칭물건 건든 횟수 : " + myGameData.asymmetryTouchCount + "회 / "
+                                        + "비대칭으로 만든 물건 건든 횟수 : " + myGameData.symmetryMoreTouchCount + "회 / "
+                                        + "남은 시간 : " + myGameData.timeRemain + "초");
                                 }
+                            }
+                            else if(i.touch == 1) // 비대칭으로 만든 물건을 다시 건드리면
+                            {
+                                myGameData.symmetryMoreTouchCount++;
+                                //Debug.Log("비대칭으로 만든물건 : " + click_obj.name + " 건드림");
                             }
                         }else if(i.changed == 1) // 건드린 물건이 비대칭일때
                         {
-                            Debug.Log("비대칭물건 : " + click_obj.name + " 건드림");
+                            myGameData.asymmetryTouchCount++;
+                            //Debug.Log("비대칭물건 : " + click_obj.name + " 건드림");
                         }
                     }
                 }
@@ -145,6 +161,24 @@ public class PlaySceneController : MonoBehaviour
         else
         {
             return 8;
+        }
+    }
+
+    public class gameData
+    {
+        public int diff; // 난이도
+        public int symmetryTouchCount; // 대칭물건 터치횟수
+        public int symmetryMoreTouchCount; // 비대칭으로 만든 물건 터치횟수
+        public int asymmetryTouchCount; // 비대칭물건 터치횟수
+        public int timeRemain; // 남은 시간(초)
+
+        public void setEmpty()
+        {
+            diff = 0;
+            symmetryTouchCount = 0;
+            symmetryMoreTouchCount = 0;
+            asymmetryTouchCount = 0;
+            timeRemain = 0;
         }
     }
 }

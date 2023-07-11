@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlaySceneController : MonoBehaviour
 {
@@ -77,11 +78,7 @@ public class PlaySceneController : MonoBehaviour
                                 if (myGameData.symmetryTouchCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
                                 {
                                     myGameData.timeRemain = (int)PlaySceneTimer.setTime;
-                                    Debug.Log("Game Clear");
-                                    Debug.Log("대칭물건 건든 횟수 : " + myGameData.symmetryTouchCount + "회 / "
-                                        + "비대칭물건 건든 횟수 : " + myGameData.asymmetryTouchCount + "회 / "
-                                        + "비대칭으로 만든 물건 건든 횟수 : " + myGameData.symmetryMoreTouchCount + "회 / "
-                                        + "남은 시간 : " + myGameData.timeRemain + "초");
+                                    SceneManager.LoadScene("SymmetryResult");
                                 }
                             }
                             else if(i.touch == 1) // 비대칭으로 만든 물건을 다시 건드리면

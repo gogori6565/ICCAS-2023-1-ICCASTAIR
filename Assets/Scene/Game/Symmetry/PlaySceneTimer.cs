@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
     public class PlaySceneTimer : MonoBehaviour
     {
         public Text TimerText;
-        public static float setTime = 60;
+        public static float setTime;
         // Start is called before the first frame update
         void Start()
         {
@@ -19,8 +19,8 @@ using UnityEngine.SceneManagement;
             setTime -= Time.deltaTime;
             if (setTime <= 0)
             {
-                Debug.Log("Game End");
                 setTime = 0;
+                SceneManager.LoadScene("SymmetryResult");
             }
             if (setTime >= 10)
             {

@@ -74,4 +74,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Game/Confirmation/Room_c.unity
     guid: 5aa71843d010f794e8e40c300e9eefeb
+  - enabled: 1
+    path: Assets/Scene/Game/Symmetry/SymmetryResult.unity
+    guid: 34c3409c3794360458482e9242df52d3
   m_configObjects: {}

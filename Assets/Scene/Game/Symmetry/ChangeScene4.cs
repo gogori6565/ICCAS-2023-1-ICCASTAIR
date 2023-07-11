@@ -10,7 +10,7 @@ public class ChangeScene4 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "MainMenu_Button":
-                SceneManager.LoadScene("LogIn");
+                SceneManager.LoadScene("GameSelect");
                 break;
 
             case "GameStart_Button":

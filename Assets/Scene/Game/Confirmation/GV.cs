@@ -13,7 +13,7 @@ public class GV : MonoBehaviour
                         Light_Room, computer, PowerStrip_Room, Fan_Room, Window_Room;
 
     //bag Objects
-    public static int Carkey, HouseKey, FirstAidKit, Tissue, Phone, Wallet;
+    public static int Carkey, Housekey, FirstAidKit, Tissue, Phone, Wallet;
 
     //To Do List Sentences Array
     public static string[] ListSentences;
@@ -30,7 +30,7 @@ public class GV : MonoBehaviour
         Light_Kitchen = 0; GasRange = 0; GasValve=0; faucet = 0; Window_Kitchen = 0;
         Light_Room = 0; computer = 0; PowerStrip_Room = 0; Fan_Room = 0; Window_Room = 0;
 
-        Carkey = 0; HouseKey = 0; FirstAidKit = 0; Tissue = 0; Phone = 0; Wallet = 0;
+        Carkey = 0; Housekey = 0; FirstAidKit = 0; Tissue = 0; Phone = 0; Wallet = 0;
     }
 
     //To Do List Sentences Array reset

@@ -1,15 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Versioning;
 using UnityEngine;
 using UnityEngine.UI;
+//using static System.Net.Mime.MediaTypeNames;
 
 public class RoomScene : MonoBehaviour
 {
-    public Button comObj, psObj, lightObj, fanObj, windowObj;
+    public Button comObj, psObj, lightObj, fanObj, windowObj, phoneObj, walletObj;
     public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
+
+    Color phoneCol, walletCol;
 
     void Start()
     {
@@ -18,6 +22,8 @@ public class RoomScene : MonoBehaviour
         lightObj = GameObject.Find("Light_Room").GetComponent<Button>();
         fanObj = GameObject.Find("Fan_Room").GetComponent<Button>();
         windowObj = GameObject.Find("Window_Room").GetComponent<Button>();
+        phoneObj = GameObject.Find("Phone").GetComponent<Button>();
+        walletObj = GameObject.Find("Wallet").GetComponent<Button>();
 
         comOFFPath = "on_off/ÄÄÇ»ÅÍ ²¨Áü";
         comOFF = LoadSpriteFromPath(comOFFPath);
@@ -58,6 +64,18 @@ public class RoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image windowImage = windowObj.image;
             windowImage.sprite = windowOFF;
+        }
+        if (GV.Phone == 1)
+        {
+            phoneCol = phoneObj.GetComponent<UnityEngine.UI.Image>().color;
+            phoneCol.a = 0.3f;
+            phoneObj.GetComponent<UnityEngine.UI.Image>().color = phoneCol;
+        }
+        if (GV.Wallet == 1)
+        {
+            walletCol = walletObj.GetComponent<UnityEngine.UI.Image>().color;
+            walletCol.a = 0.3f;
+            walletObj.GetComponent<UnityEngine.UI.Image>().color = walletCol;
         }
     }
 

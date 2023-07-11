@@ -528,6 +528,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -877,6 +879,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -1297,6 +1301,7 @@ GameObject:
   - component: {fileID: 439994807}
   - component: {fileID: 439994806}
   - component: {fileID: 439994805}
+  - component: {fileID: 439994808}
   - component: {fileID: 439994804}
   m_Layer: 0
   m_Name: Wallet
@@ -1336,7 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 439994802}
+  btn: {fileID: 439994805}
 --- !u!114 &439994805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,6 +1424,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439994802}
   m_CullTransparentMesh: 1
+--- !u!114 &439994808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439994802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8db5e39f8935c498ebeb8ce2e82290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comObj: {fileID: 0}
+  psObj: {fileID: 0}
+  lightObj: {fileID: 0}
+  fanObj: {fileID: 0}
+  windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
+  comOFF: {fileID: 0}
+  psOFF: {fileID: 0}
+  lightOFF: {fileID: 0}
+  fanOFF: {fileID: 0}
+  windowOFF: {fileID: 0}
+  btn: {fileID: 0}
+  sprites: {fileID: 0}
 --- !u!1 &479066360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1506,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -1765,6 +1798,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
   m_Children:
   - {fileID: 26890220}
+  - {fileID: 1261180776}
   m_Father: {fileID: 338130026}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2439,6 +2473,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -2659,6 +2695,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -3811,12 +3849,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261180773}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 746.7604, y: -188.98491, z: -9719.224}
+  m_LocalScale: {x: 107.99136, y: 107.99136, z: 107.99136}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 592758563}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280694958
 GameObject:
@@ -3989,6 +4027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &1325352046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4096,6 +4135,7 @@ GameObject:
   - component: {fileID: 1337448695}
   - component: {fileID: 1337448694}
   - component: {fileID: 1337448697}
+  - component: {fileID: 1337448698}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Untagged
@@ -4216,7 +4256,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 1337448692}
+  btn: {fileID: 1337448694}
+--- !u!114 &1337448698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337448692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8db5e39f8935c498ebeb8ce2e82290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comObj: {fileID: 0}
+  psObj: {fileID: 0}
+  lightObj: {fileID: 0}
+  fanObj: {fileID: 0}
+  windowObj: {fileID: 0}
+  phoneObj: {fileID: 0}
+  walletObj: {fileID: 0}
+  comOFF: {fileID: 0}
+  psOFF: {fileID: 0}
+  lightOFF: {fileID: 0}
+  fanOFF: {fileID: 0}
+  windowOFF: {fileID: 0}
+  btn: {fileID: 0}
+  sprites: {fileID: 0}
 --- !u!1 &1439861019
 GameObject:
   m_ObjectHideFlags: 0

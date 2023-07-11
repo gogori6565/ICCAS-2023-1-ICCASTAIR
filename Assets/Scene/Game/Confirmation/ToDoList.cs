@@ -98,7 +98,7 @@ public class ToDoList : MonoBehaviour
                     if (GV.Carkey == 1) complete = true;
                     break;
                 case 18:
-                    if (GV.HouseKey == 1) complete = true;
+                    if (GV.Housekey == 1) complete = true;
                     break;
                 case 19:
                     if (GV.Tissue == 1) complete = true;

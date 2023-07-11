@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &142747789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +812,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   faucetObj: {fileID: 0}
   windowObj: {fileID: 0}
+  fakObj: {fileID: 0}
+  tissueObj: {fileID: 0}
   grOFF: {fileID: 0}
   gvOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -1513,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 473438207}
+  btn: {fileID: 473438210}
 --- !u!114 &473438210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,6 +1655,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   faucetObj: {fileID: 0}
   windowObj: {fileID: 0}
+  fakObj: {fileID: 0}
+  tissueObj: {fileID: 0}
   grOFF: {fileID: 0}
   gvOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -2352,6 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &954931416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2983,7 +2989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 1423147588}
+  btn: {fileID: 1423147591}
 --- !u!114 &1423147591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3201,6 +3207,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   faucetObj: {fileID: 0}
   windowObj: {fileID: 0}
+  fakObj: {fileID: 0}
+  tissueObj: {fileID: 0}
   grOFF: {fileID: 0}
   gvOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -3595,6 +3603,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   faucetObj: {fileID: 0}
   windowObj: {fileID: 0}
+  fakObj: {fileID: 0}
+  tissueObj: {fileID: 0}
   grOFF: {fileID: 0}
   gvOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -4487,6 +4497,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   faucetObj: {fileID: 0}
   windowObj: {fileID: 0}
+  fakObj: {fileID: 0}
+  tissueObj: {fileID: 0}
   grOFF: {fileID: 0}
   gvOFF: {fileID: 0}
   lightOFF: {fileID: 0}

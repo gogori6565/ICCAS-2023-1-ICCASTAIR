@@ -131,7 +131,7 @@ public class ChangeScene5 : MonoBehaviour
                     if (GV.Carkey == 1) completeNum +=1;
                     break;
                 case 18:
-                    if (GV.HouseKey == 1) completeNum +=1;
+                    if (GV.Housekey == 1) completeNum +=1;
                     break;
                 case 19:
                     if (GV.Tissue == 1) completeNum +=1;

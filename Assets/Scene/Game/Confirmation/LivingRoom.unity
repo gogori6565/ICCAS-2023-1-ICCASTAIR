@@ -1480,6 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &814852587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,6 +1732,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  carkeyObj: {fileID: 0}
+  housekeyObj: {fileID: 0}
   tvOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -2151,6 +2154,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  carkeyObj: {fileID: 0}
+  housekeyObj: {fileID: 0}
   tvOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -3089,7 +3094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 1446791964}
+  btn: {fileID: 1446791966}
 --- !u!1 &1457096562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,6 +3233,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  carkeyObj: {fileID: 0}
+  housekeyObj: {fileID: 0}
   tvOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -4092,7 +4099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e38ec21bb363334da389d8245fbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToHide: {fileID: 1822970339}
+  btn: {fileID: 1822970342}
 --- !u!114 &1822970342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4311,6 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &1904537505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4323,6 +4331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &1904537506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4634,6 +4643,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  carkeyObj: {fileID: 0}
+  housekeyObj: {fileID: 0}
   tvOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -4791,6 +4802,8 @@ MonoBehaviour:
   lightObj: {fileID: 0}
   fanObj: {fileID: 0}
   windowObj: {fileID: 0}
+  carkeyObj: {fileID: 0}
+  housekeyObj: {fileID: 0}
   tvOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}

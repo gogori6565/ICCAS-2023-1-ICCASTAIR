@@ -1,27 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetActive : MonoBehaviour
+public class transparency : MonoBehaviour
 {
-    public GameObject objectToHide; // 숨기고자 하는 오브젝트를 가리키는 변수
+    public Button btn; // 버튼 컴포넌트를 참조하기 위한 변수
 
-    private Button button; // 버튼 컴포넌트를 참조하기 위한 변수
+    Color color;
 
-    private void Start()
+    void Start()
     {
-        // 버튼 컴포넌트를 가져옴
-        button = GetComponent<Button>();
-
-        // 버튼에 클릭 이벤트 리스너를 추가
-        button.onClick.AddListener(HideObject);
+        //클릭 이벤트 연결
+        btn.onClick.AddListener(HideObject);
     }
 
-    private void HideObject()
+    public void HideObject()
     {
         // 오브젝트를 비활성화하여 숨김
-        objectToHide.SetActive(false);
+        //objectToHide.SetActive(false);
+
+        color = btn.GetComponent<UnityEngine.UI.Image>().color;
+        color.a = 0.3f;
+        btn.GetComponent<UnityEngine.UI.Image>().color = color;
 
         switch (this.gameObject.name)
         {
@@ -29,7 +31,7 @@ public class SetActive : MonoBehaviour
                 GV.Carkey = 1;
                 break;
             case "Housekey":
-                GV.HouseKey = 1;
+                GV.Housekey = 1;
                 break;
             case "FirstAidKit":
                 GV.FirstAidKit = 1;

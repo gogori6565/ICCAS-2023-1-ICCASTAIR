@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class LivingRoomScene : MonoBehaviour
 {
-    public Button tvObj, psObj, lightObj, fanObj, windowObj;
+    public Button tvObj, psObj, lightObj, fanObj, windowObj, carkeyObj, housekeyObj;
     public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
+
+    Color carkeyCol, housekeyCol;
 
     void Start()
     {
@@ -16,6 +18,8 @@ public class LivingRoomScene : MonoBehaviour
         lightObj = GameObject.Find("Light_LivingRoom").GetComponent<Button>();
         fanObj = GameObject.Find("Fan_LivingRoom").GetComponent<Button>();
         windowObj = GameObject.Find("Window_LivingRoom").GetComponent<Button>();
+        carkeyObj = GameObject.Find("Carkey").GetComponent<Button>();
+        housekeyObj = GameObject.Find("Housekey").GetComponent<Button>();
 
         tvOFFPath = "on_off/tv off";
         tvOFF = LoadSpriteFromPath(tvOFFPath);
@@ -56,6 +60,18 @@ public class LivingRoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image windowImage = windowObj.image;
             windowImage.sprite = windowOFF;
+        }
+        if (GV.Carkey == 1)
+        {
+            carkeyCol = carkeyObj.GetComponent<UnityEngine.UI.Image>().color;
+            carkeyCol.a = 0.3f;
+            carkeyObj.GetComponent<UnityEngine.UI.Image>().color = carkeyCol;
+        }
+        if (GV.Housekey == 1)
+        {
+            housekeyCol = housekeyObj.GetComponent<UnityEngine.UI.Image>().color;
+            housekeyCol.a = 0.3f;
+            housekeyObj.GetComponent<UnityEngine.UI.Image>().color = housekeyCol;
         }
     }
 

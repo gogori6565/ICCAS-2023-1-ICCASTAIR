@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class KitchenScene : MonoBehaviour
 {
-    public Button grObj, gvObj, lightObj, faucetObj, windowObj;
+    public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj;
     public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
     string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
+
+    Color fakCol, tissueCol;
 
     void Start()
     {
@@ -16,6 +18,8 @@ public class KitchenScene : MonoBehaviour
         lightObj = GameObject.Find("Light_Kitchen").GetComponent<Button>();
         faucetObj = GameObject.Find("faucet").GetComponent<Button>();
         windowObj = GameObject.Find("Window_Kitchen").GetComponent<Button>();
+        fakObj = GameObject.Find("FirstAidKit").GetComponent<Button>();
+        tissueObj = GameObject.Find("Tissue").GetComponent<Button>();
 
         grOFFPath = "on_off/가스레인지 off";
         grOFF = LoadSpriteFromPath(grOFFPath);
@@ -56,6 +60,18 @@ public class KitchenScene : MonoBehaviour
         {
             UnityEngine.UI.Image windowImage = windowObj.image;
             windowImage.sprite = windowOFF;
+        }
+        if (GV.FirstAidKit == 1)
+        {
+            fakCol = fakObj.GetComponent<UnityEngine.UI.Image>().color;
+            fakCol.a = 0.3f;
+            fakObj.GetComponent<UnityEngine.UI.Image>().color = fakCol;
+        }
+        if (GV.Tissue == 1)
+        {
+            tissueCol = tissueObj.GetComponent<UnityEngine.UI.Image>().color;
+            tissueCol.a = 0.3f;
+            tissueObj.GetComponent<UnityEngine.UI.Image>().color = tissueCol;
         }
     }
 

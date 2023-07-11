@@ -28,7 +28,7 @@ public class SetActive : MonoBehaviour
             case "Carkey":
                 GV.Carkey = 1;
                 break;
-            case "HouseKey":
+            case "Housekey":
                 GV.HouseKey = 1;
                 break;
             case "FirstAidKit":

@@ -38,9 +38,9 @@ public class GV : MonoBehaviour
     {
         ListSentences = new string[]
         {
-            "Turn off living room lights",
-            "Turn off kitchen lights",
-            "Turn off room lights",
+            "Turn off living room light",
+            "Turn off kitchen light",
+            "Turn off room light",
             "Turn off TV",
             "Turn off fan in the room",
             "Turn off fan in the living room",
@@ -55,15 +55,15 @@ public class GV : MonoBehaviour
             "Close room window",
             "Take the wallet",
             "Take the phone",
-            "Take the car keys",
-            "Take the house keys",
-            "Take tissues",
+            "Take the car key",
+            "Take the house key",
+            "Take tissue",
             "Take emergency medicine"
         };
     }
 
     public static List<int> randomNumbers = new List<int>(); // 중복되지 않는 랜덤한 숫자를 저장할 전역 변수 리스트
-    public static int ListNum = 10; //난이도 별로 상이 (하-5, 중-7, 상-10)
+    public static int ListNum = 5; //난이도 별로 상이 (하-5, 중-7, 상-10)
 
     public void GameStart()
     {

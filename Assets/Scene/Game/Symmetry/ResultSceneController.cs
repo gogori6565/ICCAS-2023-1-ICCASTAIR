@@ -13,9 +13,11 @@ public class ResultSceneController : MonoBehaviour
     public PlaySceneController.gameData newGameData;
     public GameObject emptyGage;
     public GameObject fillGage;
+    private AudioSource levelUpSound;
     // Use this for initialization
     void Start()
     {
+        setAudioSetting();
         newGameData = PlaySceneController.myGameData;
 
         int score = getScore(newGameData);
@@ -112,6 +114,12 @@ public class ResultSceneController : MonoBehaviour
         gageSetting = true;
     }
 
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("LevelUpAudio");
+        levelUpSound = obj.GetComponent<AudioSource>();
+    }
+
     float temp = 0f;
     // Update is called once per frame
     void Update()
@@ -121,6 +129,10 @@ public class ResultSceneController : MonoBehaviour
         {
             if(temp >= percent) // 설정된 퍼센트값보다 크거나 같으면 애니메이션 종료
             {
+                if (percent == 1f) // 점수가 MAX치 혹은 다음단계에 도달했을때 레벨업 사운드 재생
+                {
+                    levelUpSound.Play();
+                }
                 gageSetting = false;
             }
             fillGage.GetComponent<RectTransform>().anchoredPosition = new Vector3(-(width / 2) + width * temp / 2, y, 0); // 색깔 게이지바의 길이 설정

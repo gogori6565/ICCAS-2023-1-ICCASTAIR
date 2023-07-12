@@ -9,6 +9,9 @@ public class LivingRoomScene : MonoBehaviour
     public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
+    private GameObject ToDoListObj;
+    private bool hasFoundToDoList = false;
+
     Color carkeyCol, housekeyCol;
 
     void Start()
@@ -72,6 +75,19 @@ public class LivingRoomScene : MonoBehaviour
             housekeyCol = housekeyObj.GetComponent<UnityEngine.UI.Image>().color;
             housekeyCol.a = 0.3f;
             housekeyObj.GetComponent<UnityEngine.UI.Image>().color = housekeyCol;
+        }
+    }
+
+    void Update()
+    {
+        if (!hasFoundToDoList && GV.outside == 1)
+        {
+            ToDoListObj = GameObject.Find("ToDoList");
+            if (ToDoListObj != null)
+            {
+                ToDoListObj.SetActive(false); // 비활성화
+                hasFoundToDoList = true;
+            }
         }
     }
 

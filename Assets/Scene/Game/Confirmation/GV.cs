@@ -18,6 +18,8 @@ public class GV : MonoBehaviour
     //To Do List Sentences Array
     public static string[] ListSentences;
 
+    public static int outside;
+
     static GV()
     {
         InitializeSentences();
@@ -31,6 +33,8 @@ public class GV : MonoBehaviour
         Light_Room = 0; computer = 0; PowerStrip_Room = 0; Fan_Room = 0; Window_Room = 0;
 
         Carkey = 0; Housekey = 0; FirstAidKit = 0; Tissue = 0; Phone = 0; Wallet = 0;
+
+        outside = 0;
     }
 
     //To Do List Sentences Array reset
@@ -63,7 +67,7 @@ public class GV : MonoBehaviour
     }
 
     public static List<int> randomNumbers = new List<int>(); // 중복되지 않는 랜덤한 숫자를 저장할 전역 변수 리스트
-    public static int ListNum = 5; //난이도 별로 상이 (하-5, 중-7, 상-10)
+    public static int ListNum = 1; //난이도 별로 상이 (하-5, 중-7, 상-10)
 
     public void GameStart()
     {

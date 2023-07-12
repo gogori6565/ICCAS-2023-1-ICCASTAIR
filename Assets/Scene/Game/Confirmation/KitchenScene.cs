@@ -8,6 +8,9 @@ public class KitchenScene : MonoBehaviour
     public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj;
     public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
     string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
+    
+    private GameObject ToDoListObj;
+    private bool hasFoundToDoList = false;
 
     Color fakCol, tissueCol;
 
@@ -72,6 +75,19 @@ public class KitchenScene : MonoBehaviour
             tissueCol = tissueObj.GetComponent<UnityEngine.UI.Image>().color;
             tissueCol.a = 0.3f;
             tissueObj.GetComponent<UnityEngine.UI.Image>().color = tissueCol;
+        }
+    }
+
+    void Update()
+    {
+        if (!hasFoundToDoList && GV.outside == 1)
+        {
+            ToDoListObj = GameObject.Find("ToDoList");
+            if (ToDoListObj != null)
+            {
+                ToDoListObj.SetActive(false); // 비활성화
+                hasFoundToDoList = true;
+            }
         }
     }
 

@@ -13,6 +13,9 @@ public class RoomScene : MonoBehaviour
     public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
+    private GameObject ToDoListObj;
+    private bool hasFoundToDoList = false;
+
     Color phoneCol, walletCol;
 
     void Start()
@@ -76,6 +79,19 @@ public class RoomScene : MonoBehaviour
             walletCol = walletObj.GetComponent<UnityEngine.UI.Image>().color;
             walletCol.a = 0.3f;
             walletObj.GetComponent<UnityEngine.UI.Image>().color = walletCol;
+        }
+    }
+
+    void Update()
+    {
+        if (!hasFoundToDoList && GV.outside == 1)
+        {
+            ToDoListObj = GameObject.Find("ToDoList");
+            if (ToDoListObj != null)
+            {
+                ToDoListObj.SetActive(false); // 비활성화
+                hasFoundToDoList = true;
+            }
         }
     }
 

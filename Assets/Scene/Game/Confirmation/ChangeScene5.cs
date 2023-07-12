@@ -34,6 +34,7 @@ public class ChangeScene5 : MonoBehaviour
                 ActiveOutside();
                 if (complete == 1) //ToDoList complete?
                 {
+                    GV.outside = 1;
                     SceneManager.LoadScene("Puzzle");
                 }
                 break;

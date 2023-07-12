@@ -27,11 +27,12 @@ public class ToDoList : MonoBehaviour
             }
         }
 
+        /*
         // 가져온 Text 오브젝트들 출력
         foreach (Text textObject in textObj)
         {
             UnityEngine.Debug.Log(textObject.text);
-        }
+        }*/
     }
 
     //Update() - 프레임 마다 한 번씩 호출됨

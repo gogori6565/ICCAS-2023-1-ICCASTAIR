@@ -66,6 +66,10 @@ public class ChangeScene5 : MonoBehaviour
             case "GameStart_Button":
                 SceneManager.LoadScene("EntranceOpen");
                 break;
+
+            case "Button":
+                SceneManager.LoadScene("Question");
+                break;
         }
     }
 

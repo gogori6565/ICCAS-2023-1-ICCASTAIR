@@ -15,14 +15,16 @@ public class GV : MonoBehaviour
     //bag Objects
     public static int Carkey, Housekey, FirstAidKit, Tissue, Phone, Wallet;
 
-    //To Do List Sentences Array
     public static string[] ListSentences;
+    public static string[] questions;
 
     public static int outside;
+    public static int Qnumber = 1;
 
     static GV()
     {
-        InitializeSentences();
+        InitializeList();
+        InitializeQuestion();
     }
 
     // Start is called before the first frame update
@@ -38,7 +40,7 @@ public class GV : MonoBehaviour
     }
 
     //To Do List Sentences Array reset
-    static void InitializeSentences()
+    static void InitializeList()
     {
         ListSentences = new string[]
         {
@@ -63,6 +65,34 @@ public class GV : MonoBehaviour
             "Take the house key",
             "Take tissue",
             "Take emergency medicine"
+        };
+    }
+
+    static void InitializeQuestion()
+    {
+        questions = new string[]
+        {
+            "Did you turn off the living room light before leaving?",
+            "Did you turn off the kitchen light before leaving?",
+            "Did you turn off the room light before leaving?",
+            "Did you turn off the TV before leaving?",
+            "Did you turn off the fan in the room before leaving?",
+            "Did you turn off the fan in the living room before leaving?",
+            "Did you unplug the socket in the room before leaving?",
+            "Did you unplug the socket in the living room before leaving?",
+            "Did you turn off the gas range before leaving?",
+            "Did you turn off the gas valve before leaving?",
+            "Did you turn off the faucet before leaving?",
+            "Did you turn off the computer before leaving?",
+            "Did you close the window in the living room before leaving?",
+            "Did you close the window in the room before leaving?",
+            "Did you close the window in the kitchen before leaving?",
+            "Did you put your wallet in the bag before leaving?",
+            "Did you put your phone in the bag before leaving?",
+            "Did you put the car key in the bag before leaving?",
+            "Did you put the house key in the bag before leaving?",
+            "Did you put tissue in the bag before leaving?",
+            "Did you put first aid kit in the bag before leaving?"
         };
     }
 
@@ -95,5 +125,33 @@ public class GV : MonoBehaviour
             UnityEngine.Debug.Log(number);
         }
         */
+    }
+
+    public static List<int> QuestionNum = new List<int>();
+
+    public void QuestionStart()
+    {
+        // Generate a list of numbers from 0 to 21
+        List<int> numberList = new List<int>();
+        for (int i = 0; i <= 21; i++)
+        {
+            numberList.Add(i);
+        }
+
+        // Shuffle the number list
+        System.Random random = new System.Random();
+        while (numberList.Count > 0 && QuestionNum.Count < 5) // 뽑을 숫자 개수를 5개로 제한
+        {
+            int index = random.Next(numberList.Count);
+            int randomNumber = numberList[index];
+            numberList.RemoveAt(index);
+            QuestionNum.Add(randomNumber);
+        }
+
+        // Print the assigned numbers to the console
+        for (int i = 0; i < QuestionNum.Count; i++)
+        {
+            UnityEngine.Debug.Log("Question " + (i + 1) + ": " + QuestionNum[i]);
+        }
     }
 }

@@ -110,24 +110,43 @@ public class RoomScene : MonoBehaviour
     public void ChangeImageBtn()
     {
         UnityEngine.UI.Image btnImage = btn.image;
-        btnImage.sprite = sprites;
 
         switch (this.gameObject.name)
         {
             case "computer":
-                GV.computer = 1;
+                if (GV.randomNumbers.IndexOf(11) != -1)
+                {
+                    GV.computer = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Light_Room":
-                GV.Light_Room = 1;
+                if (GV.randomNumbers.IndexOf(2) != -1)
+                {
+                    GV.Light_Room = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "PowerStrip_Room":
-                GV.PowerStrip_Room = 1;
+                if (GV.randomNumbers.IndexOf(6) != -1)
+                {
+                    GV.PowerStrip_Room = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Fan_Room":
-                GV.Fan_Room = 1;
+                if (GV.randomNumbers.IndexOf(4) != -1)
+                {
+                    GV.Fan_Room = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Window_Room":
-                GV.Window_Room = 1;
+                if (GV.randomNumbers.IndexOf(14) != -1)
+                {
+                    GV.Window_Room = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
         }
     }

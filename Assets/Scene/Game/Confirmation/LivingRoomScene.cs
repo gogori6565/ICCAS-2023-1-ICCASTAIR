@@ -106,24 +106,43 @@ public class LivingRoomScene : MonoBehaviour
     public void ChangeImageBtn()
     {
         UnityEngine.UI.Image btnImage = btn.image;
-        btnImage.sprite = sprites;
 
         switch (this.gameObject.name)
         {
             case "tv":
-                GV.tv = 1;
+                if(GV.randomNumbers.IndexOf(3) != -1)
+                {
+                    GV.tv = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Light_LivingRoom":
-                GV.Light_LivingRoom = 1;
+                if (GV.randomNumbers.IndexOf(0) != -1)
+                {
+                    GV.Light_LivingRoom = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "PowerStrip_LivingRoom":
-                GV.PowerStrip_LivingRoom = 1;
+                if (GV.randomNumbers.IndexOf(7) != -1)
+                {
+                    GV.PowerStrip_LivingRoom = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Fan_LivingRoom":
-                GV.Fan_LivingRoom = 1;
+                if (GV.randomNumbers.IndexOf(5) != -1)
+                {
+                    GV.Fan_LivingRoom = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Window_LivingRoom":
-                GV.Window_LivingRoom = 1;
+                if (GV.randomNumbers.IndexOf(12) != -1)
+                {
+                    GV.Window_LivingRoom = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
         }
     }

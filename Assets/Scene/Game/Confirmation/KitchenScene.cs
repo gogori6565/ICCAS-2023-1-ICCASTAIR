@@ -106,24 +106,43 @@ public class KitchenScene : MonoBehaviour
     public void ChangeImageBtn()
     {
         UnityEngine.UI.Image btnImage = btn.image;
-        btnImage.sprite = sprites;
 
         switch (this.gameObject.name)
         {
             case "GasRange":
-                GV.GasRange = 1;
+                if (GV.randomNumbers.IndexOf(8) != -1)
+                {
+                    GV.GasRange = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "GasValve":
-                GV.GasValve = 1;
+                if (GV.randomNumbers.IndexOf(9) != -1)
+                {
+                    GV.GasValve = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Light_Kitchen":
-                GV.Light_Kitchen = 1;
+                if (GV.randomNumbers.IndexOf(1) != -1)
+                {
+                    GV.Light_Kitchen = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "faucet":
-                GV.faucet = 1;
+                if (GV.randomNumbers.IndexOf(10) != -1)
+                {
+                    GV.faucet = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
             case "Window_Kitchen":
-                GV.Window_Kitchen = 1;
+                if (GV.randomNumbers.IndexOf(13) != -1)
+                {
+                    GV.Window_Kitchen = 1;
+                    btnImage.sprite = sprites;
+                }
                 break;
         }
     }

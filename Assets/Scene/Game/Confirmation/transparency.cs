@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,29 +22,67 @@ public class transparency : MonoBehaviour
         // 오브젝트를 비활성화하여 숨김
         //objectToHide.SetActive(false);
 
-        color = btn.GetComponent<UnityEngine.UI.Image>().color;
-        color.a = 0.3f;
-        btn.GetComponent<UnityEngine.UI.Image>().color = color;
-
         switch (this.gameObject.name)
         {
             case "Carkey":
-                GV.Carkey = 1;
+                if (GV.randomNumbers.IndexOf(17) != -1)
+                {
+                    GV.Carkey = 1;
+
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
             case "Housekey":
-                GV.Housekey = 1;
+                if (GV.randomNumbers.IndexOf(18) != -1)
+                {
+                    GV.Housekey = 1;
+                    
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
             case "FirstAidKit":
-                GV.FirstAidKit = 1;
+                if (GV.randomNumbers.IndexOf(20) != -1)
+                {
+                    GV.FirstAidKit = 1;
+                    
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
             case "Tissue":
-                GV.Tissue = 1;
+                if (GV.randomNumbers.IndexOf(19) != -1)
+                {
+                    GV.Tissue = 1;
+                    
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
             case "Phone":
-                GV.Phone = 1;
+                if (GV.randomNumbers.IndexOf(16) != -1)
+                {
+                    GV.Phone = 1;
+                    
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
             case "Wallet":
-                GV.Wallet = 1;
+                if (GV.randomNumbers.IndexOf(15) != -1)
+                {
+                    GV.Wallet = 1;
+                    
+                    color = btn.GetComponent<UnityEngine.UI.Image>().color;
+                    color.a = 0.3f;
+                    btn.GetComponent<UnityEngine.UI.Image>().color = color;
+                }
                 break;
         }
     }

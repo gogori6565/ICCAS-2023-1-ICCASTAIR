@@ -4,11 +4,10 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-//using static System.Net.Mime.MediaTypeNames;
 
 public class Question : MonoBehaviour
 {
-    int suc, fail; // 문제번호, 정답, 오답 - Firebase DB
+    string answer, btnText; //정답
     public Button btn; // Yes/No
     public Text Qtext;
 
@@ -26,14 +25,247 @@ public class Question : MonoBehaviour
     // Yes/No button clicked
     public void NextQuestion()
     {
-        if (GV.Qnumber <= 5)
+        if (GV.Qnumber > 5)
         {
-            Qtext.text = "Q" + GV.Qnumber + ". " + GV.questions[GV.QuestionNum[GV.Qnumber - 1]];
-            GV.Qnumber++;
+            SceneManager.LoadScene("ResultPage_Confirmation");
         }
         else
         {
-            SceneManager.LoadScene("ResultPage_Confirmation");
+            Answer();
+
+            btnText = btn.GetComponentInChildren<UnityEngine.UI.Text>().text;
+
+            if (string.Equals(answer, btnText))
+            {
+                GV.suc++;
+            }
+            else
+            {
+                GV.fail++;
+            }
+
+            UnityEngine.Debug.Log("suc: "+ GV.suc);
+            UnityEngine.Debug.Log("fail: "+ GV.fail);
+
+            Qtext.text = "Q" + GV.Qnumber + ". " + GV.questions[GV.QuestionNum[GV.Qnumber - 1]];
+            GV.Qnumber++;
+        }
+    }
+
+    public void Answer()
+    {
+        switch (GV.QuestionNum[GV.Qnumber - 1])
+        {
+            case 0:
+                if (GV.Light_LivingRoom == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 1:
+                if (GV.Light_Kitchen == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 2:
+                if (GV.Light_Room == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 3:
+                if (GV.tv == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 4:
+                if (GV.Fan_Room == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 5:
+                if (GV.Fan_LivingRoom == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 6:
+                if (GV.PowerStrip_Room == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 7:
+                if (GV.PowerStrip_LivingRoom == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 8:
+                if (GV.GasRange == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 9:
+                if (GV.GasValve == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 10:
+                if (GV.faucet == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 11:
+                if (GV.computer == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 12:
+                if (GV.Window_LivingRoom == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 13:
+                if (GV.Window_Kitchen == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 14:
+                if (GV.Window_Room == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 15:
+                if (GV.Wallet == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 16:
+                if (GV.Phone == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 17:
+                if (GV.Carkey == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 18:
+                if (GV.Housekey == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 19:
+                if (GV.Tissue == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
+            case 20:
+                if (GV.FirstAidKit == 1)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+                break;
         }
     }
 }

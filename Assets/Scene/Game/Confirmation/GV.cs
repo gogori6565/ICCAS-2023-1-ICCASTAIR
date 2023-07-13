@@ -19,7 +19,8 @@ public class GV : MonoBehaviour
     public static string[] questions;
 
     public static int outside;
-    public static int Qnumber = 1;
+
+    public static int Qnumber, suc, fail; //suc(맞음 개수), fail(틀림 개수) - Firebase DB
 
     static GV()
     {
@@ -37,6 +38,8 @@ public class GV : MonoBehaviour
         Carkey = 0; Housekey = 0; FirstAidKit = 0; Tissue = 0; Phone = 0; Wallet = 0;
 
         outside = 0;
+
+        Qnumber = 1; suc = 0; fail= 0;
     }
 
     //To Do List Sentences Array reset

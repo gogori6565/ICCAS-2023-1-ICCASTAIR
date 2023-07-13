@@ -18,42 +18,48 @@ public class Question : MonoBehaviour
         if (GV.Qnumber == 1)
         {
             Qtext.text = "Q" + GV.Qnumber + ". " + GV.questions[GV.QuestionNum[GV.Qnumber - 1]];
-            GV.Qnumber++;
         }
     }
 
     // Yes/No button clicked
     public void NextQuestion()
     {
-        if (GV.Qnumber > 5)
+        Answer();
+
+        UnityEngine.Debug.Log(answer);
+
+        btnText = btn.GetComponentInChildren<UnityEngine.UI.Text>().text;
+
+        if (string.Equals(answer, btnText))
         {
-            SceneManager.LoadScene("ResultPage_Confirmation");
+            GV.suc++;
         }
         else
         {
-            Answer();
+            GV.fail++;
+        }
 
-            btnText = btn.GetComponentInChildren<UnityEngine.UI.Text>().text;
+        UnityEngine.Debug.Log("suc: "+ GV.suc);
+        UnityEngine.Debug.Log("fail: "+ GV.fail);
 
-            if (string.Equals(answer, btnText))
-            {
-                GV.suc++;
-            }
-            else
-            {
-                GV.fail++;
-            }
-
-            UnityEngine.Debug.Log("suc: "+ GV.suc);
-            UnityEngine.Debug.Log("fail: "+ GV.fail);
-
+        GV.Qnumber++;
+        if (GV.Qnumber <= 5)
+        {
             Qtext.text = "Q" + GV.Qnumber + ". " + GV.questions[GV.QuestionNum[GV.Qnumber - 1]];
-            GV.Qnumber++;
+        }
+        else
+        {
+            SceneManager.LoadScene("ResultPage_Confirmation");
         }
     }
 
     public void Answer()
     {
+        UnityEngine.Debug.Log(GV.QuestionNum[GV.Qnumber - 1]);
+        UnityEngine.Debug.Log(GV.Light_LivingRoom);
+        UnityEngine.Debug.Log(GV.Light_Kitchen);
+        UnityEngine.Debug.Log(GV.Light_Room);
+
         switch (GV.QuestionNum[GV.Qnumber - 1])
         {
             case 0:

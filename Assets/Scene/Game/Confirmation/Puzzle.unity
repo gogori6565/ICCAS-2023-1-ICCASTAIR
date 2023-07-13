@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 92592901}
   - component: {fileID: 92592900}
   - component: {fileID: 92592903}
-  - component: {fileID: 92592899}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -239,18 +238,6 @@ RectTransform:
   m_AnchoredPosition: {x: 834.81, y: -369.5}
   m_SizeDelta: {x: 163.62, y: 114.99}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &92592899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92592897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f57d82539a9a7b448cec9b9806b300f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &92592900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,18 +282,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 92592899}
-        m_TargetAssemblyTypeName: GV, Assembly-CSharp
-        m_MethodName: QuestionStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 92592903}
         m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
         m_MethodName: ChangeSceneBtn

@@ -31,7 +31,7 @@ public class Question : MonoBehaviour
             Qtext.text = "Q" + GV.Qnumber + ". " + GV.questions[GV.QuestionNum[GV.Qnumber - 1]];
             GV.Qnumber++;
         }
-        if (GV.Qnumber > 5)
+        else
         {
             SceneManager.LoadScene("ResultPage_Confirmation");
         }

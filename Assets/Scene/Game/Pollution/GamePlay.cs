@@ -12,10 +12,15 @@ public class GamePlay : MonoBehaviour
     private List<Transform> elements = new List<Transform>(); // Dirty 오브젝트의 자식 요소들을 저장할 리스트
 
     private int clickCount = 0; // 클릭된 요소의 카운트 변수
+  
     private bool isClickable = true; // 클릭 가능 여부를 나타내는 변수
+    public static GamePlay Instance; // 인스턴스 참조를 위한 정적 변수
+
+
 
     private void Start()
     {
+        Instance = this;
         GetElements();
         ShowRandomElements();
     }
@@ -70,7 +75,7 @@ public class GamePlay : MonoBehaviour
         }
     }
 
-    public void OnMouseClick(Transform clickedElement) // 클릭된 요소를 처리하는 메서드
+    public void OnMouseClick(Transform clickedElement)
     {
         if (!isClickable)
         {
@@ -81,11 +86,26 @@ public class GamePlay : MonoBehaviour
         Debug.Log("Click Count: " + clickCount); // 클릭 카운트를 콘솔창에 표시
 
         clickedElement.gameObject.SetActive(false); // 클릭된 요소를 비활성화 처리
+
+        CursorChanger cursorChanger = FindObjectOfType<CursorChanger>();
+        if (cursorChanger != null)
+        {
+            
+            cursorChanger.MarkCursorChange();
+
+            cursorChanger.CursorIndexCount(clickCount);
+        }
     }
+
 
     public void SetClickable(bool clickable)
     {
         isClickable = clickable; // 클릭 가능 여부 설정
+    }
+
+    public int GetClickCount()
+    {
+        return clickCount; // 클릭 카운트 반환
     }
 }
 
@@ -99,3 +119,4 @@ public class ElementClickHandler : MonoBehaviour
         gamePlay.OnMouseClick(clickedElement);
     }
 }
+

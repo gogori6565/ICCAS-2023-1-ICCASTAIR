@@ -1092,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 448928319}
   GameOverText: {fileID: 347735719}
+  gamePlay: {fileID: 0}
 --- !u!114 &347735719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,6 +1311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 448928319}
   GameOverText: {fileID: 347735719}
+  gamePlay: {fileID: 0}
 --- !u!1 &474844867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,6 +2994,7 @@ GameObject:
   - component: {fileID: 1307973442}
   - component: {fileID: 1307973441}
   - component: {fileID: 1307973440}
+  - component: {fileID: 1307973443}
   m_Layer: 5
   m_Name: Wash_Button
   m_TagString: Untagged
@@ -3062,7 +3065,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307973441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1307973443}
+        m_TargetAssemblyTypeName: WashButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1307973441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3101,6 +3116,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307973438}
   m_CullTransparentMesh: 1
+--- !u!114 &1307973443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307973438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5db37ba542004e8b685126a9db824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1313086523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,7 +3454,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a74954b9ce4b746a0304d0e048b2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customCursor: {fileID: 0}
+  cursorImagePaths:
+  - "Hand/\uC190"
+  - "Hand/\uC1901"
+  - "Hand/\uC1902"
+  - "Hand/\uC1903"
+  - "Hand/\uC1904"
+  - "Hand/\uC1905"
+  - "Hand/\uC1906"
+  - "Hand/\uC1907"
 --- !u!1 &1484932109
 GameObject:
   m_ObjectHideFlags: 0

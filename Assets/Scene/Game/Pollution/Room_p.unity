@@ -843,6 +843,7 @@ RectTransform:
   - {fileID: 908297445}
   - {fileID: 1267493552}
   - {fileID: 758267976}
+  - {fileID: 806088400}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1574,6 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1267493553}
   GameOverText: {fileID: 758267979}
+  gamePlay: {fileID: 0}
 --- !u!114 &758267979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1789,6 +1791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806088400}
+  - component: {fileID: 806088401}
   m_Layer: 0
   m_Name: Dirty
   m_TagString: Untagged
@@ -1803,9 +1806,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806088399}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1309338, y: -1.6675091, z: -4.4003677}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 122.14084, y: -180.09097, z: -10195.239}
+  m_LocalScale: {x: 108, y: 108, z: 108}
   m_Children:
   - {fileID: 267185790}
   - {fileID: 1999540125}
@@ -1827,9 +1830,23 @@ Transform:
   - {fileID: 681889457}
   - {fileID: 1642423918}
   - {fileID: 1761834456}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 422861365}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806088401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806088399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f67ec90ccec81b498fa0204ec99f226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dirtyObject: {fileID: 806088399}
+  numElementsToShow: 13
 --- !u!1 &813454991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2395,7 @@ GameObject:
   - component: {fileID: 1005227894}
   - component: {fileID: 1005227893}
   - component: {fileID: 1005227892}
+  - component: {fileID: 1005227895}
   m_Layer: 5
   m_Name: Wash_Button
   m_TagString: Untagged
@@ -2448,7 +2466,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1005227893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1005227895}
+        m_TargetAssemblyTypeName: WashButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1005227893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,6 +2517,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005227890}
   m_CullTransparentMesh: 1
+--- !u!114 &1005227895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005227890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5db37ba542004e8b685126a9db824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1033612526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2953,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a74954b9ce4b746a0304d0e048b2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customCursor: {fileID: 0}
+  cursorImagePaths:
+  - "Hand/\uC190"
+  - "Hand/\uC1901"
+  - "Hand/\uC1902"
+  - "Hand/\uC1903"
+  - "Hand/\uC1904"
+  - "Hand/\uC1905"
+  - "Hand/\uC1906"
+  - "Hand/\uC1907"
 --- !u!1 &1219682081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1267493553}
   GameOverText: {fileID: 758267979}
+  gamePlay: {fileID: 0}
 --- !u!1 &1326753980
 GameObject:
   m_ObjectHideFlags: 0

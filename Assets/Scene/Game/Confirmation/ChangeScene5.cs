@@ -35,6 +35,7 @@ public class ChangeScene5 : MonoBehaviour
                 if (complete == 1) //ToDoList complete?
                 {
                     GV.outside = 1;
+                    GV.startTime = Time.time;
                     SceneManager.LoadScene("Puzzle");
                 }
                 break;
@@ -78,6 +79,12 @@ public class ChangeScene5 : MonoBehaviour
                 {
                     SceneManager.LoadScene("Puzzle");
                 }
+                break;
+            case "NextStep":
+                SceneManager.LoadScene("Question");
+                break;
+            case "Retry":
+                SceneManager.LoadScene("Puzzle");
                 break;
         }
     }

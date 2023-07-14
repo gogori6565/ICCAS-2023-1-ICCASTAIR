@@ -22,6 +22,9 @@ public class GV : MonoBehaviour
     public static int Qnumber, suc, fail; //suc(맞음 개수), fail(틀림 개수) - Firebase DB
     public static int Hintcnt; //힌트 사용 개수 - Firebase DB
 
+    public static float startTime; //sliding puzzle 게임 시작 시간
+    public static float elapsedTime; //경과 시간
+
     static GV()
     {
         InitializeList();

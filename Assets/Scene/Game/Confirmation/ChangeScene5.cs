@@ -57,6 +57,8 @@ public class ChangeScene5 : MonoBehaviour
 
             case "Hint_Button":
                 SceneManager.LoadScene("LivingRoom");
+                GV.Hintcnt++;
+                UnityEngine.Debug.Log(GV.Hintcnt);
                 break;
 
             case "LeftArrow_Room":

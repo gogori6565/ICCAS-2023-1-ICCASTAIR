@@ -23,7 +23,7 @@ public class CursorChanger : MonoBehaviour
     private int clickCount;
     private bool shouldChangeCursor = false; // 커서 이미지 변경 여부를 나타내는 변수
     private bool washChange = false; // 커서 이미지 변경 여부를 나타내는 변수
-
+    private bool washflag = false;
 
     private void Start()
     {
@@ -39,6 +39,15 @@ public class CursorChanger : MonoBehaviour
     {
         if (washChange)
         {
+            if(clickCount % 2 != 0)
+            {
+                washflag = true;
+            }
+            else
+            {
+                washflag = false;
+            }
+
             washChange = false;
 
             cursorIndex = 0;
@@ -48,9 +57,20 @@ public class CursorChanger : MonoBehaviour
         if (shouldChangeCursor)
         {
             shouldChangeCursor = false;
-            if (clickCount % 2 == 0)
+
+            if (washflag)
             {
-                cursorIndex++;
+                if (clickCount % 2 != 0)
+                {
+                    cursorIndex++;
+                }
+            }
+            else {
+
+                if (clickCount % 2 == 0)
+                {
+                    cursorIndex++;
+                }
             }
 
             if (cursorIndex >= cursorImagePaths.Count)

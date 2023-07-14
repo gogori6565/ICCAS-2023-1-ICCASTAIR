@@ -5,19 +5,23 @@ using UnityEngine.EventSystems;
 
 public class WashButton : MonoBehaviour
 {
+    private bool washPossible = true;
+
     public void OnButtonClick()
     {
-        CursorChanger cursorChanger = FindObjectOfType<CursorChanger>();
-        if (cursorChanger != null)
+        if (washPossible)
         {
-            cursorChanger.WashCursorChange();
+            CursorChanger cursorChanger = FindObjectOfType<CursorChanger>();
+            if (cursorChanger != null)
+            {
+                cursorChanger.WashCursorChange();
+            }
         }
-
-        //GamePlay gamePlay = FindObjectOfType<GamePlay>();
-       // if (gamePlay != null)
-       // {
-        //    gamePlay.washFlag(true);
-        //}
+        
     }
 
+    public void Possible(bool possible)
+    {
+        washPossible = possible;
+    }
 }

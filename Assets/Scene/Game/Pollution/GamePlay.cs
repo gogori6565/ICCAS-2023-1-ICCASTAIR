@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class GamePlay : MonoBehaviour
 {
-    public GameObject dirtyObject; // Dirty 오브젝트를 Inspector에서 할당합니다.
-    public int numElementsToShow = 13; // 화면에 보여질 요소의 개수를 설정합니다.
+    public GameObject dirtyObject; // Dirty 오브젝트를 Inspector에서 할당
+    public int numElementsToShow = 10; // 화면에 보여질 요소의 개수(하)
 
     private List<Transform> elements = new List<Transform>(); // Dirty 오브젝트의 자식 요소들을 저장할 리스트
 
@@ -95,6 +95,9 @@ public class GamePlay : MonoBehaviour
 
             cursorChanger.CursorIndexCount(clickCount);
         }
+
+        ClearText clearText = FindObjectOfType<ClearText>();
+        clearText.CheckClear(clickCount, numElementsToShow);
     }
 
 
@@ -107,6 +110,7 @@ public class GamePlay : MonoBehaviour
     {
         return clickCount; // 클릭 카운트 반환
     }
+
 }
 
 public class ElementClickHandler : MonoBehaviour

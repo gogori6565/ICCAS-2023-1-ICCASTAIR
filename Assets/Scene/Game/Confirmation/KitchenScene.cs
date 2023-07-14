@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KitchenScene : MonoBehaviour
 {
-    public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj;
+    public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj, getbackObj;
     public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
     string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
     
@@ -23,6 +23,20 @@ public class KitchenScene : MonoBehaviour
         windowObj = GameObject.Find("Window_Kitchen").GetComponent<Button>();
         fakObj = GameObject.Find("FirstAidKit").GetComponent<Button>();
         tissueObj = GameObject.Find("Tissue").GetComponent<Button>();
+        getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        if (GV.outside == 1)
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 1f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
+        else
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 0.3f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
 
         grOFFPath = "on_off/가스레인지 off";
         grOFF = LoadSpriteFromPath(grOFFPath);

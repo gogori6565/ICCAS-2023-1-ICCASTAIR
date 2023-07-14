@@ -70,6 +70,13 @@ public class ChangeScene5 : MonoBehaviour
             case "Button":
                 SceneManager.LoadScene("Question");
                 break;
+
+            case "Getback":
+                if (GV.outside == 1)
+                {
+                    SceneManager.LoadScene("Puzzle");
+                }
+                break;
         }
     }
 

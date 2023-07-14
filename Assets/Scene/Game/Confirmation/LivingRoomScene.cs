@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 
 public class LivingRoomScene : MonoBehaviour
 {
-    public Button tvObj, psObj, lightObj, fanObj, windowObj, carkeyObj, housekeyObj;
+    public Button tvObj, psObj, lightObj, fanObj, windowObj, carkeyObj, housekeyObj, getbackObj;
     public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
@@ -23,6 +24,20 @@ public class LivingRoomScene : MonoBehaviour
         windowObj = GameObject.Find("Window_LivingRoom").GetComponent<Button>();
         carkeyObj = GameObject.Find("Carkey").GetComponent<Button>();
         housekeyObj = GameObject.Find("Housekey").GetComponent<Button>();
+        getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        if (GV.outside == 1)
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 1f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
+        else
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 0.3f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
 
         tvOFFPath = "on_off/tv off";
         tvOFF = LoadSpriteFromPath(tvOFFPath);

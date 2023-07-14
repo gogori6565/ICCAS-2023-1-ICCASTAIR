@@ -100,7 +100,7 @@ public class GV : MonoBehaviour
     }
 
     public static List<int> randomNumbers = new List<int>(); // ToDoList 질문 - 중복되지 않는 랜덤한 숫자 저장
-    public static int ListNum = 10; //난이도 별로 상이 (하-5, 중-7, 상-10)
+    public static int ListNum = 1; //난이도 별로 상이 (하-5, 중-7, 상-10)
 
     public static List<int> QuestionNum = new List<int>(); // Question - 중복되지 않는 랜덤한 숫자 저장
 

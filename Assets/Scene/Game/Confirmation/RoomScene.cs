@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class RoomScene : MonoBehaviour
 {
-    public Button comObj, psObj, lightObj, fanObj, windowObj, phoneObj, walletObj;
+    public Button comObj, psObj, lightObj, fanObj, windowObj, phoneObj, walletObj, getbackObj;
     public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
 
@@ -27,6 +27,20 @@ public class RoomScene : MonoBehaviour
         windowObj = GameObject.Find("Window_Room").GetComponent<Button>();
         phoneObj = GameObject.Find("Phone").GetComponent<Button>();
         walletObj = GameObject.Find("Wallet").GetComponent<Button>();
+        getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        if (GV.outside == 1)
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 1f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
+        else
+        {
+            Color color = getbackObj.GetComponent<UnityEngine.UI.Image>().color;
+            color.a = 0.3f;
+            getbackObj.GetComponent<UnityEngine.UI.Image>().color = color;
+        }
 
         comOFFPath = "on_off/ÄÄÇ»ÅÍ ²¨Áü";
         comOFF = LoadSpriteFromPath(comOFFPath);

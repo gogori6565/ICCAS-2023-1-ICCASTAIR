@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 431938440}
   - component: {fileID: 431938439}
   - component: {fileID: 431938441}
+  - component: {fileID: 431938442}
   m_Layer: 5
   m_Name: FillGage
   m_TagString: Untagged
@@ -459,6 +460,19 @@ MonoBehaviour:
   WrongAnswer: {fileID: 0}
   emptyGage: {fileID: 588628086}
   fillGage: {fileID: 431938437}
+--- !u!114 &431938442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431938437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df2f3b4158731940940fe9eeee54d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DBurl: https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/
 --- !u!1 &588628086
 GameObject:
   m_ObjectHideFlags: 0

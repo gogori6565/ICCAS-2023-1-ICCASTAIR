@@ -49,7 +49,7 @@ public class Question : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("ResultPage_Confirmation");
+            SceneManager.LoadScene("Result_Confirmation");
         }
     }
 

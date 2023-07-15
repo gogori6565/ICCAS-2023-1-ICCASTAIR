@@ -21,6 +21,8 @@ public class GV : MonoBehaviour
     public static int outside;
     public static int Qnumber, suc, fail; //suc(맞음 개수), fail(틀림 개수) - Firebase DB
     public static int Hintcnt; //힌트 사용 개수 - Firebase DB
+    public static int score; //점수
+    public static int diff; //난이도
 
     public static float startTime; //sliding puzzle 게임 시작 시간
     public static float elapsedTime; //경과 시간
@@ -43,6 +45,7 @@ public class GV : MonoBehaviour
         outside = 0;
         Qnumber = 1; suc = 0; fail = 0;
         Hintcnt = 0;
+        score = 0;
     }
 
     //To Do List Sentences Array reset

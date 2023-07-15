@@ -23,6 +23,12 @@ public class ClearText : MonoBehaviour
             {
                 timer.GameClear(true);
             }
+
+            ChangeScene6 changeScene = FindObjectOfType<ChangeScene6>();
+            if (changeScene != null)
+            {
+                changeScene.ClearNextScene();
+            }
         }
     }
 }

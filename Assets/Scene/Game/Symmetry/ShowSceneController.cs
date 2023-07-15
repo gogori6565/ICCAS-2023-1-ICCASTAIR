@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase;
+using Firebase.Database;
+using System;
 
 public class ShowSceneController : MonoBehaviour
 {
@@ -10,20 +13,16 @@ public class ShowSceneController : MonoBehaviour
     public static int[] selectSymmetryStuff; // 대칭 물건 index
     public static int[] selectNotSymmetryStuff; // 비대칭 물건 index
     public static ArrayList stuffList;
-    public static int diff = 1; // 선택된 난이도
+    public static int diff; // 선택된 난이도
     // Start is called before the first frame update
     void Start()
     {
+        diff = LoginController.myDiffData.SymmetryGameDifficulty;
+
         Room = GameObject.Find("Canvas").transform.Find("Room").gameObject;
         stuffList = new ArrayList();
         selectStuff(diff, diff * 5);
         stuffStateChange(diff, diff * 5);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void selectStuff(int difficulty, int size) // difficulty (하,중,상 = 1,2,3) , size (총 물건개수)
@@ -38,7 +37,7 @@ public class ShowSceneController : MonoBehaviour
             while (true)
             {
                 flag = 1;
-                random = Random.Range(0, 16);
+                random = UnityEngine.Random.Range(0, 16);
                 for (int j = 0; j < size; j++)
                 {
                     if (random == selectStuffIndex[j])
@@ -124,7 +123,7 @@ public class ShowSceneController : MonoBehaviour
             flag = 1;
             if (count == notSymmetrySize) break;
 
-            random = Random.Range(0, size);
+            random = UnityEngine.Random.Range(0, size);
             for (int i = 0; i < selectNotSymmetryStuff.Length; i++)
             {
                 if (selectNotSymmetryStuff[i] == random)
@@ -166,20 +165,20 @@ public class ShowSceneController : MonoBehaviour
                     index = j;
                 }
             }
-            random = Random.Range(0, 2);
+            random = UnityEngine.Random.Range(0, 2);
             if (random == 0) // x축 위치 변경
             {
-                random = Random.Range(0, 2);
+                random = UnityEngine.Random.Range(0, 2);
                 if (random == 0) // + 변경
                 {
-                    random = Random.Range(3, 6);
+                    random = UnityEngine.Random.Range(3, 6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 1, 0, value));
                     Stuffs[selectNotSymmetryStuff[i]].transform.Translate(new Vector3(value, 0, 0));
                 }
                 else if (random == 1) // - 변경
                 {
-                    random = Random.Range(-3, -6);
+                    random = UnityEngine.Random.Range(-3, -6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 1, 0, value));
                     Stuffs[selectNotSymmetryStuff[i]].transform.Translate(new Vector3(value, 0, 0));
@@ -187,17 +186,17 @@ public class ShowSceneController : MonoBehaviour
             }
             else if (random == 1) // y축 위치 변경
             {
-                random = Random.Range(0, 2);
+                random = UnityEngine.Random.Range(0, 2);
                 if (random == 0) // + 변경
                 {
-                    random = Random.Range(3, 6);
+                    random = UnityEngine.Random.Range(3, 6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 1, 1, value));
                     Stuffs[selectNotSymmetryStuff[i]].transform.Translate(new Vector3(0, value, 0));
                 }
                 else if (random == 1) // - 변경
                 {
-                    random = Random.Range(-3, -6);
+                    random = UnityEngine.Random.Range(-3, -6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 1, 1, value));
                     Stuffs[selectNotSymmetryStuff[i]].transform.Translate(new Vector3(0, value, 0));
@@ -214,7 +213,7 @@ public class ShowSceneController : MonoBehaviour
                     index = j;
                 }
             }
-            random = Random.Range(0, 2);
+            random = UnityEngine.Random.Range(0, 2);
             if (random == 0) // + 변경
             {
                 stuffList.Add(new stuffState(index, 1, 2, 20));
@@ -255,20 +254,20 @@ public class ShowSceneController : MonoBehaviour
                 }
             }
 
-            random = Random.Range(0, 3);
+            random = UnityEngine.Random.Range(0, 3);
             if (random == 0) // x축 위치 변경
             {
-                random = Random.Range(0, 2);
+                random = UnityEngine.Random.Range(0, 2);
                 if (random == 0) // + 변경
                 {
-                    random = Random.Range(3, 6);
+                    random = UnityEngine.Random.Range(3, 6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 0, 0, value)); 
                     Stuffs[selectSymmetryStuff[i]].transform.Translate(new Vector3(value, 0, 0));
                 }
                 else if (random == 1) // - 변경
                 {
-                    random = Random.Range(-3, -6);
+                    random = UnityEngine.Random.Range(-3, -6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 0, 0, value));
                     Stuffs[selectSymmetryStuff[i]].transform.Translate(new Vector3(value, 0, 0));
@@ -276,17 +275,17 @@ public class ShowSceneController : MonoBehaviour
             }
             else if (random == 1) // y축 위치 변경
             {
-                random = Random.Range(0, 2);
+                random = UnityEngine.Random.Range(0, 2);
                 if (random == 0) // + 변경
                 {
-                    random = Random.Range(3, 6);
+                    random = UnityEngine.Random.Range(3, 6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 0, 1, value));
                     Stuffs[selectSymmetryStuff[i]].transform.Translate(new Vector3(0, value, 0));
                 }
                 else if (random == 1) // - 변경
                 {
-                    random = Random.Range(-3, -6);
+                    random = UnityEngine.Random.Range(-3, -6);
                     value = (float)random / 10;
                     stuffList.Add(new stuffState(index, 0, 1, value));
                     Stuffs[selectSymmetryStuff[i]].transform.Translate(new Vector3(0, value, 0));
@@ -294,7 +293,7 @@ public class ShowSceneController : MonoBehaviour
             }
             else if(random == 2)
             {
-                random = Random.Range(0, 2);
+                random = UnityEngine.Random.Range(0, 2);
                 if (random == 0) // + 변경
                 {
                     stuffList.Add(new stuffState(index, 0, 2, 20));

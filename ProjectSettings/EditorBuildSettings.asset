@@ -30,10 +30,10 @@ EditorBuildSettings:
     path: Assets/Scene/GameSelect/GameSelect.unity
     guid: 3ef2af020d8de1e4d884790c0bb6cdd9
   - enabled: 1
-    path: Assets/Scene/Game/Symmetry/Play.unity
+    path: Assets/Scene/Game/Symmetry/Play_Symmetry.unity
     guid: 75ee0a59763f9f94fa185067a0a7d144
   - enabled: 1
-    path: Assets/Scene/Game/Symmetry/Show.unity
+    path: Assets/Scene/Game/Symmetry/Show_Symmetry.unity
     guid: bc14597d802ccca48b4b3dcc19bb91c3
   - enabled: 1
     path: Assets/Scene/Game/Symmetry/SymmetryRule.unity
@@ -75,6 +75,6 @@ EditorBuildSettings:
     path: Assets/Scene/Game/Confirmation/Room_c.unity
     guid: 5aa71843d010f794e8e40c300e9eefeb
   - enabled: 1
-    path: Assets/Scene/Game/Symmetry/SymmetryResult.unity
+    path: Assets/Scene/Game/Symmetry/Result_Symmetry.unity
     guid: 34c3409c3794360458482e9242df52d3
   m_configObjects: {}

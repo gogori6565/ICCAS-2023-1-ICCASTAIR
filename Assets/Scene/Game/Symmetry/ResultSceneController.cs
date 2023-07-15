@@ -20,12 +20,15 @@ public class ResultSceneController : MonoBehaviour
     private int myScore;
 
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
-    DatabaseReference reference;
+    DatabaseReference reference, reference2;
 
     // Use this for initialization
     void Start()
     {
         FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
+        reference = FirebaseDatabase.DefaultInstance.GetReference("UserData");
+        reference2 = FirebaseDatabase.DefaultInstance.GetReference("GameData");
+
         setAudioSetting();
         newGameData = PlaySceneController.myGameData;
 
@@ -46,7 +49,9 @@ public class ResultSceneController : MonoBehaviour
 
         setGageBar(newGameData.diff, myScore);
 
-        WriteDB();
+        LoginController.myPlayData.SymmetryPlay++; // 플레이 횟수
+
+        WriteDB(); // firebase에 저장하기
     }
 
     // 점수 설정
@@ -131,38 +136,28 @@ public class ResultSceneController : MonoBehaviour
         levelUpSound = obj.GetComponent<AudioSource>();
     }
 
+    // firebase에 데이터 저장하기
     public void WriteDB()
     {
-        /*
-        DatabaseReference re = FirebaseDatabase.DefaultInstance.GetReference("id");
-        re.GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                if (snapshot.Value == null)
-                {
-                    Debug.Log("회원가입 성공");
-                }
-                else
-                {
-                    Debug.Log("회원가입 실패");
-                }
-            }
-        });
-        
+        reference2.Child("Symmetry").Child(LoginController.myID).Child("play").SetValueAsync(LoginController.myPlayData.SymmetryPlay);
 
-        
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
-
-        data myData = new data(newGameData.diff , myScore, newGameData.symmetryTouchCount, 
+        data myData = new data(myScore, newGameData.symmetryTouchCount, 
             newGameData.symmetryMoreTouchCount + newGameData.asymmetryTouchCount, newGameData.timeRemain);
 
+        
         string jsondate1 = JsonUtility.ToJson(myData);
 
-        reference.Child("GameData").Child("Symmetry").Child("admin").SetRawJsonValueAsync(jsondate1);
-        */
+        reference2.Child("Symmetry").Child(LoginController.myID).Child(LoginController.myPlayData.SymmetryPlay.ToString()).SetRawJsonValueAsync(jsondate1);
 
+    }
+    // 레벨업시 firebase에 난이도 저장하기
+    public void LevelUpWriteDB()
+    {
+        if(LoginController.myDiffData.SymmetryGameDifficulty != 3)
+        {
+            LoginController.myDiffData.SymmetryGameDifficulty++;
+            reference.Child(LoginController.myID).Child("SymmetryGameDifficulty").SetValueAsync(LoginController.myDiffData.SymmetryGameDifficulty);
+        }
     }
 
     float temp = 0f;
@@ -177,6 +172,7 @@ public class ResultSceneController : MonoBehaviour
                 if (percent == 1f) // 점수가 MAX치 혹은 다음단계에 도달했을때 레벨업 사운드 재생
                 {
                     levelUpSound.Play();
+                    LevelUpWriteDB();
                 }
                 gageSetting = false;
             }
@@ -188,23 +184,21 @@ public class ResultSceneController : MonoBehaviour
 
     public class data
     {
-        public int Difficulty; // 난이도
         public int Score; // 점수
         public int SymmetryTouch; // 대칭물건 터치 횟수
         public int AsymmetryTouch; // 비대칭물건 터치 횟수
         public int RemainTime; // 남은 시간
-        public data(int Difficulty, int Score, int SymmetryTouch, int AsymmetryTouch, int RemainTime)
+        public data(int Score, int SymmetryTouch, int AsymmetryTouch, int RemainTime)
         {
-            this.Difficulty = Difficulty;
             this.Score = Score;
             this.SymmetryTouch = SymmetryTouch;
             this.AsymmetryTouch = AsymmetryTouch;
             this.RemainTime = RemainTime;
         }
     }
-    public class data2
+
+    public class PlayData
     {
         public int play;
-        public data d;
     }
 }

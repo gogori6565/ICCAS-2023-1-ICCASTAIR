@@ -85,7 +85,7 @@ public class PlaySceneController : MonoBehaviour
                                 if (myGameData.symmetryTouchCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
                                 {
                                     myGameData.timeRemain = (int)PlaySceneTimer.setTime;
-                                    SceneManager.LoadScene("SymmetryResult");
+                                    SceneManager.LoadScene("Result_Symmetry");
                                 }
                             }
                             else if(i.touch == 1) // 비대칭으로 만든 물건을 다시 건드리면

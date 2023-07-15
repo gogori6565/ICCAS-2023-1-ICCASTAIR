@@ -20,7 +20,7 @@ using UnityEngine.SceneManagement;
             if (setTime <= 0)
             {
                 setTime = 0;
-                SceneManager.LoadScene("SymmetryResult");
+                SceneManager.LoadScene("Result_Symmetry");
             }
             if (setTime >= 10)
             {

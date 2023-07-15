@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
+using Firebase.Database;
+using System;
 
 public class ResultSceneController : MonoBehaviour
 {
@@ -14,14 +17,20 @@ public class ResultSceneController : MonoBehaviour
     public GameObject emptyGage;
     public GameObject fillGage;
     private AudioSource levelUpSound;
+    private int myScore;
+
+    public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
+    DatabaseReference reference;
+
     // Use this for initialization
     void Start()
     {
+        FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
         setAudioSetting();
         newGameData = PlaySceneController.myGameData;
 
-        int score = getScore(newGameData);
-        scoreText.text = score + "";
+        myScore = getScore(newGameData);
+        scoreText.text = myScore + "";
         lowLevel.text = "Lv" + newGameData.diff;
         if(newGameData.diff != 3)
         {
@@ -35,7 +44,9 @@ public class ResultSceneController : MonoBehaviour
         asymmetricTouch.text = "Asymmetric object touch : " + (newGameData.asymmetryTouchCount + newGameData.symmetryMoreTouchCount);
         remainingTime.text = "Remaining time : " + newGameData.timeRemain + " sec";
 
-        setGageBar(newGameData.diff, score);
+        setGageBar(newGameData.diff, myScore);
+
+        WriteDB();
     }
 
     // 점수 설정
@@ -120,6 +131,40 @@ public class ResultSceneController : MonoBehaviour
         levelUpSound = obj.GetComponent<AudioSource>();
     }
 
+    public void WriteDB()
+    {
+        /*
+        DatabaseReference re = FirebaseDatabase.DefaultInstance.GetReference("id");
+        re.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Value == null)
+                {
+                    Debug.Log("회원가입 성공");
+                }
+                else
+                {
+                    Debug.Log("회원가입 실패");
+                }
+            }
+        });
+        
+
+        
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        data myData = new data(newGameData.diff , myScore, newGameData.symmetryTouchCount, 
+            newGameData.symmetryMoreTouchCount + newGameData.asymmetryTouchCount, newGameData.timeRemain);
+
+        string jsondate1 = JsonUtility.ToJson(myData);
+
+        reference.Child("GameData").Child("Symmetry").Child("admin").SetRawJsonValueAsync(jsondate1);
+        */
+
+    }
+
     float temp = 0f;
     // Update is called once per frame
     void Update()
@@ -139,5 +184,27 @@ public class ResultSceneController : MonoBehaviour
             fillGage.transform.localScale = new Vector3(temp, 1, 0); // 색깔 게이지바의 위치 설정
             temp += 0.005f;
         }
+    }
+
+    public class data
+    {
+        public int Difficulty; // 난이도
+        public int Score; // 점수
+        public int SymmetryTouch; // 대칭물건 터치 횟수
+        public int AsymmetryTouch; // 비대칭물건 터치 횟수
+        public int RemainTime; // 남은 시간
+        public data(int Difficulty, int Score, int SymmetryTouch, int AsymmetryTouch, int RemainTime)
+        {
+            this.Difficulty = Difficulty;
+            this.Score = Score;
+            this.SymmetryTouch = SymmetryTouch;
+            this.AsymmetryTouch = AsymmetryTouch;
+            this.RemainTime = RemainTime;
+        }
+    }
+    public class data2
+    {
+        public int play;
+        public data d;
     }
 }

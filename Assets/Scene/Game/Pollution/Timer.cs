@@ -29,6 +29,7 @@ public class Timer : MonoBehaviour
             if (setTime <= 0)
             {
                 GameOver();
+                
             }
             if (setTime >= 10)
             {
@@ -58,6 +59,14 @@ public class Timer : MonoBehaviour
         GameOverText.enabled = true;
 
         gamePlay.SetClickable(false);
+        WashButton washbtn = FindObjectOfType<WashButton>();
+        washbtn.Possible(false);
+
+        ChangeScene6 changeScene = FindObjectOfType<ChangeScene6>();
+        if (changeScene != null)
+        {
+            changeScene.TimeOutNextScene();
+        }
     }
 
     public void GameClear(bool win)

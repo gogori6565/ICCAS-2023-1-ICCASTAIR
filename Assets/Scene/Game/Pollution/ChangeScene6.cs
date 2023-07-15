@@ -27,12 +27,17 @@ public class ChangeScene6 : MonoBehaviour
         StartCoroutine(DelayedSceneChange());
     }
 
+    public void TimeOutNextScene()
+    {
+        StartCoroutine(DelayedSceneChange());
+    }
+
     private int preIndex;
 
     private IEnumerator DelayedSceneChange()
     {
         yield return new WaitForSeconds(2f); // 2초 동안 딜레이
-        SceneCall();
+        ResultScene();//결과창 
     }
 
     private int GetUniqueRandomIndex()
@@ -55,5 +60,10 @@ public class ChangeScene6 : MonoBehaviour
         int randomIndex = GetUniqueRandomIndex();
         string randomScene = scenes[randomIndex];
         SceneManager.LoadScene(randomScene);
+    }
+
+    private void ResultScene()
+    {
+        SceneManager.LoadScene("Result_Pollution");
     }
 }

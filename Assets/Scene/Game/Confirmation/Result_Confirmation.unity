@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 108713197}
   - component: {fileID: 108713196}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: UsedHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 121033802}
   - component: {fileID: 121033801}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LeftLV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -572, y: 240}
+  m_AnchoredPosition: {x: -603, y: 241.99998}
   m_SizeDelta: {x: 45.37, y: 45.91}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &121033801
@@ -375,8 +375,9 @@ GameObject:
   - component: {fileID: 431938438}
   - component: {fileID: 431938440}
   - component: {fileID: 431938439}
+  - component: {fileID: 431938441}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: FillGage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,8 +399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271.95, y: 240}
-  m_SizeDelta: {x: 505.24, y: 55.86}
+  m_AnchoredPosition: {x: 6.017481, y: 241.99998}
+  m_SizeDelta: {x: 1123.1, y: 55.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431938439
 MonoBehaviour:
@@ -439,6 +440,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431938437}
   m_CullTransparentMesh: 1
+--- !u!114 &431938441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431938437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2e35de8e0ad42448a7d478bea5ecf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 0}
+  LeftLV: {fileID: 0}
+  RightLV: {fileID: 0}
+  UsedHints: {fileID: 0}
+  WrongAnswer: {fileID: 0}
+  emptyGage: {fileID: 588628086}
+  fillGage: {fileID: 431938437}
 --- !u!1 &588628086
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,8 +470,9 @@ GameObject:
   - component: {fileID: 588628087}
   - component: {fileID: 588628089}
   - component: {fileID: 588628088}
+  - component: {fileID: 588628090}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EmptyGage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36.999996, y: 240}
-  m_SizeDelta: {x: 1123.14, y: 55.86}
+  m_AnchoredPosition: {x: 6.0000153, y: 241.99998}
+  m_SizeDelta: {x: 1123.1, y: 55.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588628088
 MonoBehaviour:
@@ -514,6 +535,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588628086}
   m_CullTransparentMesh: 1
+--- !u!114 &588628090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588628086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2e35de8e0ad42448a7d478bea5ecf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 0}
+  LeftLV: {fileID: 0}
+  RightLV: {fileID: 0}
+  UsedHints: {fileID: 0}
+  WrongAnswer: {fileID: 0}
+  emptyGage: {fileID: 588628086}
+  fillGage: {fileID: 431938437}
 --- !u!1 &712318311
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +686,7 @@ GameObject:
   - component: {fileID: 724229940}
   - component: {fileID: 724229939}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: RightLV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,7 +708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 634, y: 240}
+  m_AnchoredPosition: {x: 603, y: 242}
   m_SizeDelta: {x: 45.37, y: 45.91}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &724229939
@@ -1049,7 +1089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -158}
+  m_AnchoredPosition: {x: -11, y: -369}
   m_SizeDelta: {x: 448.47, y: 136.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227197086
@@ -1402,7 +1442,7 @@ GameObject:
   - component: {fileID: 1755983928}
   - component: {fileID: 1755983927}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1424,8 +1464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.742, y: 308}
-  m_SizeDelta: {x: 80.36, y: 43.86}
+  m_AnchoredPosition: {x: -20.863, y: 315.5}
+  m_SizeDelta: {x: 142.8, y: 101.09}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &1755983927
 MonoBehaviour:
@@ -1449,12 +1489,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ecb788b4ee8e1b841bf1595191e47483, type: 3}
-    m_FontSize: 31
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 74
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1481,7 +1521,7 @@ GameObject:
   - component: {fileID: 1878076695}
   - component: {fileID: 1878076694}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: WrongAnswer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,8 +1543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -75.794, y: -0.0000076294}
-  m_SizeDelta: {x: 518.83, y: 91.21}
+  m_AnchoredPosition: {x: -40.44, y: -0.0000076294}
+  m_SizeDelta: {x: 618.72, y: 91.21}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &1878076694
 MonoBehaviour:
@@ -1539,7 +1579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Used Hints : 3 Times'
+  m_Text: 'Wrong Answer : 3 Times'
 --- !u!222 &1878076695
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -15,7 +15,11 @@ public class ChangeScene5 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "MainMenu_Button":
-                SceneManager.LoadScene("LogIn");
+                SceneManager.LoadScene("ConfirmationRule");
+                break;
+
+            case "MainMenu_Button_select":
+                SceneManager.LoadScene("GameSelect");
                 break;
 
             case "OpenDoor_Button":

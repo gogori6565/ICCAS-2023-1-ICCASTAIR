@@ -358,9 +358,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 49609132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a531adb35cc804aa5d0c93d86f40bb, type: 3}
+  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &49609135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +407,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 49609134}
-        m_TargetAssemblyTypeName: ChangeScene2, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
         m_MethodName: ChangeSceneBtn
         m_Mode: 1
         m_Arguments:
@@ -530,6 +531,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -881,6 +883,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -1590,6 +1593,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -1655,6 +1659,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -2608,6 +2613,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -2830,6 +2836,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}
@@ -4409,6 +4416,7 @@ MonoBehaviour:
   windowObj: {fileID: 0}
   phoneObj: {fileID: 0}
   walletObj: {fileID: 0}
+  getbackObj: {fileID: 0}
   comOFF: {fileID: 0}
   psOFF: {fileID: 0}
   lightOFF: {fileID: 0}

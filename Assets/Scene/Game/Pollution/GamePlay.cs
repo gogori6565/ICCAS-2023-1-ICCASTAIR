@@ -21,6 +21,8 @@ public class GamePlay : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        
+        //게임요소
         GetElements();
         ShowRandomElements();
     }
@@ -92,12 +94,14 @@ public class GamePlay : MonoBehaviour
         {
             
             cursorChanger.MarkCursorChange();
-
             cursorChanger.CursorIndexCount(clickCount);
         }
 
         ClearText clearText = FindObjectOfType<ClearText>();
         clearText.CheckClear(clickCount, numElementsToShow);
+
+        ChangeScene6 click = FindObjectOfType<ChangeScene6>();
+        click.ClickCnt(clickCount);
     }
 
 
@@ -110,6 +114,7 @@ public class GamePlay : MonoBehaviour
     {
         return clickCount; // 클릭 카운트 반환
     }
+
 
 }
 

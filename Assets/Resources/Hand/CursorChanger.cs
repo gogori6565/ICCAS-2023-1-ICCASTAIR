@@ -18,7 +18,7 @@ public class CursorChanger : MonoBehaviour
         "Hand/손7",
     }; // 커서 이미지 경로 리스트
 
-    private int cursorIndex = 0; // 현재 커서 이미지 인덱스
+    public static int cursorIndex = 0; // 현재 커서 이미지 인덱스
     private Texture2D customCursor; // 커서 이미지
     private int clickCount;
     private bool shouldChangeCursor = false; // 커서 이미지 변경 여부를 나타내는 변수

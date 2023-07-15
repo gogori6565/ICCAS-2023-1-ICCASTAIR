@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,9 +50,16 @@ public class Timer : MonoBehaviour
             gamePlay.SetClickable(false);
             WashButton washbtn = FindObjectOfType<WashButton>();
             washbtn.Possible(false);
+
+            ChangeScene6 changeScene = FindObjectOfType<ChangeScene6>();
+            if (changeScene != null)
+            {
+                changeScene.ClearNextScene((int)setTime);
+            }
         }
     }
 
+    //타임 오버 
     void GameOver()
     {
         isGameOver = true;
@@ -67,6 +76,7 @@ public class Timer : MonoBehaviour
         {
             changeScene.TimeOutNextScene();
         }
+
     }
 
     public void GameClear(bool win)

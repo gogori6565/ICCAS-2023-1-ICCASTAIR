@@ -254,9 +254,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 419876895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8db74a8a33823f41877ee24e9baf6b8, type: 3}
+  m_Script: {fileID: 11500000, guid: c8a9f7f47c548284788ff409dcc0637e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 774695766}
+  timeText: {fileID: 1601952616}
+  scoreText: {fileID: 787117894}
 --- !u!114 &419876898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,8 +444,9 @@ GameObject:
   - component: {fileID: 774695765}
   - component: {fileID: 774695767}
   - component: {fileID: 774695766}
+  - component: {fileID: 774695768}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: objectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Used Hints : 3 Times'
+  m_Text: 'Find Dirty : 3 Times'
 --- !u!222 &774695767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -509,6 +513,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774695764}
   m_CullTransparentMesh: 1
+--- !u!114 &774695768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774695764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a9f7f47c548284788ff409dcc0637e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectText: {fileID: 774695766}
+  timeText: {fileID: 1601952616}
+  scoreText: {fileID: 787117894}
 --- !u!1 &787117892
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,8 +539,9 @@ GameObject:
   - component: {fileID: 787117893}
   - component: {fileID: 787117895}
   - component: {fileID: 787117894}
+  - component: {fileID: 787117896}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: scoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +608,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787117892}
   m_CullTransparentMesh: 1
+--- !u!114 &787117896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787117892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a9f7f47c548284788ff409dcc0637e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectText: {fileID: 774695766}
+  timeText: {fileID: 1601952616}
+  scoreText: {fileID: 787117894}
 --- !u!1 &1054456060
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,8 +1014,9 @@ GameObject:
   - component: {fileID: 1601952615}
   - component: {fileID: 1601952617}
   - component: {fileID: 1601952616}
+  - component: {fileID: 1601952618}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: timeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,7 +1074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Used Hints : 3 Times'
+  m_Text: 'Remain Time : 3 Times'
 --- !u!222 &1601952617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1047,6 +1083,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601952614}
   m_CullTransparentMesh: 1
+--- !u!114 &1601952618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601952614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a9f7f47c548284788ff409dcc0637e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectText: {fileID: 774695766}
+  timeText: {fileID: 1601952616}
+  scoreText: {fileID: 787117894}
 --- !u!1 &1691177867
 GameObject:
   m_ObjectHideFlags: 0

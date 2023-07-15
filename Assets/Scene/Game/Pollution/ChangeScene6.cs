@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //유니티에서 씬에 관련된 제어를 해주기 위해 추가
+using UnityEngine.SceneManagement;
 
 public class ChangeScene6 : MonoBehaviour
 {
@@ -22,13 +22,23 @@ public class ChangeScene6 : MonoBehaviour
         }
     }
     //클리어 씬 전환
-    public void ClearNextScene()
+
+    public static int remainTime;
+    public static int findDirty;
+
+    public void ClearNextScene(int cleartime)
     {
+        remainTime = cleartime;
         StartCoroutine(DelayedSceneChange());
     }
-
+    public void ClickCnt(int click)
+    {
+        findDirty = click;
+    }
+   
     public void TimeOutNextScene()
     {
+        remainTime = 0;
         StartCoroutine(DelayedSceneChange());
     }
 
@@ -36,8 +46,8 @@ public class ChangeScene6 : MonoBehaviour
 
     private IEnumerator DelayedSceneChange()
     {
-        yield return new WaitForSeconds(2f); // 2초 동안 딜레이
-        ResultScene();//결과창 
+        yield return new WaitForSeconds(1f); // 2초 동안 딜레이
+        Result();//결과창 
     }
 
     private int GetUniqueRandomIndex()
@@ -62,8 +72,11 @@ public class ChangeScene6 : MonoBehaviour
         SceneManager.LoadScene(randomScene);
     }
 
-    private void ResultScene()
+    private void Result()
     {
         SceneManager.LoadScene("Result_Pollution");
+
+
     }
+
 }

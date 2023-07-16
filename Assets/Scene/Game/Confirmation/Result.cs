@@ -9,9 +9,9 @@ public class Result : MonoBehaviour
     public GameObject emptyGage;
     public GameObject fillGage;
 
-    private string leftlv, rightlv;
+    public GameObject cf;
 
-    private int diff = 1; //난이도 (1:하, 2:중, 3:상)
+    private string leftlv, rightlv;
 
     void Start()
     {
@@ -26,9 +26,16 @@ public class Result : MonoBehaviour
         CalculateScore();
         PrintText();
 
-        setGageBar(diff);
+        setGageBar();
 
-        CalculateLevel();
+        CalculateLevel(); //난이도 계산 - 마지막
+
+        //유저 play 횟수 가져오기 -> (+1) 횟수 저장 -> playdata 저장
+        cf.GetComponent<ConfirmationFirebase>().PlayCntReadDB(); 
+
+        //유저의 확인 강박 게임 난이도 갱신
+        cf.GetComponent<ConfirmationFirebase>().DiffWriteDB(); 
+        
     }
 
     private void PrintText()
@@ -43,17 +50,17 @@ public class Result : MonoBehaviour
     //점수 계산 & 레벨 text
     private void CalculateScore()
     {
-        if (diff == 1) //하
+        if (GV.diff == 1) //하
         {
             leftlv = "Lv1"; rightlv = "Lv2";
             GV.score = 3500 - ((GV.Hintcnt * 250) + (GV.fail * 700));
         }
-        else if (diff == 2) //중
+        else if (GV.diff == 2) //중
         {
             leftlv = "Lv2"; rightlv = "Lv3";
             GV.score = 6500 - ((GV.Hintcnt * 500) + (GV.fail * 1300));
         }
-        else if (diff == 3) //상
+        else if (GV.diff == 3) //상
         {
             leftlv = "Lv3"; rightlv = "Max";
             GV.score = 10000 - ((GV.Hintcnt * 750) + (GV.fail * 2000));
@@ -71,11 +78,11 @@ public class Result : MonoBehaviour
     {
         if (GV.score >= 3000)
         {
-            diff = 2;
+            GV.diff = 2;
         }
         else if(GV.score >= 6000)
         {
-            diff = 3;
+            GV.diff = 3;
         }
     }
 
@@ -84,21 +91,21 @@ public class Result : MonoBehaviour
     float width, y;
 
     // 점수바 설정
-    public void setGageBar(int diff)
+    public void setGageBar()
     {
         width = emptyGage.GetComponent<RectTransform>().rect.width; // 비어있는 게이지바의 길이
         y = emptyGage.GetComponent<RectTransform>().anchoredPosition.y; // 비어있는 게이지바의 y값
 
         percent = 0f;
-        if (diff == 1) // 난이도 하 일때
+        if (GV.diff == 1) // 난이도 하 일때
         {
             percent = GV.score / 3000.0f;
         }
-        else if (diff == 2) // 난이도 중 일때
+        else if (GV.diff == 2) // 난이도 중 일때
         {
             percent = GV.score / 6000.0f;
         }
-        else if (diff == 3) // 난이도 상 일때
+        else if (GV.diff == 3) // 난이도 상 일때
         {
             percent = GV.score / 10000.0f;
         }

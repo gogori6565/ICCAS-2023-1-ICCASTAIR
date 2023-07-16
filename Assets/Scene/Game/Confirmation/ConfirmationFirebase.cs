@@ -11,15 +11,7 @@ public class ConfirmationFirebase : MonoBehaviour
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
     DatabaseReference reference;
 
-    private int playcnt; //유저의 플레이 횟수 - DB에서 가져온 값 저장
-
-    //Result Page 로드되면 호출
-    void Start()
-    {
-        FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
-        PlayCntReadDB(); //유저 play 횟수 가져오는 게 제일 첫 번째
-        //-> playcnt 저장 호출 -> playdata 저장 호출
-    }
+    public int playcnt; //유저의 플레이 횟수 - DB에서 가져온 값 저장
 
     //Write - PlayData 저장
     public void WriteDB()
@@ -39,6 +31,7 @@ public class ConfirmationFirebase : MonoBehaviour
     public void PlayCntWriteDB()
     {
         playcnt += 1;
+
         string path = "GameData/Confirmation/user1";
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
 
@@ -66,10 +59,36 @@ public class ConfirmationFirebase : MonoBehaviour
             });
     }
 
+    //Write - 유저의 확인 강박 게임 난이도 갱신 (저장)
+    public void DiffWriteDB()
+    {
+        string path = "UserData/user1";
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
+
+        reference.Child("ConfirmationGameDifficulty").SetValueAsync(GV.diff);
+    }
+
     //Read - 유저의 확인 강박 게임 난이도 가져오기 (게임 시작 시 호출되어야 함 -> 난이도에 따라 게임 난이도 조절)
     public void DiffReadDB()
     {
-        
+        string path = "UserData/user1";
+        FirebaseDatabase.DefaultInstance
+            .GetReference(path)
+            .GetValueAsync().ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    foreach (DataSnapshot data in snapshot.Children)
+                    {
+                        if (data.Key == "ConfirmationGameDifficulty")
+                        {
+                            GV.diff = Int32.Parse(data.Value.ToString());
+                            UnityEngine.Debug.Log(GV.diff);
+                        }
+                    }
+                }
+            });
     }
 
     //Read 예시

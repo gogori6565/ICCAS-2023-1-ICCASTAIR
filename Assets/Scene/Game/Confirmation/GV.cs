@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
+using Firebase.Database;
+using System.Threading;
 
 public class GV : MonoBehaviour
 {
@@ -23,6 +26,8 @@ public class GV : MonoBehaviour
     public static int Hintcnt; //힌트 사용 개수 - Firebase DB
     public static int score; //점수
     public static int diff; //난이도
+
+    public GameObject cf; //ConfirmationFirebase 객체
 
     public static float startTime; //sliding puzzle 게임 시작 시간
     public static float elapsedTime; //경과 시간
@@ -46,6 +51,8 @@ public class GV : MonoBehaviour
         Qnumber = 1; suc = 0; fail = 0;
         Hintcnt = 0;
         score = 0;
+
+        cf.GetComponent<ConfirmationFirebase>().DiffReadDB(); //유저의 확인 강박 게임 '난이도' 가져오기
     }
 
     //To Do List Sentences Array reset
@@ -106,12 +113,25 @@ public class GV : MonoBehaviour
     }
 
     public static List<int> randomNumbers = new List<int>(); // ToDoList 질문 - 중복되지 않는 랜덤한 숫자 저장
-    public static int ListNum = 1; //난이도 별로 상이 (하-5, 중-7, 상-10)
+    public static int ListNum; //난이도 별로 상이 (하-5, 중-7, 상-10)
 
     public static List<int> QuestionNum = new List<int>(); // Question - 중복되지 않는 랜덤한 숫자 저장
 
     public void GameStart()
     {
+        if (diff == 1) //하
+        {
+            ListNum = 5;
+        } 
+        else if (diff == 2) //중
+        {
+            ListNum = 7;
+        }
+        else if (diff == 3) //상
+        {
+            ListNum = 10;
+        }
+
         // 랜덤한 숫자를 저장할 리스트
         List<int> numbers = new List<int>();
 

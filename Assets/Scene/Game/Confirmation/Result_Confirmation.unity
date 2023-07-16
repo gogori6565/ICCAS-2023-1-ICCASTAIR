@@ -375,8 +375,8 @@ GameObject:
   - component: {fileID: 431938438}
   - component: {fileID: 431938440}
   - component: {fileID: 431938439}
-  - component: {fileID: 431938441}
   - component: {fileID: 431938442}
+  - component: {fileID: 431938441}
   m_Layer: 5
   m_Name: FillGage
   m_TagString: Untagged
@@ -460,6 +460,7 @@ MonoBehaviour:
   WrongAnswer: {fileID: 0}
   emptyGage: {fileID: 588628086}
   fillGage: {fileID: 431938437}
+  cf: {fileID: 431938437}
 --- !u!114 &431938442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DBurl: https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/
+  playcnt: 0
 --- !u!1 &588628086
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +486,6 @@ GameObject:
   - component: {fileID: 588628087}
   - component: {fileID: 588628089}
   - component: {fileID: 588628088}
-  - component: {fileID: 588628090}
   m_Layer: 5
   m_Name: EmptyGage
   m_TagString: Untagged
@@ -549,25 +550,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588628086}
   m_CullTransparentMesh: 1
---- !u!114 &588628090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588628086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2e35de8e0ad42448a7d478bea5ecf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Score: {fileID: 0}
-  LeftLV: {fileID: 0}
-  RightLV: {fileID: 0}
-  UsedHints: {fileID: 0}
-  WrongAnswer: {fileID: 0}
-  emptyGage: {fileID: 588628086}
-  fillGage: {fileID: 431938437}
 --- !u!1 &712318311
 GameObject:
   m_ObjectHideFlags: 0

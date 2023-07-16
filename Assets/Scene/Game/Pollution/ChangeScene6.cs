@@ -42,7 +42,7 @@ public class ChangeScene6 : MonoBehaviour
         StartCoroutine(DelayedSceneChange());
     }
 
-    private int preIndex;
+    private static int preIndex;
 
     private IEnumerator DelayedSceneChange()
     {

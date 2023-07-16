@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
 
 public class CursorChanger : MonoBehaviour
 {
@@ -25,10 +26,18 @@ public class CursorChanger : MonoBehaviour
     private bool washChange = false; // 커서 이미지 변경 여부를 나타내는 변수
     private bool washflag = false;
 
-    private void Start()
+    private async void Start()
     {
+        foreach (string imagePath in cursorImagePaths)
+        {
+            await LoadCursorImageAsync(imagePath);
+        }
+
         LoadCursorImageAsync(cursorImagePaths[cursorIndex]);
+
+        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
     }
+
 
     private void OnDisable()
     {
@@ -103,7 +112,7 @@ public class CursorChanger : MonoBehaviour
         clickCount = cnt;
     }
 
-    private async void LoadCursorImageAsync(string imagePath)
+    private async Task LoadCursorImageAsync(string imagePath)
     {
         var handle = Addressables.LoadAssetAsync<Texture2D>(imagePath);
         await handle.Task;

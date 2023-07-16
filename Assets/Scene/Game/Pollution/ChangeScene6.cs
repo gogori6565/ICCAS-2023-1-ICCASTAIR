@@ -78,9 +78,22 @@ public class ChangeScene6 : MonoBehaviour
 
     private void Result()
     {
+        //로드 전 점수 계산
+        if (ResultScene.preScore < 3000)
+        {
+            ResultScene.totalScore = (remainTime * 10) + (findDirty * 300) - WashButton.subtractPointSum; //하
+
+        }
+        else if (ResultScene.preScore >= 3000 && ResultScene.preScore < 6000)
+        {
+            ResultScene.totalScore = (remainTime * 15) + (findDirty * 400) - WashButton.subtractPointSum; //중
+
+        }
+        else if (ResultScene.preScore >= 6000)
+        {
+            ResultScene.totalScore = (remainTime * 20) + (findDirty * 500) - WashButton.subtractPointSum; //상
+        }
+
         SceneManager.LoadScene("Result_Pollution");
-
-
     }
-
 }

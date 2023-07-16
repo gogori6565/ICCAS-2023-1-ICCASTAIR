@@ -13,7 +13,9 @@ public class ResultScene : MonoBehaviour
     public static int[] subtractPoints; 
 
     public static int preScore = 0;
-    public int totalScore;
+    public static int totalScore;
+    public static int ScoreForFirebase;
+
 
     private void Start()
     {
@@ -21,19 +23,6 @@ public class ResultScene : MonoBehaviour
         timeText = GameObject.Find("timeText").GetComponent<Text>();
         scoreText = GameObject.Find("scoreText").GetComponent<Text>();
         washText = GameObject.Find("washText").GetComponent<Text>();
-
-
-        if (preScore < 3000)
-        {
-            totalScore = (ChangeScene6.remainTime * 10) + (ChangeScene6.findDirty * 300) - WashButton.subtractPointSum; //ÇÏ
-        }
-        else if (preScore >= 3000 && preScore < 6000)
-        {
-            totalScore = (ChangeScene6.remainTime * 15) + (ChangeScene6.findDirty * 400) - WashButton.subtractPointSum; //Áß
-        }else if(preScore >= 6000)
-        {
-            totalScore = (ChangeScene6.remainTime * 20) + (ChangeScene6.findDirty * 500) - WashButton.subtractPointSum; //»ó
-        }
     }
 
     private void Update()

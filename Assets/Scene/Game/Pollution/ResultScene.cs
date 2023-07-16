@@ -10,11 +10,11 @@ public class ResultScene : MonoBehaviour
     public Text timeText;
     public Text scoreText;
     public Text washText;
-    public static int[] subtractPoints = { 0, 600, 400, 200, 0 }; //하 
+    public static int[] subtractPoints; 
 
+    public static int preScore = 0;
+    public int totalScore;
 
-    private int totalScore = (ChangeScene6.remainTime * 10) + (ChangeScene6.findDirty * 300) - WashButton.subtractPointSum; //하
-    
     private void Start()
     {
         objectText = GameObject.Find("objectText").GetComponent<Text>();
@@ -22,7 +22,18 @@ public class ResultScene : MonoBehaviour
         scoreText = GameObject.Find("scoreText").GetComponent<Text>();
         washText = GameObject.Find("washText").GetComponent<Text>();
 
-        // 텍스트 컴포넌트들을 찾아 할당합니다.
+
+        if (preScore < 3000)
+        {
+            totalScore = (ChangeScene6.remainTime * 10) + (ChangeScene6.findDirty * 300) - WashButton.subtractPointSum; //하
+        }
+        else if (preScore >= 3000 && preScore < 6000)
+        {
+            totalScore = (ChangeScene6.remainTime * 15) + (ChangeScene6.findDirty * 400) - WashButton.subtractPointSum; //중
+        }else if(preScore >= 6000)
+        {
+            totalScore = (ChangeScene6.remainTime * 20) + (ChangeScene6.findDirty * 500) - WashButton.subtractPointSum; //상
+        }
     }
 
     private void Update()
@@ -38,11 +49,9 @@ public class ResultScene : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "MainMenu_Button":
+                preScore = totalScore;
                 SceneManager.LoadScene("GameSelect");
                 break;
         }
     }
-
-    
-
 }

@@ -260,6 +260,7 @@ MonoBehaviour:
   objectText: {fileID: 774695766}
   timeText: {fileID: 1601952616}
   scoreText: {fileID: 787117894}
+  washText: {fileID: 0}
 --- !u!114 &419876898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -75.794, y: 111}
-  m_SizeDelta: {x: 518.83, y: 91.21}
+  m_SizeDelta: {x: 600, y: 91.21}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &774695766
 MonoBehaviour:
@@ -504,7 +505,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Find Dirty : 3 Times'
+  m_Text: 'Find Dirty : 3 '
 --- !u!222 &774695767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -528,6 +529,7 @@ MonoBehaviour:
   objectText: {fileID: 774695766}
   timeText: {fileID: 1601952616}
   scoreText: {fileID: 787117894}
+  washText: {fileID: 945616719}
 --- !u!1 &787117892
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +625,103 @@ MonoBehaviour:
   objectText: {fileID: 774695766}
   timeText: {fileID: 1601952616}
   scoreText: {fileID: 787117894}
+  washText: {fileID: 945616719}
+--- !u!1 &945616716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945616717}
+  - component: {fileID: 945616720}
+  - component: {fileID: 945616719}
+  - component: {fileID: 945616718}
+  m_Layer: 5
+  m_Name: washText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &945616717
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945616716}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_Children: []
+  m_Father: {fileID: 1214921024}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -75.79401, y: -0.0000076294}
+  m_SizeDelta: {x: 600, y: 91.21}
+  m_Pivot: {x: 0.35391852, y: 0.5}
+--- !u!114 &945616718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945616716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a9f7f47c548284788ff409dcc0637e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectText: {fileID: 774695766}
+  timeText: {fileID: 1601952616}
+  scoreText: {fileID: 787117894}
+  washText: {fileID: 945616719}
+--- !u!114 &945616719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945616716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.745283, g: 0.31990921, b: 0.31990921, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ecb788b4ee8e1b841bf1595191e47483, type: 3}
+    m_FontSize: 65
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 74
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Number of washings : 3 '
+--- !u!222 &945616720
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945616716}
+  m_CullTransparentMesh: 1
 --- !u!1 &1054456060
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +944,7 @@ RectTransform:
   - {fileID: 774695765}
   - {fileID: 1601952615}
   - {fileID: 787117893}
+  - {fileID: 945616717}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1038,8 +1138,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -75.794, y: -0.0000076294}
-  m_SizeDelta: {x: 518.83, y: 91.21}
+  m_AnchoredPosition: {x: -75.794, y: -110}
+  m_SizeDelta: {x: 600, y: 91.21}
   m_Pivot: {x: 0.35391852, y: 0.5}
 --- !u!114 &1601952616
 MonoBehaviour:
@@ -1074,7 +1174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Remain Time : 3 Times'
+  m_Text: 'Remain Time : 3 sec'
 --- !u!222 &1601952617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1098,6 +1198,7 @@ MonoBehaviour:
   objectText: {fileID: 774695766}
   timeText: {fileID: 1601952616}
   scoreText: {fileID: 787117894}
+  washText: {fileID: 945616719}
 --- !u!1 &1691177867
 GameObject:
   m_ObjectHideFlags: 0

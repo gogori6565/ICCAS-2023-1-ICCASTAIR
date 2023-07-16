@@ -39,13 +39,16 @@ public class CursorChanger : MonoBehaviour
     {
         if (washChange)
         {
-            if(clickCount % 2 != 0)
+            if (ResultScene.preScore < 6000) //난이도 중, 하 에서만 
             {
-                washflag = true;
-            }
-            else
-            {
-                washflag = false;
+                if (clickCount % 2 != 0) //wash버튼 누를 때 홀,짝 구분
+                {
+                    washflag = true;
+                }
+                else
+                {
+                    washflag = false;
+                }
             }
 
             washChange = false;
@@ -58,24 +61,28 @@ public class CursorChanger : MonoBehaviour
         {
             shouldChangeCursor = false;
 
-            if (washflag)
+            if (ResultScene.preScore >= 6000) //난이도 상
             {
-                if (clickCount % 2 != 0)
-                {
-                    cursorIndex++;
-                }
+                cursorIndex++;
             }
-            else {
-
-                if (clickCount % 2 == 0)
-                {
-                    cursorIndex++;
-                }
-            }
-
-            if (cursorIndex >= cursorImagePaths.Count)
+            else  //난이도 하, 중
             {
-                cursorIndex = 0;
+
+                if (washflag) //홀수에서 wash하면 
+                {
+                    if (clickCount % 2 != 0)
+                    {
+                        cursorIndex++;
+                    }
+                }
+                else //짝수에서 wash하면
+                {
+
+                    if (clickCount % 2 == 0)
+                    {
+                        cursorIndex++;
+                    }
+                }
             }
 
             LoadCursorImageAsync(cursorImagePaths[cursorIndex]);

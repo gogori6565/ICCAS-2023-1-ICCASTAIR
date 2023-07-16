@@ -16,10 +16,29 @@ public class WashButton : MonoBehaviour
         if (washPossible)
         {
             washCounting++;
-            subtractPointIndex = 0;
             subtractPointIndex = CursorChanger.cursorIndex;
-            subtractPointSum += ResultScene.subtractPoints[subtractPointIndex];
-            
+
+            if (ResultScene.preScore < 3000)
+            {
+                subtractPointSum += ResultScene.subtractPoints[subtractPointIndex];
+            }
+            //Сп
+            if (ResultScene.preScore >= 3000 && ResultScene.preScore < 6000)
+            {
+                if (washCounting > 1)
+                {
+                    subtractPointSum += ResultScene.subtractPoints[subtractPointIndex];
+                }
+            }
+            //Лѓ
+            if (ResultScene.preScore > 6000)
+            {
+                if (washCounting > 2)
+                {
+                    subtractPointSum += ResultScene.subtractPoints[subtractPointIndex];
+                }
+            }
+
 
             CursorChanger cursorChanger = FindObjectOfType<CursorChanger>();
             if (cursorChanger != null)

@@ -67,6 +67,10 @@ public class ChangeScene6 : MonoBehaviour
 
     private void SceneCall()
     {
+        CursorChanger.cursorIndex = 0;
+        WashButton.washCounting = 0;
+        WashButton.subtractPointSum = 0;
+
         int randomIndex = GetUniqueRandomIndex();
         string randomScene = scenes[randomIndex];
         SceneManager.LoadScene(randomScene);

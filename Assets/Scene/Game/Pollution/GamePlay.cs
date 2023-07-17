@@ -51,12 +51,12 @@ public class GamePlay : MonoBehaviour
         ShuffleList(elements);
 
 
-        if (ResultScene.preScore < 3000)
+        if (LoginController.myDiffData.PollutionGameDifficulty == 1)
         {
             numElementsToShow = 10; // 화면에 보여질 요소의 개수(하)
             ResultScene.subtractPoints = new int[] { 0, 700, 500, 300, 0 };
         }
-        if (ResultScene.preScore >= 3000 && ResultScene.preScore<6000)
+        if (LoginController.myDiffData.PollutionGameDifficulty == 2)
         {
             numElementsToShow = 15; // 화면에 보여질 요소의 개수(중)
 
@@ -64,7 +64,7 @@ public class GamePlay : MonoBehaviour
             
         }
 
-        if (ResultScene.preScore >= 6000)
+        if (LoginController.myDiffData.PollutionGameDifficulty == 3)
         {
             numElementsToShow = 20; // 화면에 보여질 요소의 개수(상)
             

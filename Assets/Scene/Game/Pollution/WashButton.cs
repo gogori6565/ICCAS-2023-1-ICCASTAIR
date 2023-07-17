@@ -18,12 +18,12 @@ public class WashButton : MonoBehaviour
             washCounting++;
             subtractPointIndex = CursorChanger.cursorIndex;
 
-            if (ResultScene.preScore < 3000)
+            if (LoginController.myDiffData.PollutionGameDifficulty == 1)
             {
                 subtractPointSum += ResultScene.subtractPoints[subtractPointIndex];
             }
             //Сп
-            if (ResultScene.preScore >= 3000 && ResultScene.preScore < 6000)
+            if (LoginController.myDiffData.PollutionGameDifficulty == 2)
             {
                 if (washCounting > 1)
                 {
@@ -31,7 +31,7 @@ public class WashButton : MonoBehaviour
                 }
             }
             //Лѓ
-            if (ResultScene.preScore > 6000)
+            if (LoginController.myDiffData.PollutionGameDifficulty == 3)
             {
                 if (washCounting > 2)
                 {

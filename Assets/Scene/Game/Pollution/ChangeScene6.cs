@@ -46,7 +46,7 @@ public class ChangeScene6 : MonoBehaviour
 
     private IEnumerator DelayedSceneChange()
     {
-        yield return new WaitForSeconds(1f); // 2초 동안 딜레이
+        yield return new WaitForSeconds(1f); // 1초 동안 딜레이
         Result();//결과창 
     }
 
@@ -79,17 +79,17 @@ public class ChangeScene6 : MonoBehaviour
     private void Result()
     {
         //로드 전 점수 계산
-        if (ResultScene.preScore < 3000)
+        if (LoginController.myDiffData.PollutionGameDifficulty == 1)
         {
             ResultScene.totalScore = (remainTime * 10) + (findDirty * 300) - WashButton.subtractPointSum; //하
 
         }
-        else if (ResultScene.preScore >= 3000 && ResultScene.preScore < 6000)
+        else if (LoginController.myDiffData.PollutionGameDifficulty == 2)
         {
             ResultScene.totalScore = (remainTime * 15) + (findDirty * 400) - WashButton.subtractPointSum; //중
 
         }
-        else if (ResultScene.preScore >= 6000)
+        else if (LoginController.myDiffData.PollutionGameDifficulty == 3)
         {
             ResultScene.totalScore = (remainTime * 20) + (findDirty * 500) - WashButton.subtractPointSum; //상
         }

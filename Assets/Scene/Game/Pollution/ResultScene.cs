@@ -12,7 +12,6 @@ public class ResultScene : MonoBehaviour
     public Text washText;
     public static int[] subtractPoints; 
 
-    public static int preScore = 0;
     public static int totalScore;
     public static int ScoreForFirebase;
 
@@ -38,7 +37,7 @@ public class ResultScene : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "MainMenu_Button":
-                preScore = totalScore;
+
                 SceneManager.LoadScene("GameSelect");
                 break;
         }

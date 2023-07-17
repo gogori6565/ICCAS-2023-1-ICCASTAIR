@@ -48,7 +48,7 @@ public class CursorChanger : MonoBehaviour
     {
         if (washChange)
         {
-            if (ResultScene.preScore < 6000) //난이도 중, 하 에서만 
+            if (LoginController.myDiffData.PollutionGameDifficulty != 3) //난이도 중, 하 에서만 
             {
                 if (clickCount % 2 != 0) //wash버튼 누를 때 홀,짝 구분
                 {
@@ -70,7 +70,7 @@ public class CursorChanger : MonoBehaviour
         {
             shouldChangeCursor = false;
 
-            if (ResultScene.preScore >= 6000) //난이도 상
+            if (LoginController.myDiffData.PollutionGameDifficulty == 3) //난이도 상
             {
                 cursorIndex++;
             }

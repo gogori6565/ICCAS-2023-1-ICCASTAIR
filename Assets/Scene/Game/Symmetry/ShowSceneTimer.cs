@@ -20,7 +20,7 @@ public class ShowSceneTimer : MonoBehaviour
         setTime -= Time.deltaTime;
         if (setTime <= 0)
         {
-            SceneManager.LoadScene("Play");
+            SceneManager.LoadScene("Play_Symmetry");
         }
         TimerText.text = "00:0" + (int)setTime;
     }

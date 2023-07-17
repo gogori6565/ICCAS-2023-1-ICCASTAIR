@@ -63,7 +63,8 @@ public class ChangeScene5 : MonoBehaviour
             case "Hint_Button":
                 SceneManager.LoadScene("LivingRoom");
                 GV.Hintcnt++;
-                UnityEngine.Debug.Log(GV.Hintcnt);
+                GV.ActiveHint = true;
+                GV.HintstartTime = Time.time; //힌트 시작 시간
                 break;
 
             case "LeftArrow_Room":
@@ -90,6 +91,23 @@ public class ChangeScene5 : MonoBehaviour
             case "Retry":
                 SceneManager.LoadScene("Puzzle");
                 break;
+            case "Restart_Button":
+                SceneManager.LoadScene("ConfirmationRule");
+                break;
+        }
+    }
+
+    void Update()
+    {
+        if (GV.ActiveHint)
+        {
+            GV.HintelapsedTime = Time.time - GV.HintstartTime; //힌트 경과 시간
+
+            if (GV.HintelapsedTime > 5) //힌트 사용 5초가 지나면
+            {
+                GV.ActiveHint = false;
+                SceneManager.LoadScene("Puzzle");
+            }
         }
     }
 

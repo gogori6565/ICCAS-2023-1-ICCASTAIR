@@ -32,6 +32,10 @@ public class GV : MonoBehaviour
     public static float startTime; //sliding puzzle 게임 시작 시간
     public static float elapsedTime; //경과 시간
 
+    public static float HintstartTime; //힌트 시작 시간
+    public static float HintelapsedTime; //힌트 경과 시간
+    public static Boolean ActiveHint;
+
     static GV()
     {
         InitializeList();
@@ -52,7 +56,13 @@ public class GV : MonoBehaviour
         Hintcnt = 0;
         score = 0;
 
+        ActiveHint = false;
+
         cf.GetComponent<ConfirmationFirebase>().DiffReadDB(); //유저의 확인 강박 게임 '난이도' 가져오기
+
+        UnityEngine.Debug.Log("restart");
+        UnityEngine.Debug.Log(LoginController.myID);
+        UnityEngine.Debug.Log(diff);
     }
 
     //To Do List Sentences Array reset
@@ -140,6 +150,8 @@ public class GV : MonoBehaviour
             numbers.Add(i);
         }
 
+        randomNumbers.Clear(); // 이전에 생성된 랜덤 숫자들을 초기화
+
         // 중복되지 않는 랜덤한 숫자를 선택
         for (int i = 0; i < ListNum; i++)
         {
@@ -157,15 +169,17 @@ public class GV : MonoBehaviour
         }
         */
 
-        // Generate a list of numbers from 0 to 21
+        // Generate a list of numbers from 0 to 20
         List<int> numberList = new List<int>();
-        for (int i = 0; i <= 21; i++)
+        for (int i = 0; i <= 20; i++)
         {
             numberList.Add(i);
         }
 
         // Shuffle the number list
         System.Random random = new System.Random();
+        QuestionNum.Clear(); // 이전에 생성된 질문 숫자들을 초기화
+
         while (numberList.Count > 0 && QuestionNum.Count < 5) // 뽑을 숫자 개수를 5개로 제한
         {
             int index = random.Next(numberList.Count);

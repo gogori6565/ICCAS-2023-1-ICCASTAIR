@@ -76,13 +76,17 @@ public class Result : MonoBehaviour
     //난이도 계산
     private void CalculateLevel()
     {
-        if (GV.score >= 3000)
+        if (GV.score >= 6000)
+        {
+            GV.diff = 3;
+        }
+        else if(GV.score >= 3000)
         {
             GV.diff = 2;
         }
-        else if(GV.score >= 6000)
+        else
         {
-            GV.diff = 3;
+            GV.diff = 1;
         }
     }
 

@@ -693,7 +693,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &338124297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -772,7 +774,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &427780963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -933,7 +937,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &464621655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1094,7 +1100,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &525719399
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2330,7 +2338,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &1148644766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2716,7 +2726,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &1322932033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3410,7 +3422,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &1575709707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3924,7 +3938,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &1793932776
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4647,7 +4663,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &1956140193
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5128,7 +5146,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: '
+
+'
 --- !u!222 &2147416224
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -91,6 +91,8 @@ public class Board : MonoBehaviour
 
         if (tiles.Count == puzzleSize.x * puzzleSize.y - 1 || GV.elapsedTime >= 10)
         {
+            UnityEngine.Debug.Log("퍼즐성공");
+            GV.UIControllerOnce = false;
             // Board 오브젝트에 컴포넌트로 설정하기 때문에
             // 그리고 한번만 호출하기 때문에 변수를 만들지 않고 바로 호출..
             GetComponent<UIController>().OnResultPanel();
@@ -99,6 +101,9 @@ public class Board : MonoBehaviour
 
     void Update()
     {
-        IsGameOver();
+        if (GV.UIControllerOnce)
+        {
+            IsGameOver();
+        }
     }
 }

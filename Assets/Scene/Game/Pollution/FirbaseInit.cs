@@ -27,15 +27,15 @@ public class FirbaseInit : MonoBehaviour
         data d1 = new data(ChangeScene6.findDirty, ChangeScene6.remainTime, WashButton.washCounting, ResultScene.totalScore);
         string adminKey = (playcnt+1).ToString();
         string jsondata = JsonUtility.ToJson(d1);
-        reference.Child("admin").Child(adminKey).SetRawJsonValueAsync(jsondata);
+        reference.Child(LoginController.myID).Child(adminKey).SetRawJsonValueAsync(jsondata);
 
         // play 자식에 데이터 저장
-        reference.Child("admin").Child("play").SetValueAsync(playcnt);
+        reference.Child(LoginController.myID).Child("play").SetValueAsync(playcnt);
     }
 
     public void ReadDB()
     {
-        DatabaseReference adminRef = FirebaseDatabase.DefaultInstance.GetReference("GameData/Pollution/admin");
+        DatabaseReference adminRef = FirebaseDatabase.DefaultInstance.GetReference("GameData/Pollution/"+ LoginController.myID);
         adminRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsCompleted)
@@ -46,7 +46,6 @@ public class FirbaseInit : MonoBehaviour
                     string adminKey = adminData.Key;
                     string jsondata = adminData.GetRawJsonValue();
                     data d1 = JsonUtility.FromJson<data>(jsondata);
-                    Debug.Log("Admin Key: " + adminKey);
                     Debug.Log("Found dirty things: " + d1.FoundDirtyThings);
                     Debug.Log("Remaining Time: " + d1.RemainingTime);
                     Debug.Log("Number of washings: " + d1.NumberOfWashings);
@@ -77,7 +76,7 @@ public class FirbaseInit : MonoBehaviour
     {
         playcnt += 1;
 
-        string path = "GameData/Pollution/admin/play";
+        string path = "GameData/Pollution/" + LoginController.myID + "/play";
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
 
         reference.SetValueAsync(playcnt);
@@ -86,7 +85,7 @@ public class FirbaseInit : MonoBehaviour
     //Read - 유저의 플레이 횟수 가져오기
     public void PlayCntReadDB()
     {
-        string path = "GameData/Pollution/admin/play";
+        string path = "GameData/Pollution/" + LoginController.myID + "/play";
         FirebaseDatabase.DefaultInstance
             .GetReference(path)
             .GetValueAsync().ContinueWith(task =>

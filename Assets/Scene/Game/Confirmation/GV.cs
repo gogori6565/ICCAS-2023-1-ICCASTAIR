@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Firebase;
 using Firebase.Database;
 using System.Threading;
+using System.CodeDom.Compiler;
 
 public class GV : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GV : MonoBehaviour
     public static int Hintcnt; //힌트 사용 개수 - Firebase DB
     public static int score; //점수
     public static int diff; //난이도
+    public static int PreScore, PreUsedHint, PreWrongAnswer; //이전 판 점수, 힌트 사용 개수, 틀린 개수
 
     public GameObject cf; //ConfirmationFirebase 객체
 
@@ -59,10 +61,11 @@ public class GV : MonoBehaviour
         ActiveHint = false;
 
         cf.GetComponent<ConfirmationFirebase>().DiffReadDB(); //유저의 확인 강박 게임 '난이도' 가져오기
-
+        cf.GetComponent<ConfirmationFirebase>().DeductionReadDB(LoginController.myPlayData.ConfirmationPlay); //이전 판 게임 정보 가져오기
+        
         UnityEngine.Debug.Log("restart");
         UnityEngine.Debug.Log(LoginController.myID);
-        UnityEngine.Debug.Log(diff);
+        UnityEngine.Debug.Log("level: " + diff);
     }
 
     //To Do List Sentences Array reset
@@ -131,7 +134,7 @@ public class GV : MonoBehaviour
     {
         if (diff == 1) //하
         {
-            ListNum = 5;
+            ListNum = 1;
         } 
         else if (diff == 2) //중
         {

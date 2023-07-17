@@ -25,25 +25,29 @@ public class ConfirmationFirebase : MonoBehaviour
 
         //쓰기
         reference.Child("GameData").Child("Confirmation").Child(LoginController.myID).Child(playcnt.ToString()).SetRawJsonValueAsync(jsondate1);
+        //reference.Child("GameData").Child("Confirmation").Child("user1").Child(playcnt.ToString()).SetRawJsonValueAsync(jsondate1);
     }
 
     //Write - 유저의 플레이 횟수 +1 늘리고 저장
     public void PlayCntWriteDB()
     {
         playcnt += 1;
+        LoginController.myPlayData.ConfirmationPlay++;
 
         string path = "GameData/Confirmation/" + LoginController.myID;
+        //string path = "GameData/Confirmation/user1";
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
 
         reference.Child("play").SetValueAsync(playcnt);
 
-        WriteDB();
+        WriteDB();          //PlayData 저장
     }
 
     //Read - 유저의 플레이 횟수 가져오기
     public void PlayCntReadDB()
     {
         string path = "GameData/Confirmation/" + LoginController.myID + "/play";
+        //string path = "GameData/Confirmation/user1/play";
         FirebaseDatabase.DefaultInstance
             .GetReference(path)
             .GetValueAsync().ContinueWith(task =>
@@ -72,6 +76,7 @@ public class ConfirmationFirebase : MonoBehaviour
     public void DiffReadDB()
     {
         string path = "UserData/"+ LoginController.myID;
+        //string path = "UserData/user1";
         FirebaseDatabase.DefaultInstance
             .GetReference(path)
             .GetValueAsync().ContinueWith(task =>
@@ -87,6 +92,31 @@ public class ConfirmationFirebase : MonoBehaviour
                             UnityEngine.Debug.Log(GV.diff);
                         }
                     }
+                }
+            });
+    }
+
+    //Read - 이전 판 게임 정보(점수+감점요인) 가져오기
+    public void DeductionReadDB(int pcnt)
+    {
+        Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+        string path = "GameData/Confirmation/" + LoginController.myID + "/" + pcnt.ToString();
+        //string path = "GameData/Confirmation/user1/" + pcnt.ToString();
+        FirebaseDatabase.DefaultInstance
+            .GetReference(path)
+            .GetValueAsync().ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    foreach (DataSnapshot data in snapshot.Children)
+                    {
+                        dictionary.Add(data.Key, data.Value.ToString());
+                    }
+                    GV.PreScore = Int32.Parse(dictionary["score"]);
+                    GV.PreUsedHint = Int32.Parse(dictionary["UsedHint"]);
+                    GV.PreWrongAnswer = Int32.Parse(dictionary["WrongAnswer"]);
                 }
             });
     }

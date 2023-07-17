@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class Result : MonoBehaviour
 {
-    public Text Score, LeftLV, RightLV, UsedHints, WrongAnswer;
+    public Text Score, LeftLV, RightLV, UsedHints, WrongAnswer, ChangeScore;
     public GameObject emptyGage;
     public GameObject fillGage;
 
     public GameObject cf;
 
     private string leftlv, rightlv;
+    private int hintdiff, faildiff; //이전과 차이 (힌트, 오답)
 
     void Start()
     {
@@ -20,31 +21,54 @@ public class Result : MonoBehaviour
         RightLV = GameObject.Find("RightLV").GetComponent<UnityEngine.UI.Text>();
         UsedHints = GameObject.Find("UsedHints").GetComponent<UnityEngine.UI.Text>();
         WrongAnswer = GameObject.Find("WrongAnswer").GetComponent<UnityEngine.UI.Text>();
+        ChangeScore = GameObject.Find("ChangeScore").GetComponent<UnityEngine.UI.Text>();
 
         GV.score = 0; //점수
 
         CalculateScore();
+
+        //유저 play 횟수 가져오기 -> (+1) 횟수 저장 -> playdata 저장
+        cf.GetComponent<ConfirmationFirebase>().PlayCntReadDB();
+
         PrintText();
 
         setGageBar();
 
         CalculateLevel(); //난이도 계산 - 마지막
 
-        //유저 play 횟수 가져오기 -> (+1) 횟수 저장 -> playdata 저장
-        cf.GetComponent<ConfirmationFirebase>().PlayCntReadDB(); 
-
         //유저의 확인 강박 게임 난이도 갱신
         cf.GetComponent<ConfirmationFirebase>().DiffWriteDB(); 
-        
+
     }
 
     private void PrintText()
     {
+        hintdiff = GV.Hintcnt - GV.PreUsedHint;
+        faildiff = GV.fail - GV.PreWrongAnswer;
+
         Score.text = GV.score.ToString();
         LeftLV.text = leftlv;
         RightLV.text = rightlv;
-        UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times";
-        WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times";
+
+        if (hintdiff >= 0) //같거나 양수이면
+        {
+            UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (+" + hintdiff + ")";
+        }
+        else
+        {
+            UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (" + hintdiff + ")";
+        }
+
+        if (faildiff >= 0)
+        {
+            WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (+" + faildiff + ")";
+        }
+        else
+        {
+            WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (" + faildiff + ")";
+        }
+
+        ChangeScore.text = "Pre: " + GV.PreScore + " -> Now: " + GV.score;
     }
 
     //점수 계산 & 레벨 text

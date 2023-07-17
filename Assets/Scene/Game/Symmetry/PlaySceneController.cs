@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlaySceneController : MonoBehaviour
 {
@@ -13,11 +15,18 @@ public class PlaySceneController : MonoBehaviour
     int[] selectSymmetryStuff; // 대칭 물건 index
     int[] selectNotSymmetryStuff; // 비대칭 물건 index
     ArrayList stuffList;
-    int diff = 2; // 선택된 난이도
+    int diff; // 선택된 난이도
+    public static gameData myGameData;
+    private AudioSource clickSound, failClickSound, successClickSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        setAudioSetting();
+
+        myGameData = new gameData();
+        myGameData.setEmpty();
+
         Room1 = GameObject.Find("Canvas").transform.Find("Room").gameObject;
         Room2 = GameObject.Find("Canvas").transform.Find("Room2").gameObject;
 
@@ -28,15 +37,78 @@ public class PlaySceneController : MonoBehaviour
         selectNotSymmetryStuff = ShowSceneController.selectNotSymmetryStuff;
         stuffList = ShowSceneController.stuffList;
         diff = ShowSceneController.diff;
+        myGameData.diff = diff;
 
         startSetting(diff, diff * 5);
         gameSetting(diff, diff * 5);
     }
 
+    bool isNotTouchd = true;
+    int touchSymmetryCount = 0;
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0)) // Left click
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 좌표 가져오기
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f); // 해당 좌표 오브젝트 찾기
+            isNotTouchd = true;
+
+            if (hit.collider != null)
+            {
+                GameObject click_obj = hit.transform.gameObject;
+                foreach (ShowSceneController.stuffState i in stuffList)
+                {
+                    isNotTouchd = false;
+                    if (room2AllStuff[i.index] == click_obj)
+                    {
+                        if(i.changed == 0) // 건드린 물건이 대칭일때
+                        {
+                            if(i.touch == 0) // 처음 건드리는 물건이면
+                            {
+                                successClickSound.Play();
+                                if (i.state == 0)
+                                {
+                                    click_obj.transform.Translate(new Vector3(i.degree, 0, 0));
+                                }
+                                else if (i.state == 1)
+                                {
+                                    click_obj.transform.Translate(new Vector3(0, i.degree, 0));
+                                }
+                                else if (i.state == 2)
+                                {
+                                    click_obj.transform.Rotate(0, 0, i.degree);
+                                }
+                                myGameData.symmetryTouchCount++;
+                                i.touch = 1;
+                                //Debug.Log("대칭물건 : " + click_obj.name + " 건드림");
+                                if (myGameData.symmetryTouchCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
+                                {
+                                    myGameData.timeRemain = (int)PlaySceneTimer.setTime;
+                                    SceneManager.LoadScene("Result_Symmetry");
+                                }
+                            }
+                            else if(i.touch == 1) // 비대칭으로 만든 물건을 다시 건드리면
+                            {
+                                failClickSound.Play();
+                                myGameData.symmetryMoreTouchCount++;
+                                //Debug.Log("비대칭으로 만든물건 : " + click_obj.name + " 건드림");
+                            }
+                        }
+                        else if(i.changed == 1) // 건드린 물건이 비대칭일때
+                        {
+                            failClickSound.Play();
+                            myGameData.asymmetryTouchCount++;
+                            //Debug.Log("비대칭물건 : " + click_obj.name + " 건드림");
+                        }
+                    }
+                }
+            }
+            if (isNotTouchd) // 물건을 터치하지 않았을때
+            {
+                clickSound.Play();
+            }
+        }
     }
 
     public void startSetting(int difficulty, int size) // size : 총 물건 개수  
@@ -84,6 +156,51 @@ public class PlaySceneController : MonoBehaviour
                     room2AllStuff[i.index].transform.Rotate(0, 0, i.degree);
                 }
             }
+        }
+    }
+
+    public int getSymmetryCount(int diff)
+    {
+        if(diff == 1)
+        {
+            return 3;
+        }
+        else if(diff == 2)
+        {
+            return 5;
+        }
+        else
+        {
+            return 8;
+        }
+    }
+
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("ClickAudio");
+        clickSound = obj.GetComponent<AudioSource>();
+        obj = GameObject.Find("FailClickAudio");
+        failClickSound = obj.GetComponent<AudioSource>();
+        obj = GameObject.Find("SuccessClickAudio");
+        successClickSound = obj.GetComponent<AudioSource>();
+    }
+
+    public class gameData
+    {
+        public int diff; // 난이도
+        public int symmetryTouchCount; // 대칭물건 터치횟수
+        public int symmetryMoreTouchCount; // 비대칭으로 만든 물건 터치횟수
+        public int asymmetryTouchCount; // 비대칭물건 터치횟수
+        public int timeRemain; // 남은 시간(초)
+
+        public void setEmpty()
+        {
+            diff = 0;
+            symmetryTouchCount = 0;
+            symmetryMoreTouchCount = 0;
+            asymmetryTouchCount = 0;
+            timeRemain = 0;
         }
     }
 }

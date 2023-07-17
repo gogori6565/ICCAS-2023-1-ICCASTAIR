@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scene/Game/Pollution/Room_p.unity
     guid: b132705ec9e017249ad381ea228840de
   - enabled: 1
+    path: Assets/Scene/Game/Pollution/Result_Pollution.unity
+    guid: 205efd8923af2d2438d749e91cd885c8
+  - enabled: 1
     path: Assets/Scene/Game/Confirmation/ConfirmationRule.unity
     guid: 0226d01d855df694e9e926b3471399fc
   - enabled: 1

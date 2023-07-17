@@ -9,12 +9,16 @@ public class ChangeScene4 : MonoBehaviour
     {
         switch (this.gameObject.name)
         {
+            case "ReStart_Button":
+                SceneManager.LoadScene("SymmetryRule");
+                break;
+
             case "MainMenu_Button":
-                SceneManager.LoadScene("LogIn");
+                SceneManager.LoadScene("GameSelect");
                 break;
 
             case "GameStart_Button":
-                SceneManager.LoadScene("Show");
+                SceneManager.LoadScene("Show_Symmetry");
                 break;
 
                 //10초 지나면 넘어가는 화면 전환 필요

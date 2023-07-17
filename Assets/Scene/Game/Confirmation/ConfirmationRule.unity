@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0026779, y: -52.8}
+  m_AnchoredPosition: {x: -0.00079346, y: -52.8}
   m_SizeDelta: {x: 1920, y: 882.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138698953
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 638501040}
   - component: {fileID: 638501039}
   m_Layer: 5
-  m_Name: MainMenu_Button
+  m_Name: MainMenu_Button_select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,9 +325,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 638501037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a531adb35cc804aa5d0c93d86f40bb, type: 3}
+  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &638501040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 638501039}
-        m_TargetAssemblyTypeName: ChangeScene2, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
         m_MethodName: ChangeSceneBtn
         m_Mode: 1
         m_Arguments:
@@ -539,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.5, y: -21.45}
-  m_SizeDelta: {x: 1809.12, y: 716.18}
+  m_AnchoredPosition: {x: -4.5, y: -55.100002}
+  m_SizeDelta: {x: 1809.12, y: 783.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319884472
 MonoBehaviour:
@@ -564,10 +565,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ecb788b4ee8e1b841bf1595191e47483, type: 3}
-    m_FontSize: 56
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 82
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -576,10 +577,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Follow the To Do List before leaving your house.\r\nMake sure you remember
-    the actions you did.\r\n\nSolve the puzzle to go for the next step.\r\nYou can
-    always check back to see the condition of your house \nby pressing the \"Hint\"
-    button while solving the puzzle.\r\n\nAfter the puzzle, some questions will be
-    asked related to the \nTo Do List. \r"
+    the actions you did.\r\n\nSolve the puzzle to go for the next step. (or Wait
+    1 minutes)\r\nYou can always check back to see the condition of your house \nby
+    pressing the \"Confirmation Hint\" button while solving the puzzle.\r\n(But,
+    the time limit for hint is 5s.)\n\nAfter the puzzle, some questions will be asked
+    related to the To Do List. \r"
 --- !u!222 &1319884473
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -794,6 +796,8 @@ GameObject:
   - component: {fileID: 1863335580}
   - component: {fileID: 1863335579}
   - component: {fileID: 1863335578}
+  - component: {fileID: 1863335582}
+  - component: {fileID: 1863335581}
   - component: {fileID: 1863335577}
   m_Layer: 5
   m_Name: GameStart_Button
@@ -834,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outsideBtn: {fileID: 0}
 --- !u!114 &1863335578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +895,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1863335581}
+        m_TargetAssemblyTypeName: GV, Assembly-CSharp
+        m_MethodName: GameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1863335579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,6 +945,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863335575}
   m_CullTransparentMesh: 1
+--- !u!114 &1863335581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863335575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f57d82539a9a7b448cec9b9806b300f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cf: {fileID: 1863335575}
+--- !u!114 &1863335582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863335575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df2f3b4158731940940fe9eeee54d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DBurl: https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/
+  playcnt: 0
 --- !u!1 &1894547080
 GameObject:
   m_ObjectHideFlags: 0

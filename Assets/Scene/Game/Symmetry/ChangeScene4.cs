@@ -9,6 +9,10 @@ public class ChangeScene4 : MonoBehaviour
     {
         switch (this.gameObject.name)
         {
+            case "ReStart_Button":
+                SceneManager.LoadScene("SymmetryRule");
+                break;
+
             case "MainMenu_Button":
                 SceneManager.LoadScene("GameSelect");
                 break;

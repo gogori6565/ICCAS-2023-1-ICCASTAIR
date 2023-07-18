@@ -139,7 +139,7 @@ public class GV : MonoBehaviour
     {
         if (diff == 1) //ÇÏ
         {
-            ListNum = 1;
+            ListNum = 5;
         } 
         else if (diff == 2) //Áß
         {

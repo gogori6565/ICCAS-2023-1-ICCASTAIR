@@ -66,6 +66,8 @@ public class ConfirmationFirebase : MonoBehaviour
     //Write - 유저의 확인 강박 게임 난이도 갱신 (저장)
     public void DiffWriteDB()
     {
+        LoginController.myDiffData.ConfirmationGameDifficulty = GV.diff;
+
         string path = "UserData/"+ LoginController.myID;
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
 
@@ -114,7 +116,7 @@ public class ConfirmationFirebase : MonoBehaviour
                     {
                         dictionary.Add(data.Key, data.Value.ToString());
                     }
-                    GV.PreScore = Int32.Parse(dictionary["score"]);
+                    GV.PreScore = Int32.Parse(dictionary["Score"]);
                     GV.PreUsedHint = Int32.Parse(dictionary["UsedHint"]);
                     GV.PreWrongAnswer = Int32.Parse(dictionary["WrongAnswer"]);
                 }
@@ -138,7 +140,7 @@ public class ConfirmationFirebase : MonoBehaviour
                     {
                         dictionary.Add(data.Key, data.Value.ToString());
                     }
-                    UnityEngine.Debug.Log(dictionary["score"]);
+                    UnityEngine.Debug.Log(dictionary["Score"]);
                     UnityEngine.Debug.Log(dictionary["UsedHint"]);
                     UnityEngine.Debug.Log(dictionary["WrongAnswer"]);
                 }
@@ -147,13 +149,13 @@ public class ConfirmationFirebase : MonoBehaviour
 
     public class data
     {
-        public int score = 0;
+        public int Score = 0;
         public int UsedHint = 0;
         public int WrongAnswer = 0;
 
-        public data(int score, int UsedHint, int WrongAnswer)
+        public data(int Score, int UsedHint, int WrongAnswer)
         {
-            this.score = score;
+            this.Score = Score;
             this.UsedHint = UsedHint;
             this.WrongAnswer = WrongAnswer;
         }

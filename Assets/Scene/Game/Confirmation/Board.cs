@@ -89,7 +89,7 @@ public class Board : MonoBehaviour
     {
         List<Tile> tiles = tileList.FindAll(x => x.IsCorrected == true);
 
-        if (tiles.Count == puzzleSize.x * puzzleSize.y - 1 || GV.elapsedTime >= 10)
+        if (tiles.Count == puzzleSize.x * puzzleSize.y - 1 || GV.elapsedTime >= 60)
         {
             UnityEngine.Debug.Log("ÆÛÁñ¼º°ø");
             GV.UIControllerOnce = false;

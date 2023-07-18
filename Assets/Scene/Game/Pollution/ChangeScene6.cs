@@ -12,9 +12,11 @@ public class ChangeScene6 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "MainMenu_Button":
+                SceneManager.LoadScene("GameSelect");
+                break;
+            case "Restart_Button":
                 SceneManager.LoadScene("PollutionRule");
                 break;
-
             //¾À ÀüÈ¯(·£´ý)
             case "GameStart_Button":
                 SceneCall();

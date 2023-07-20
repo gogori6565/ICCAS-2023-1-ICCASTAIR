@@ -72,6 +72,8 @@ public class ResultSceneController : MonoBehaviour
 
     public void setChangeText()
     {
+        if (oldGameData.Score == -1) 
+            return;
         int scoreChange, syChange, asyChange, timeChange;
         scoreChange = getScore(newGameData) - oldGameData.Score;
         syChange = newGameData.symmetryTouchCount - oldGameData.SymmetryTouch;

@@ -50,25 +50,47 @@ public class Result : MonoBehaviour
         LeftLV.text = leftlv;
         RightLV.text = rightlv;
 
-        if (hintdiff >= 0) //같거나 양수이면
+        UnityEngine.Debug.Log("GV.PreUsedHint" + GV.PreUsedHint);
+        UnityEngine.Debug.Log("GV.PreWrongAnswer" + GV.PreWrongAnswer);
+        UnityEngine.Debug.Log("GV.PreScore" + GV.PreScore);
+
+
+        if(GV.PreUsedHint == 0 && GV.PreWrongAnswer == 0 && GV.PreScore == 0)
         {
-            UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (+" + hintdiff + ")";
+            UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (-)";
+            WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (-)";
+            ChangeScore.text = "Pre: (-) -> Now: " + GV.score;
         }
         else
         {
-            UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (" + hintdiff + ")";
-        }
+            if (hintdiff > 0) //양수이면
+            {
+                UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (+" + hintdiff + ")";
+            }
+            else if (hintdiff < 0) //음수이면
+            {
+                UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (" + hintdiff + ")";
+            }
+            else
+            {
+                UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (-)";
+            }
 
-        if (faildiff >= 0)
-        {
-            WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (+" + faildiff + ")";
-        }
-        else
-        {
-            WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (" + faildiff + ")";
-        }
+            if (faildiff > 0)
+            {
+                WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (+" + faildiff + ")";
+            }
+            else if (faildiff < 0)
+            {
+                WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (" + faildiff + ")";
+            }
+            else
+            {
+                WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (-)";
+            }
 
-        ChangeScore.text = "Pre: " + GV.PreScore + " -> Now: " + GV.score;
+            ChangeScore.text = "Pre: " + GV.PreScore + " -> Now: " + GV.score;
+        }
     }
 
     //점수 계산 & 레벨 text

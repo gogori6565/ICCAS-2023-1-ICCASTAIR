@@ -64,7 +64,7 @@ public class PlaySceneController : MonoBehaviour
                     {
                         if(i.changed == 0) // 건드린 물건이 대칭일때
                         {
-                            if(i.touch == 0) // 처음 건드리는 물건이면
+                            if(i.touch % 2 == 0) // 대칭 물건이면
                             {
                                 successClickSound.Play();
                                 if (i.state == 0)
@@ -79,27 +79,86 @@ public class PlaySceneController : MonoBehaviour
                                 {
                                     click_obj.transform.Rotate(0, 0, i.degree);
                                 }
-                                myGameData.symmetryTouchCount++;
-                                i.touch = 1;
-                                //Debug.Log("대칭물건 : " + click_obj.name + " 건드림");
-                                if (myGameData.symmetryTouchCount == getSymmetryCount(diff)) // 대칭물건을 모두 비대칭으로 만들면
+                                if(i.touch == 0)
+                                {
+                                    Debug.Log("대칭물건 건드림 (+)");
+                                    myGameData.symmetryTouchCount++;
+                                }
+                                else
+                                {
+                                    Debug.Log("대칭물건 건드림 (x)");
+                                }
+                                i.touch++;
+                                if (myGameData.symmetryTouchCount == getSymmetryCount(diff) && isSymmetryTouch()) // 대칭물건을 모두 비대칭으로 만들면
                                 {
                                     myGameData.timeRemain = (int)PlaySceneTimer.setTime;
                                     SceneManager.LoadScene("Result_Symmetry");
                                 }
                             }
-                            else if(i.touch == 1) // 비대칭으로 만든 물건을 다시 건드리면
+                            else if(i.touch % 2 == 1) // 비대칭으로 만든 물건을 다시 건드리면
                             {
                                 failClickSound.Play();
+                                Debug.Log("비대칭물건 건드림 (-)");
+                                if (i.state == 0)
+                                {
+                                    click_obj.transform.Translate(new Vector3(-i.degree, 0, 0));
+                                }
+                                else if (i.state == 1)
+                                {
+                                    click_obj.transform.Translate(new Vector3(0, -i.degree, 0));
+                                }
+                                else if (i.state == 2)
+                                {
+                                    click_obj.transform.Rotate(0, 0, -i.degree);
+                                }
                                 myGameData.symmetryMoreTouchCount++;
-                                //Debug.Log("비대칭으로 만든물건 : " + click_obj.name + " 건드림");
+                                i.touch++;
                             }
                         }
                         else if(i.changed == 1) // 건드린 물건이 비대칭일때
                         {
-                            failClickSound.Play();
-                            myGameData.asymmetryTouchCount++;
-                            //Debug.Log("비대칭물건 : " + click_obj.name + " 건드림");
+                            if(i.touch % 2 == 0)
+                            {
+                                failClickSound.Play();
+                                Debug.Log("비대칭물건 건드림 (--)");
+                                if (i.state == 0)
+                                {
+                                    click_obj.transform.Translate(new Vector3(-i.degree, 0, 0));
+                                }
+                                else if (i.state == 1)
+                                {
+                                    click_obj.transform.Translate(new Vector3(0, -i.degree, 0));
+                                }
+                                else if (i.state == 2)
+                                {
+                                    click_obj.transform.Rotate(0, 0, -i.degree);
+                                }
+                                i.touch++;
+                                myGameData.asymmetryTouchCount++;
+                            }
+                            else if (i.touch % 2 == 1)
+                            {
+                                successClickSound.Play();
+                                Debug.Log("대칭물건 건드림 (x)");
+                                if (i.state == 0)
+                                {
+                                    click_obj.transform.Translate(new Vector3(i.degree, 0, 0));
+                                }
+                                else if (i.state == 1)
+                                {
+                                    click_obj.transform.Translate(new Vector3(0, i.degree, 0));
+                                }
+                                else if (i.state == 2)
+                                {
+                                    click_obj.transform.Rotate(0, 0, i.degree);
+                                }
+                                i.touch++;
+                                if (myGameData.symmetryTouchCount == getSymmetryCount(diff) && isSymmetryTouch()) // 대칭물건을 모두 비대칭으로 만들면
+                                {
+                                    myGameData.timeRemain = (int)PlaySceneTimer.setTime;
+                                    SceneManager.LoadScene("Result_Symmetry");
+                                }
+                            }
                         }
                     }
                 }
@@ -109,6 +168,29 @@ public class PlaySceneController : MonoBehaviour
                 clickSound.Play();
             }
         }
+    }
+
+    public bool isSymmetryTouch() // 대칭물건이 있으면 false 없으면 true
+    {
+        bool b = true;
+        foreach (ShowSceneController.stuffState i in stuffList)
+        {
+            if(i.changed == 0)
+            {
+                if(i.touch % 2 != 1)
+                {
+                    b = false;
+                }
+            }
+            else if (i.changed == 1)
+            {
+                if (i.touch % 2 != 0)
+                {
+                    b = false;
+                }
+            }
+        }
+        return b;
     }
 
     public void startSetting(int difficulty, int size) // size : 총 물건 개수  

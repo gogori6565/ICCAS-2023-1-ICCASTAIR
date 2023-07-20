@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatisticTest : MonoBehaviour
+public class StatisticTest_KMG : MonoBehaviour
 {
     public GameObject dot;
     private int[] score = { 1000, 5000, 3000, 5000, 2000, 7000, 10000 };

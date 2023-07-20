@@ -11,9 +11,11 @@ public class ResultSceneController : MonoBehaviour
     public Text lowLevel;
     public Text highLevel;
     public Text symmetricTouch;
+    public Text scoreChgangeT, symmetricChangeT, asymmetryChangeT, remainingTimeChangeT;
     public Text asymmetricTouch;
     public Text remainingTime;
     public PlaySceneController.gameData newGameData;
+    public data oldGameData;
     public GameObject emptyGage;
     public GameObject fillGage;
     private AudioSource levelUpSound;
@@ -22,13 +24,91 @@ public class ResultSceneController : MonoBehaviour
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
     DatabaseReference reference, reference2;
 
-    // Use this for initialization
-    void Start()
+    private static bool taskWork = false;
+
+    private void Awake()
     {
         FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
         reference = FirebaseDatabase.DefaultInstance.GetReference("UserData");
         reference2 = FirebaseDatabase.DefaultInstance.GetReference("GameData");
 
+        ReadOldData();
+    }
+
+    public void ReadOldData()
+    {
+        DatabaseReference re = reference2.Child("Symmetry").Child(LoginController.myID).Child(LoginController.myPlayData.SymmetryPlay.ToString());
+        int AsymmetryTouch = -1, RemainTime = -1, Score = -1, SymmetryTouch = -1;
+        
+        re.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    switch (data.Key)
+                    {
+                        case "AsymmetryTouch":
+                            AsymmetryTouch = Convert.ToInt32(data.Value);
+                            break;
+                        case "RemainTime":
+                            RemainTime = Convert.ToInt32(data.Value);
+                            break;
+                        case "Score":
+                            Score = Convert.ToInt32(data.Value);
+                            break;
+                        case "SymmetryTouch":
+                            SymmetryTouch = Convert.ToInt32(data.Value);
+                            break;
+                    }
+                }
+                oldGameData = new data(Score,SymmetryTouch,AsymmetryTouch,RemainTime);
+                taskWork = true;
+                return;
+            }
+        });
+    }
+
+    public void setChangeText()
+    {
+        int scoreChange, syChange, asyChange, timeChange;
+        scoreChange = getScore(newGameData) - oldGameData.Score;
+        syChange = newGameData.symmetryTouchCount - oldGameData.SymmetryTouch;
+        asyChange = (newGameData.asymmetryTouchCount + newGameData.symmetryMoreTouchCount) - oldGameData.AsymmetryTouch;
+        timeChange = newGameData.timeRemain - oldGameData.RemainTime;
+
+        if(scoreChange == 0)
+            scoreChgangeT.text = "(-)";
+        else if(scoreChange > 0)
+            scoreChgangeT.text = "(+" + scoreChange + ")";
+        else if(scoreChange < 0)
+            scoreChgangeT.text = "(" + scoreChange + ")";
+
+        if (syChange == 0)
+            symmetricChangeT.text = "(-)";
+        else if (syChange > 0)
+            symmetricChangeT.text = "(+" + syChange + ")";
+        else if (syChange < 0)
+            symmetricChangeT.text = "(" + syChange + ")";
+
+        if (asyChange == 0)
+            asymmetryChangeT.text = "(-)";
+        else if (asyChange > 0)
+            asymmetryChangeT.text = "(+" + asyChange + ")";
+        else if (asyChange < 0)
+            asymmetryChangeT.text = "(" + asyChange + ")";
+
+        if (timeChange == 0)
+            remainingTimeChangeT.text = "(-)";
+        else if (timeChange > 0)
+            remainingTimeChangeT.text = "(+" + timeChange + ")";
+        else if (timeChange < 0)
+            remainingTimeChangeT.text = "(" + timeChange + ")";
+    }
+    // Use this for initialization
+    void Start()
+    {
         setAudioSetting();
         newGameData = PlaySceneController.myGameData;
 
@@ -179,6 +259,11 @@ public class ResultSceneController : MonoBehaviour
             fillGage.GetComponent<RectTransform>().anchoredPosition = new Vector3(-(width / 2) + width * temp / 2, y, 0); // 색깔 게이지바의 길이 설정
             fillGage.transform.localScale = new Vector3(temp, 1, 0); // 색깔 게이지바의 위치 설정
             temp += 0.005f;
+        }
+        if (taskWork)
+        {
+            setChangeText();
+            taskWork = false;
         }
     }
 

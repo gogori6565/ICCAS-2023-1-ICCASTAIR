@@ -29,6 +29,9 @@ public class ChangeSceneGameSelect : MonoBehaviour
                 SceneManager.LoadScene("StorageRule");
                 break;
 
+            case "SButton":
+                SceneManager.LoadScene("Juhyeon");
+                break;
         }
     }
  

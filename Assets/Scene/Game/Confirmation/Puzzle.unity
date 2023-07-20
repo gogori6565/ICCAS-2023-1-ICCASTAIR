@@ -542,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &477256824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1115,8 +1115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2eb573a5262ef145adbebf93632f6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultPanel: {fileID: 0}
-  board: {fileID: 0}
+  resultPanel: {fileID: 477256823}
+  board: {fileID: 670035024}
   timerText: {fileID: 1359099042}
 --- !u!114 &1359099042
 MonoBehaviour:

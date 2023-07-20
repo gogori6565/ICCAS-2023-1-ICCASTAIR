@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class UIController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        OffResultPanel();
+
         GV.elapsedTime = Time.time - GV.startTime;
 
         // 초단위로 표시할 문자열 형식으로 변환
@@ -27,6 +30,14 @@ public class UIController : MonoBehaviour
     public void OnResultPanel()
     {
         resultPanel.SetActive(true);
+    }
+
+    public void OffResultPanel()
+    {
+        if (GV.UIControllerOnce)
+        {
+            resultPanel.SetActive(false);
+        }
     }
 
     public void OnClickRestart()

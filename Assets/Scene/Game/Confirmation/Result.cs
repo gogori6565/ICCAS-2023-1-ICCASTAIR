@@ -12,7 +12,7 @@ public class Result : MonoBehaviour
     public GameObject cf;
 
     private string leftlv, rightlv;
-    private int hintdiff, faildiff; //이전과 차이 (힌트, 오답)
+    private int hintdiff, faildiff, scorediff; //이전과 차이 (힌트, 오답, 점수)
 
     void Start()
     {
@@ -21,7 +21,6 @@ public class Result : MonoBehaviour
         RightLV = GameObject.Find("RightLV").GetComponent<UnityEngine.UI.Text>();
         UsedHints = GameObject.Find("UsedHints").GetComponent<UnityEngine.UI.Text>();
         WrongAnswer = GameObject.Find("WrongAnswer").GetComponent<UnityEngine.UI.Text>();
-        ChangeScore = GameObject.Find("ChangeScore").GetComponent<UnityEngine.UI.Text>();
 
         GV.score = 0; //점수
 
@@ -45,8 +44,8 @@ public class Result : MonoBehaviour
     {
         hintdiff = GV.Hintcnt - GV.PreUsedHint;
         faildiff = GV.fail - GV.PreWrongAnswer;
+        scorediff = GV.score - GV.PreScore;
 
-        Score.text = GV.score.ToString();
         LeftLV.text = leftlv;
         RightLV.text = rightlv;
 
@@ -55,14 +54,27 @@ public class Result : MonoBehaviour
         UnityEngine.Debug.Log("GV.PreScore" + GV.PreScore);
 
 
-        if(GV.PreUsedHint == 0 && GV.PreWrongAnswer == 0 && GV.PreScore == 0)
+        if(GV.PreUsedHint == 0 && GV.PreWrongAnswer == 0 && GV.PreScore == 0) //이전 데이터가 없다면
         {
+            Score.text = GV.score.ToString() + " (-)";
             UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (-)";
             WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (-)";
-            ChangeScore.text = "Pre: (-) -> Now: " + GV.score;
         }
         else
         {
+            if(scorediff > 0)
+            {
+                Score.text = GV.score.ToString() + " (+" + scorediff + ")";
+            }
+            else if(scorediff < 0)
+            {
+                Score.text = GV.score.ToString() + " (" + scorediff + ")";
+            }
+            else
+            {
+                Score.text = GV.score.ToString() + " (-)";
+            }
+
             if (hintdiff > 0) //양수이면
             {
                 UsedHints.text = "Used Hints : " + GV.Hintcnt + " Times (+" + hintdiff + ")";
@@ -88,8 +100,6 @@ public class Result : MonoBehaviour
             {
                 WrongAnswer.text = "Wrong Answer : " + GV.fail + " Times (-)";
             }
-
-            ChangeScore.text = "Pre: " + GV.PreScore + " -> Now: " + GV.score;
         }
     }
 

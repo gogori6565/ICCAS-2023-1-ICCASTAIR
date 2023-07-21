@@ -9,8 +9,7 @@ public class FirbaseInit : MonoBehaviour
 {
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
     DatabaseReference reference;
-    public static int playcnt = 0;
-
+    
     void Start()
     {
         FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
@@ -22,15 +21,29 @@ public class FirbaseInit : MonoBehaviour
     public void WriteDB()
     {
         reference = FirebaseDatabase.DefaultInstance.GetReference("GameData/Pollution");
-
         // admin 자식에 데이터 저장
         data d1 = new data(ChangeScene6.findDirty, ChangeScene6.remainTime, WashButton.washCounting, ResultScene.totalScore);
-        string adminKey = (playcnt+1).ToString();
+
+        if (ResultScene.totalScore >= 6000)
+        {
+            LoginController.myDiffData.PollutionGameDifficulty = 3;
+        }
+        else if (ResultScene.totalScore >= 3000)
+        {
+            LoginController.myDiffData.PollutionGameDifficulty = 2;
+        }
+        else
+        {
+            LoginController.myDiffData.PollutionGameDifficulty = 1;
+        }
+
+        string adminKey = ((LoginController.myPlayData.PollutionPlay)+1).ToString();
         string jsondata = JsonUtility.ToJson(d1);
         reference.Child(LoginController.myID).Child(adminKey).SetRawJsonValueAsync(jsondata);
 
+        FirebaseDatabase.DefaultInstance.GetReference("UserData/" + LoginController.myID).Child("PollutionGameDifficulty").SetValueAsync(LoginController.myDiffData.PollutionGameDifficulty);
         // play 자식에 데이터 저장
-        reference.Child(LoginController.myID).Child("play").SetValueAsync(playcnt);
+        reference.Child(LoginController.myID).Child("play").SetValueAsync(LoginController.myPlayData.PollutionPlay);
     }
 
     public void ReadDB()
@@ -74,12 +87,12 @@ public class FirbaseInit : MonoBehaviour
     //Write - 유저의 플레이 횟수 +1 늘리고 저장
     public void PlayCntWriteDB()
     {
-        playcnt += 1;
+        LoginController.myPlayData.PollutionPlay += 1;
 
         string path = "GameData/Pollution/" + LoginController.myID + "/play";
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(path);
 
-        reference.SetValueAsync(playcnt);
+        reference.SetValueAsync(LoginController.myPlayData.PollutionPlay);
     }
 
     //Read - 유저의 플레이 횟수 가져오기
@@ -95,8 +108,8 @@ public class FirbaseInit : MonoBehaviour
                     DataSnapshot snapshot = task.Result;
                     if (snapshot.Exists)
                     {
-                        playcnt = Convert.ToInt32(snapshot.Value);
-                        UnityEngine.Debug.Log(playcnt);
+                        LoginController.myPlayData.PollutionPlay = Convert.ToInt32(snapshot.Value);
+                        UnityEngine.Debug.Log(LoginController.myPlayData.PollutionPlay);
                     }
                 }
                 PlayCntWriteDB(); // 플레이 횟수 +1 후 저장

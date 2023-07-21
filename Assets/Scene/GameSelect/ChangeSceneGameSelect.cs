@@ -30,7 +30,7 @@ public class ChangeSceneGameSelect : MonoBehaviour
                 break;
 
             case "SButton":
-                SceneManager.LoadScene("Juhyeon");
+                SceneManager.LoadScene("Statistic");
                 break;
         }
     }

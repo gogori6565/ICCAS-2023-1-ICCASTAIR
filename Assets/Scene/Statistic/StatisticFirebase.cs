@@ -10,31 +10,33 @@ using System.Threading.Tasks;
 public class StatisticFirebase : MonoBehaviour
 {
     //최근 7판 Score 저장 string 배열
-    int[] cScore = new int[7]; //확인 score
-    int[] pScore = new int[7]; //오염 score
-    int[] sScore = new int[7]; //대칭 score
+    public static int[] cScore = new int[7]; //확인 score
+    public static int[] pScore = new int[7]; //오염 score
+    public static int[] sScore = new int[7]; //대칭 score
 
     //확인 감점요인
-    int[] cUsedHint = new int[7];
-    int[] cWrongAnswer = new int[7];
+    public static int[] cUsedHint = new int[7];
+    public static int[] cWrongAnswer = new int[7];
 
     //오염 감점 요인
-    int[] pFoundDirtyThings = new int[7];
-    int[] pNumberOfWashings = new int[7];
-    int[] pRemainingTime = new int[7];
+    public static int[] pFoundDirtyThings = new int[7];
+    public static int[] pNumberOfWashings = new int[7];
+    public static int[] pRemainingTime = new int[7];
 
     //대칭 감점 요인
-    int[] sAsymmetryTouch = new int[7];
-    int[] sRemainTime = new int[7];
-    int[] sSymmetryTouch = new int[7];
+    public static int[] sAsymmetryTouch = new int[7];
+    public static int[] sRemainTime = new int[7];
+    public static int[] sSymmetryTouch = new int[7];
 
     //Firebase Connect
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
     DatabaseReference reference;
 
+    public GameObject Graph;
+
     public int cPlay, pPlay, sPlay;
     public int cSum, pSum, sSum;       //Score 합계
-    public float cAverage, pAverage, sAverage;       //Score 평균
+    public static float cAverage, pAverage, sAverage;       //Score 평균
 
     void Start()
     {
@@ -45,13 +47,11 @@ public class StatisticFirebase : MonoBehaviour
         cSum = 0;
         pSum = 0;
         sSum = 0;
-        
-        UnityEngine.Debug.Log("플레이 횟수: " + cPlay);
 
         /*
          * 최근 7판 게임 정보 가져오기 (점수, 감점요인)
          */
-        for(int i = 0; i < 7; i++)
+        for (int i = 0; i < 7; i++)
         {
             if (cPlay <= 0) break;
             cReadDB(cPlay, i);
@@ -71,6 +71,10 @@ public class StatisticFirebase : MonoBehaviour
             sReadDB(sPlay, i);
             sPlay--;
         }
+        
+        cPlay = LoginController.myPlayData.ConfirmationPlay;
+        pPlay = LoginController.myPlayData.PollutionPlay;
+        sPlay = LoginController.myPlayData.SymmetryPlay;
 
         /*
          * 각 게임 전체 스코어 합산
@@ -138,11 +142,8 @@ public class StatisticFirebase : MonoBehaviour
         else if (game == "Symmetry")
         {
             sAverage = (float)sSum / (float)LoginController.myPlayData.SymmetryPlay;
-            /*
-            UnityEngine.Debug.Log("합: " + sSum);
-            UnityEngine.Debug.Log("나누기: " + LoginController.myPlayData.SymmetryPlay);
-            UnityEngine.Debug.Log("평균: " + sAverage);
-            */
+
+            Graph.GetComponent<StatisticGraph>().Graph(); //graph 그리기
         }
     }
 
@@ -166,6 +167,8 @@ public class StatisticFirebase : MonoBehaviour
                     cScore[idx] = Int32.Parse(dictionary["Score"]);
                     cUsedHint[idx] = Int32.Parse(dictionary["UsedHint"]);
                     cWrongAnswer[idx] = Int32.Parse(dictionary["WrongAnswer"]);
+
+                    UnityEngine.Debug.Log("cScore[" + idx + "] : " + cScore[idx]);
                 }
             });
     }
@@ -223,6 +226,8 @@ public class StatisticFirebase : MonoBehaviour
                     sAsymmetryTouch[idx] = Int32.Parse(dictionary["AsymmetryTouch"]);
                     sRemainTime[idx] = Int32.Parse(dictionary["RemainTime"]);
                     sSymmetryTouch[idx] = Int32.Parse(dictionary["SymmetryTouch"]);
+
+                    UnityEngine.Debug.Log("sScore[" + idx + "] : " + sScore[idx]);
                 }
             });
     }

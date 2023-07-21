@@ -38,10 +38,51 @@ public class ResultScene : MonoBehaviour
         }
         setGageBar(LoginController.myDiffData.PollutionGameDifficulty, totalScore);
 
-        objectText.text = "Found dirty things: " + ChangeScene6.findDirty.ToString();
-        timeText.text = "Remaining Time : " + ChangeScene6.remainTime.ToString() + "sec";
-        washText.text = "Number of washings : " + WashButton.washCounting.ToString();
-        scoreText.text = "" + totalScore.ToString();
+        string resultText1;
+        string resultText2;
+        string resultText3;
+        string resultText4;
+
+        if ((ChangeScene6.findDirty - PreFirebaseRead.preDirty) >= 0)
+        {
+            resultText1 = "<color=green>+" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + "</color>";
+        }
+        else
+        {
+            resultText1 = "<color=red>" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + "</color>";
+        }
+
+        if ((ChangeScene6.remainTime - PreFirebaseRead.preRemainTime) >= 0)
+        {
+            resultText2 = "<color=green>+" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + "</color>";
+        }
+        else
+        {
+            resultText2 = "<color=red>" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + "</color>";
+        }
+
+        if ((WashButton.washCounting - PreFirebaseRead.preWashing) >= 0)
+        {
+            resultText3 = "<color=red>+" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + "</color>";
+        }
+        else
+        {
+            resultText3 = "<color=green>" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + "</color>";
+        }
+
+        if ((totalScore - PreFirebaseRead.preTotalScore) >= 0)
+        {
+            resultText4 = "<color=green>+" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + "</color>";
+        }
+        else
+        {
+            resultText4 = "<color=red>" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + "</color>";
+        }
+
+        objectText.text = "Found dirty things: " + ChangeScene6.findDirty.ToString() + "  " + "(" +resultText1 + ")";
+        timeText.text = "Remaining Time : " + ChangeScene6.remainTime.ToString() + "sec  " + "(" + resultText2 + ")";
+        washText.text = "Number of washings : " + WashButton.washCounting.ToString() + "  " + "(" + resultText3 + ")";
+        scoreText.text = "" + totalScore.ToString() + "  " + "(" + resultText4 + ")";
     }
 
     private bool gageSetting = false;

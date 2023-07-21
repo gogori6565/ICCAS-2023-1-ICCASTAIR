@@ -15,7 +15,7 @@ public class GamePlay : MonoBehaviour
 
     private bool isClickable = true; // 클릭 가능 여부를 나타내는 변수
     public static GamePlay Instance; // 인스턴스 참조를 위한 정적 변수
-
+    public static int preDirtyThings;
 
 
     private void Start()

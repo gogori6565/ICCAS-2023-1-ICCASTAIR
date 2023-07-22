@@ -16,6 +16,10 @@ public class ChangeScene1 : MonoBehaviour
             case "SignUp_Button":
                 SceneManager.LoadScene("SignUp");
                 break;
+
+            case "Statistic_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
         }
     }
  

@@ -47,20 +47,20 @@ public class StatisticGraph : MonoBehaviour
         setLine();
 
         setFieldPosition(-763, 30);
-        setDot(dot, score, Color.blue);
-        DrawLine(score, Color.blue);
+        setDot(dot, score, new Color32(57, 31, 87,255));// Color.blue);
+        DrawLine(score, new Color32(57, 31, 87,255));// Color.blue);
 
         setFieldPosition(96, 30);
-        setDot(dot, score2, Color.green);
-        DrawLine(score2, Color.green);
+        setDot(dot, score2, new Color32(5, 72, 113, 255));// Color.green);
+        DrawLine(score2, new Color32(5, 72, 113, 255));// Color.green);
 
         setFieldPosition(-763, -360);
-        setDot(dot, score3, Color.black);
-        DrawLine(score3, Color.black);
+        setDot(dot, score3, new Color32(128, 60, 35, 255));// Color.black);
+        DrawLine(score3, new Color32(128, 60, 35, 255));// Color.black);
 
-        setFieldPosition(50, -360);
-        fsetDot(dot, score4, Color.yellow);
-        fDrawLine(score4, Color.yellow);
+        setFieldPosition(40, -360);
+        fsetDot(dot, score4, new Color32(23, 67, 11, 255));// Color.yellow);
+        fDrawLine(score4, new Color32(23, 67, 11, 255));// Color.yellow);
 
         setPlayText();
     }
@@ -77,7 +77,7 @@ public class StatisticGraph : MonoBehaviour
         line.positionCount = 2;
     }
 
-    public void setDot(GameObject startDot, int[] score, Color dotColor)
+    public void setDot(GameObject startDot, int[] score, Color32 dotColor)
     {
         Vector3 v = new Vector3(fieldX, fieldY);
         for(int i = 0; i < score.Length; i++)
@@ -90,7 +90,7 @@ public class StatisticGraph : MonoBehaviour
         }
     }
 
-    public void DrawLine(int[] score, Color lineColor)
+    public void DrawLine(int[] score, Color32 lineColor)
     {
         for (int i=0; i<score.Length-1; i++)
         {
@@ -103,7 +103,7 @@ public class StatisticGraph : MonoBehaviour
     }
 
     //float ¹è¿­
-    public void fsetDot(GameObject startDot, float[] score, Color dotColor)
+    public void fsetDot(GameObject startDot, float[] score, Color32 dotColor)
     {
         x_spacing = 2f;
         Vector3 v = new Vector3(fieldX, fieldY);
@@ -117,7 +117,7 @@ public class StatisticGraph : MonoBehaviour
         }
     }
 
-    public void fDrawLine(float[] score, Color lineColor)
+    public void fDrawLine(float[] score, Color32 lineColor)
     {
         for (int i=0; i<score.Length-1; i++)
         {

@@ -20,6 +20,10 @@ public class StatisticGraph : MonoBehaviour
     private LineRenderer line;
     List<Vector2> points = new List<Vector2>();
 
+    public static GameObject[] newDotArray = new GameObject[24];
+    public static string[] dotStr = new string[24];
+    private int count = 0;
+
     public Text cText, pText, sText;
 
     public void Graph()
@@ -84,9 +88,27 @@ public class StatisticGraph : MonoBehaviour
         {
             v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/4000);
             points.Add(new Vector3(v.x + x_spacing - lineObj.transform.position.x - 0.8f, fieldY + (float)score[i] / 4000));
-            GameObject newDot = Instantiate(dot);
-            newDot.GetComponent<Renderer>().material.color = dotColor;
-            newDot.transform.position = v;
+            newDotArray[count] = Instantiate(dot);
+            newDotArray[count].GetComponent<Renderer>().material.color = dotColor;
+            newDotArray[count].transform.position = v;
+            if (count < 7)
+            {
+                dotStr[count] = score[i] + "\nUsedHint : " + StatisticFirebase.cUsedHint[i] +
+                    "\nWrongAnswer : " + StatisticFirebase.cWrongAnswer[i];
+            }
+            else if (count < 14)
+            {
+                dotStr[count] = score[i] + "\nFoundDirtyThings : " + StatisticFirebase.pFoundDirtyThings[i] +
+                    "\nNumberOfWashings : " + StatisticFirebase.pNumberOfWashings[i] + "\nRemainingTime : " +
+                    StatisticFirebase.pRemainingTime[i];
+            }
+            else if(count < 21)
+            {
+                dotStr[count] = score[i] + "\nAsymmetryTouch : " + StatisticFirebase.sAsymmetryTouch[i] +
+                    "\nRemainTime : " + StatisticFirebase.sRemainTime[i] + "\nSymmetryTouch : " + StatisticFirebase.sSymmetryTouch[i];
+            }
+            
+            count++;
         }
     }
 
@@ -111,9 +133,23 @@ public class StatisticGraph : MonoBehaviour
         {
             v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/4000);
             points.Add(new Vector3(v.x - lineObj.transform.position.x, fieldY + (float)score[i] / 4000));
-            GameObject newDot = Instantiate(dot);
-            newDot.GetComponent<Renderer>().material.color = dotColor;
-            newDot.transform.position = v;
+            newDotArray[count] = Instantiate(dot);
+            newDotArray[count].GetComponent<Renderer>().material.color = dotColor;
+            newDotArray[count].transform.position = v;
+            if(i == 0)
+            {
+                dotStr[count] = "Confirmation Average\n" + score[i];
+            }
+            else if(i == 1)
+            {
+                dotStr[count] = "Pollution Average\n" + score[i];
+            }
+            else if(i == 2)
+            {
+                dotStr[count] = "Symmetry Average\n" + score[i];
+            }
+
+            count++;
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatisticGraph : MonoBehaviour
 {
@@ -11,13 +12,15 @@ public class StatisticGraph : MonoBehaviour
     private int[] score3; //= { 500, 3500, 4000, 5500, 3000, 7000, 7500 };
     private float[] score4 = new float[3]; //= { 5500, 3000, 7000 };
     private float fieldX, fieldY; 
-    private const float x_spacing = 0.8f; // 점간의 x간격
+    private float x_spacing = 0.8f; // 점간의 x간격
 
     float cA, pA, sA;
 
     public GameObject lineObj;
     private LineRenderer line;
     List<Vector2> points = new List<Vector2>();
+
+    public Text cText, pText, sText;
 
     public void Graph()
     {
@@ -43,21 +46,23 @@ public class StatisticGraph : MonoBehaviour
 
         setLine();
 
-        setFieldPosition(-800, 0);
+        setFieldPosition(-763, 30);
         setDot(dot, score, Color.blue);
         DrawLine(score, Color.blue);
 
-        setFieldPosition(100, 0);
+        setFieldPosition(96, 30);
         setDot(dot, score2, Color.green);
         DrawLine(score2, Color.green);
 
-        setFieldPosition(-800, -400);
+        setFieldPosition(-763, -360);
         setDot(dot, score3, Color.black);
         DrawLine(score3, Color.black);
 
-        setFieldPosition(200, -400);
+        setFieldPosition(50, -360);
         fsetDot(dot, score4, Color.yellow);
         fDrawLine(score4, Color.yellow);
+
+        setPlayText();
     }
 
     public void setFieldPosition(float x, float y)
@@ -77,8 +82,8 @@ public class StatisticGraph : MonoBehaviour
         Vector3 v = new Vector3(fieldX, fieldY);
         for(int i = 0; i < score.Length; i++)
         {
-            v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/3300);
-            points.Add(new Vector3(v.x + x_spacing - lineObj.transform.position.x - 0.8f, fieldY + (float)score[i] / 3300));
+            v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/4000);
+            points.Add(new Vector3(v.x + x_spacing - lineObj.transform.position.x - 0.8f, fieldY + (float)score[i] / 4000));
             GameObject newDot = Instantiate(dot);
             newDot.GetComponent<Renderer>().material.color = dotColor;
             newDot.transform.position = v;
@@ -100,11 +105,12 @@ public class StatisticGraph : MonoBehaviour
     //float 배열
     public void fsetDot(GameObject startDot, float[] score, Color dotColor)
     {
+        x_spacing = 2f;
         Vector3 v = new Vector3(fieldX, fieldY);
         for(int i = 0; i < score.Length; i++)
         {
-            v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/3300);
-            points.Add(new Vector3(v.x + x_spacing - lineObj.transform.position.x - 0.8f, fieldY + (float)score[i] / 3300));
+            v = new Vector3(v.x + x_spacing, fieldY + (float)score[i]/4000);
+            points.Add(new Vector3(v.x - lineObj.transform.position.x, fieldY + (float)score[i] / 4000));
             GameObject newDot = Instantiate(dot);
             newDot.GetComponent<Renderer>().material.color = dotColor;
             newDot.transform.position = v;
@@ -123,7 +129,78 @@ public class StatisticGraph : MonoBehaviour
         points.Clear();
     }
 
-    
+    public void setPlayText()
+    {
+        int cPlay = LoginController.myPlayData.ConfirmationPlay;
+        int pPlay = LoginController.myPlayData.PollutionPlay;
+        int sPlay = LoginController.myPlayData.SymmetryPlay;
+
+        string tempStr = "";
+
+        for(int i = cPlay-6; i<=cPlay; i++)
+        {
+            if(i <= 0)
+            {
+                tempStr += "-            ";
+            }
+            else
+            {
+                if(i > 9)
+                {
+                    tempStr += i + "          ";
+                }
+                else
+                {
+                    tempStr += i + "            ";
+                }
+            }
+        }
+        cText.text = tempStr;
+        tempStr = "";
+
+        for (int i = pPlay - 6; i <= pPlay; i++)
+        {
+            if (i <= 0)
+            {
+                tempStr += "-            ";
+            }
+            else
+            {
+                if (i > 9)
+                {
+                    tempStr += i + "          ";
+                }
+                else
+                {
+                    tempStr += i + "            ";
+                }
+            }
+        }
+        pText.text = tempStr;
+        tempStr = "";
+
+        for (int i = sPlay - 6; i <= sPlay; i++)
+        {
+            if (i <= 0)
+            {
+                tempStr += "-            ";
+            }
+            else
+            {
+                if (i > 9)
+                {
+                    tempStr += i + "          ";
+                }
+                else
+                {
+                    tempStr += i + "            ";
+                }
+            }
+        }
+        sText.text = tempStr;
+        tempStr = "";
+    }
+
     void Update()
     {
         

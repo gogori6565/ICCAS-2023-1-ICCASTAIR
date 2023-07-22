@@ -10,7 +10,7 @@ public class ResultScene : MonoBehaviour
     public Text timeText;
     public Text scoreText;
     public Text washText;
-    public static int[] subtractPoints; 
+    public static int[] subtractPoints;
 
     public static int totalScore;
     public static int ScoreForFirebase;
@@ -45,57 +45,57 @@ public class ResultScene : MonoBehaviour
 
         if ((ChangeScene6.findDirty - PreFirebaseRead.preDirty) > 0)
         {
-            resultText1 = "<color=green>+" + "(" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + ")" + "</color>";
+            resultText1 = "( +" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + ")";
         }
-        else if((ChangeScene6.findDirty - PreFirebaseRead.preDirty) < 0)
+        else if ((ChangeScene6.findDirty - PreFirebaseRead.preDirty) < 0)
         {
-            resultText1 = "<color=red>" + "(" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + ")" + "</color>";
+            resultText1 = "(" + (ChangeScene6.findDirty - PreFirebaseRead.preDirty).ToString() + ")";
         }
         else
         {
-            resultText1 = "<color=black>" + "(-)" + "</color>";
+            resultText1 = "(-)";
         }
 
         if ((ChangeScene6.remainTime - PreFirebaseRead.preRemainTime) > 0)
         {
-            resultText2 = "<color=green>+" + "(" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + ")" + "</color>";
+            resultText2 = "( +" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + ")";
         }
-        else if((ChangeScene6.remainTime - PreFirebaseRead.preRemainTime) < 0)
+        else if ((ChangeScene6.remainTime - PreFirebaseRead.preRemainTime) < 0)
         {
-            resultText2 = "<color=red>" + "(" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + ")" + "</color>";
+            resultText2 = "(" + (ChangeScene6.remainTime - PreFirebaseRead.preRemainTime).ToString() + ")";
         }
         else
         {
-            resultText2 = "<color=black>" + "(-)" + "</color>";
+            resultText2 = "(-)";
         }
 
         if ((WashButton.washCounting - PreFirebaseRead.preWashing) > 0)
         {
-            resultText3 = "<color=red>+" + "(" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + ")" + "</color>";
+            resultText3 = "( +" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + ")";
         }
-        else if((WashButton.washCounting - PreFirebaseRead.preWashing) < 0)
+        else if ((WashButton.washCounting - PreFirebaseRead.preWashing) < 0)
         {
-            resultText3 = "<color=green>" + "(" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + ")" + "</color>";
+            resultText3 = "(" + (WashButton.washCounting - PreFirebaseRead.preWashing).ToString() + ")";
         }
         else
         {
-            resultText3 = "<color=black>" + "(-)" + "</color>";
+            resultText3 = "(-)";
         }
 
         if ((totalScore - PreFirebaseRead.preTotalScore) > 0)
         {
-            resultText4 = "<color=green>+" + "(" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + ")" + "</color>";
+            resultText4 = "( +" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + ")";
         }
-        else if((totalScore - PreFirebaseRead.preTotalScore) < 0)
+        else if ((totalScore - PreFirebaseRead.preTotalScore) < 0)
         {
-            resultText4 = "<color=red>" + "(" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + ")" + "</color>";
+            resultText4 = "(" + (totalScore - PreFirebaseRead.preTotalScore).ToString() + ")";
         }
         else
         {
-            resultText4 = "<color=black>" + "(-)" + "</color>";
+            resultText4 = "(-)";
         }
 
-        objectText.text = "Found dirty things: " + ChangeScene6.findDirty.ToString() + "  " +resultText1;
+        objectText.text = "Found dirty things: " + ChangeScene6.findDirty.ToString() + "  " + resultText1;
         timeText.text = "Remaining Time : " + ChangeScene6.remainTime.ToString() + "sec  " + resultText2;
         washText.text = "Number of washings : " + WashButton.washCounting.ToString() + "  " + resultText3;
         scoreText.text = "" + totalScore.ToString() + "  " + resultText4;

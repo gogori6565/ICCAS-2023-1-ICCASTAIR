@@ -10,7 +10,7 @@ public class ChangeScene1 : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Login_Button":
-                SceneManager.LoadScene("Survey");
+                SceneManager.LoadScene("GameSelect");
                 break;
 
             case "SignUp_Button":

@@ -50,7 +50,7 @@ public class LoginController : MonoBehaviour
                     myPlayData = new PlayData(cPlay, pPlay, sPlay);
                     Debug.Log("³­ÀÌµµ - È®ÀÎ : " + cDiff + " ¿À¿° : " + pDiff + " ´ëÄª : " + sDiff);
                     Debug.Log("ÇÃ·¹ÀÌ È½¼ö - È®ÀÎ : " + cPlay + " ¿À¿° : " + pPlay + " ´ëÄª : " + sPlay);
-                    SceneManager.LoadScene("Survey");
+                    SceneManager.LoadScene("GameSelect");
                 }
                 else
                 {

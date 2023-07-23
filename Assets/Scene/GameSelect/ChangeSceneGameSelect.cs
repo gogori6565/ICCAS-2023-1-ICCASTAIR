@@ -25,10 +25,9 @@ public class ChangeSceneGameSelect : MonoBehaviour
                 SceneManager.LoadScene("ConfirmationRule");
                 break;
 
-            case "Storage_Compulsion":
-                SceneManager.LoadScene("StorageRule");
+            case "Statistic":
+                SceneManager.LoadScene("Statistic");
                 break;
-
         }
     }
  

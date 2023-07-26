@@ -1,14 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Threading.Tasks;
 
 public class CursorChanger : MonoBehaviour
 {
-
-    public List<string> cursorImagePaths = new List<string> {
+    public List<string> cursorImagePaths = new List<string>
+    {
         "Hand/손",
         "Hand/손1",
         "Hand/손2",
@@ -26,18 +22,12 @@ public class CursorChanger : MonoBehaviour
     private bool washChange = false; // 커서 이미지 변경 여부를 나타내는 변수
     private bool washflag = false;
 
-    private async void Start()
+    private void Start()
     {
-        foreach (string imagePath in cursorImagePaths)
-        {
-            await LoadCursorImageAsync(imagePath);
-        }
 
-        LoadCursorImageAsync(cursorImagePaths[cursorIndex]);
-
+        LoadCursorImage(cursorImagePaths[cursorIndex]);
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
     }
-
 
     private void OnDisable()
     {
@@ -64,7 +54,7 @@ public class CursorChanger : MonoBehaviour
 
             cursorIndex = 0;
 
-            LoadCursorImageAsync(cursorImagePaths[0]);
+            LoadCursorImage(cursorImagePaths[0]);
         }
         if (shouldChangeCursor)
         {
@@ -72,7 +62,10 @@ public class CursorChanger : MonoBehaviour
 
             if (LoginController.myDiffData.PollutionGameDifficulty == 3) //난이도 상
             {
-                cursorIndex++;
+                if (cursorIndex < cursorImagePaths.Count)
+                {
+                    cursorIndex++;
+                }
             }
             else  //난이도 하, 중
             {
@@ -94,7 +87,7 @@ public class CursorChanger : MonoBehaviour
                 }
             }
 
-            LoadCursorImageAsync(cursorImagePaths[cursorIndex]);
+            LoadCursorImage(cursorImagePaths[cursorIndex]);
         }
     }
 
@@ -107,33 +100,24 @@ public class CursorChanger : MonoBehaviour
     {
         washChange = true;
     }
+
     public void CursorIndexCount(int cnt)
     {
         clickCount = cnt;
     }
 
-    private async Task LoadCursorImageAsync(string imagePath)
+    private void LoadCursorImage(string imagePath)
     {
-        var handle = Addressables.LoadAssetAsync<Texture2D>(imagePath);
-        await handle.Task;
+        customCursor = Resources.Load<Texture2D>(imagePath);
 
-        if (handle.Status == AsyncOperationStatus.Succeeded)
+        if (customCursor != null)
         {
-            customCursor = handle.Result;
-
-            if (customCursor != null)
-            {
-                // 커서 이미지 로딩이 완료되면 변경
-                Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
-            }
-            else
-            {
-                Debug.LogError("커서 이미지 파일을 로드할 수 없습니다.");
-            }
+            // 커서 이미지 로딩이 완료되면 변경
+            Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
         }
         else
         {
-            Debug.LogError("커서 이미지 파일을 로드하는 동안 오류가 발생했습니다.");
+            Debug.LogError("커서 이미지 파일을 로드할 수 없습니다.");
         }
     }
 }

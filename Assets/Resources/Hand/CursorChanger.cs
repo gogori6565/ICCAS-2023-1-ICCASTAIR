@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorChanger : MonoBehaviour
 {
+    public Image myHand;
+    public Sprite[] allHand;
+    public RectTransform myHandTrans;
     public List<string> cursorImagePaths = new List<string>
     {
         "Hand/손",
@@ -24,18 +28,28 @@ public class CursorChanger : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
 
-        LoadCursorImage(cursorImagePaths[cursorIndex]);
-        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
+        allHand = Resources.LoadAll<Sprite>("Hand");
+
+        GameObject obj = GameObject.Find("HandCanvas/Hand");
+        myHand = obj.GetComponent<Image>();
+
+        myHandTrans = myHand.GetComponent<RectTransform>();
     }
 
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+    }
     private void OnDisable()
     {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
     }
 
     private void Update()
     {
+        myHandTrans.anchoredPosition = new Vector3(Input.mousePosition.x - 960f + 50f, Input.mousePosition.y - 540f - 50f);
         if (washChange)
         {
             if (LoginController.myDiffData.PollutionGameDifficulty != 3) //난이도 중, 하 에서만 
@@ -54,7 +68,8 @@ public class CursorChanger : MonoBehaviour
 
             cursorIndex = 0;
 
-            LoadCursorImage(cursorImagePaths[0]);
+            myHand.sprite = allHand[0];
+            //LoadCursorImage(cursorImagePaths[0]);
         }
         if (shouldChangeCursor)
         {
@@ -86,8 +101,8 @@ public class CursorChanger : MonoBehaviour
                     }
                 }
             }
-
-            LoadCursorImage(cursorImagePaths[cursorIndex]);
+            myHand.sprite = allHand[cursorIndex];
+            //LoadCursorImage(cursorImagePaths[cursorIndex]);
         }
     }
 
@@ -98,6 +113,7 @@ public class CursorChanger : MonoBehaviour
 
     public void WashCursorChange()
     {
+        Debug.Log("Wash");
         washChange = true;
     }
 

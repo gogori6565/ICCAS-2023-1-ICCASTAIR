@@ -200,7 +200,7 @@ public class SignUpSceneController : MonoBehaviour
 
             Debug.Log("회원가입 성공");
 
-            SceneManager.LoadScene("LogIn");
+            SceneManager.LoadScene("Survey");
         }
         else
         {

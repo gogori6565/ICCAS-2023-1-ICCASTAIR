@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 685578018}
   - component: {fileID: 685578019}
   - component: {fileID: 685578020}
+  - component: {fileID: 685578021}
   m_Layer: 0
   m_Name: donggle
   m_TagString: Untagged
@@ -574,7 +575,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CTextDiff: {fileID: 0}
-  CanvasTextC: {fileID: 685578017}
+  CanvasTextC: {fileID: 325813529}
+--- !u!65 &685578021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685578017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 23.619999, y: 23.62, z: 0.2}
+  m_Center: {x: 0.0000038146973, y: 0, z: 0}
 --- !u!1 &769818108
 GameObject:
   m_ObjectHideFlags: 0

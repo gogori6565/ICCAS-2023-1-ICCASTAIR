@@ -94,6 +94,15 @@ public class ChangeScene5 : MonoBehaviour
             case "Restart_Button":
                 SceneManager.LoadScene("ConfirmationRule");
                 break;
+
+            case "Statistics_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
+
+
+            case "Statistic_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
         }
     }
 

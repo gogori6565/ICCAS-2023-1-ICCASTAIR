@@ -14,6 +14,11 @@ public class ChangeScene6 : MonoBehaviour
             case "MainMenu_Button":
                 SceneManager.LoadScene("GameSelect");
                 break;
+
+            case "Statistics_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
+
             case "Restart_Button":
                 SceneManager.LoadScene("PollutionRule");
                 break;

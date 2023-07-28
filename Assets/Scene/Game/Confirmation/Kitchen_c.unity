@@ -824,6 +824,7 @@ MonoBehaviour:
   lightOFF: {fileID: 0}
   faucetOFF: {fileID: 0}
   windowOFF: {fileID: 0}
+  darkObj: {fileID: 0}
   btn: {fileID: 284736103}
   sprites: {fileID: 21300000, guid: 6c7d0187be62333498701c690b17af1a, type: 3}
 --- !u!114 &284736103
@@ -920,6 +921,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284736100}
   m_CullTransparentMesh: 1
+--- !u!1 &299499899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299499903}
+  - component: {fileID: 299499902}
+  - component: {fileID: 299499901}
+  - component: {fileID: 299499900}
+  m_Layer: 5
+  m_Name: dark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!223 &299499900
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299499899}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: -950258435
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &299499901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299499899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &299499902
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299499899}
+  m_CullTransparentMesh: 1
+--- !u!224 &299499903
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299499899}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_Children: []
+  m_Father: {fileID: 1939395281}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -52.797997}
+  m_SizeDelta: {x: 1920, y: 882.74}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &320735406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1770,7 @@ MonoBehaviour:
   lightOFF: {fileID: 0}
   faucetOFF: {fileID: 0}
   windowOFF: {fileID: 0}
+  darkObj: {fileID: 0}
   btn: {fileID: 493631854}
   sprites: {fileID: 21300000, guid: c04c1a9a18a3050498745654a99fb9b3, type: 3}
 --- !u!114 &493631854
@@ -3376,6 +3475,7 @@ MonoBehaviour:
   lightOFF: {fileID: 0}
   faucetOFF: {fileID: 0}
   windowOFF: {fileID: 0}
+  darkObj: {fileID: 0}
   btn: {fileID: 1538230120}
   sprites: {fileID: 21300000, guid: de2d4f55a46c69440a5b566e2d0e9e40, type: 3}
 --- !u!114 &1538230120
@@ -3779,6 +3879,7 @@ MonoBehaviour:
   lightOFF: {fileID: 0}
   faucetOFF: {fileID: 0}
   windowOFF: {fileID: 0}
+  darkObj: {fileID: 0}
   btn: {fileID: 1751295663}
   sprites: {fileID: 21300000, guid: e322dae69560a0d4eb5fdbc1d1a9efa5, type: 3}
 --- !u!114 &1751295663
@@ -4331,6 +4432,7 @@ RectTransform:
   - {fileID: 320735407}
   - {fileID: 935742403}
   - {fileID: 1415684656}
+  - {fileID: 299499903}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4677,6 +4779,7 @@ MonoBehaviour:
   lightOFF: {fileID: 0}
   faucetOFF: {fileID: 0}
   windowOFF: {fileID: 0}
+  darkObj: {fileID: 0}
   btn: {fileID: 2063488842}
   sprites: {fileID: 21300000, guid: 4d7629b6fdfd8974f932b6406ac6b4ff, type: 3}
 --- !u!114 &2063488842

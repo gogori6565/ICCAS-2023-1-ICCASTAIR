@@ -9,11 +9,12 @@ public class LivingRoomScene : MonoBehaviour
     public Button tvObj, psObj, lightObj, fanObj, windowObj, carkeyObj, housekeyObj, getbackObj;
     public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
+    public Image darkObj;
 
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color carkeyCol, housekeyCol;
+    Color carkeyCol, housekeyCol, darkCol;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class LivingRoomScene : MonoBehaviour
         carkeyObj = GameObject.Find("Carkey").GetComponent<Button>();
         housekeyObj = GameObject.Find("Housekey").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -68,6 +71,10 @@ public class LivingRoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+
+            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+            darkCol.a = 0.3f;
+            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.Fan_LivingRoom == 1)
         {
@@ -136,6 +143,10 @@ public class LivingRoomScene : MonoBehaviour
                 {
                     GV.Light_LivingRoom = 1;
                     btnImage.sprite = sprites;
+
+                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+                    darkCol.a = 0.3f;
+                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "PowerStrip_LivingRoom":

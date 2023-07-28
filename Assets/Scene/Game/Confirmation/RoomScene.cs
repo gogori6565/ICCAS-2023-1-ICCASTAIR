@@ -5,18 +5,18 @@ using System.ComponentModel;
 using System.Runtime.Versioning;
 using UnityEngine;
 using UnityEngine.UI;
-//using static System.Net.Mime.MediaTypeNames;
 
 public class RoomScene : MonoBehaviour
 {
     public Button comObj, psObj, lightObj, fanObj, windowObj, phoneObj, walletObj, getbackObj;
     public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
+    public Image darkObj;
 
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color phoneCol, walletCol;
+    Color phoneCol, walletCol, darkCol;
 
     void Start()
     {
@@ -28,6 +28,8 @@ public class RoomScene : MonoBehaviour
         phoneObj = GameObject.Find("Phone").GetComponent<Button>();
         walletObj = GameObject.Find("Wallet").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -71,6 +73,10 @@ public class RoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+
+            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+            darkCol.a = 0.3f;
+            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.Fan_Room == 1)
         {
@@ -139,6 +145,10 @@ public class RoomScene : MonoBehaviour
                 {
                     GV.Light_Room = 1;
                     btnImage.sprite = sprites;
+
+                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+                    darkCol.a = 0.3f;
+                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "PowerStrip_Room":

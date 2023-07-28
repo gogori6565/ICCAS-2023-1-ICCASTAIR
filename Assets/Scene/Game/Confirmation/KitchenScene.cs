@@ -8,11 +8,12 @@ public class KitchenScene : MonoBehaviour
     public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj, getbackObj;
     public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
     string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
-    
+    public Image darkObj;
+
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color fakCol, tissueCol;
+    Color fakCol, tissueCol, darkCol;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class KitchenScene : MonoBehaviour
         fakObj = GameObject.Find("FirstAidKit").GetComponent<Button>();
         tissueObj = GameObject.Find("Tissue").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+
+        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -67,6 +70,10 @@ public class KitchenScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+
+            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+            darkCol.a = 0.3f;
+            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.faucet == 1)
         {
@@ -142,6 +149,10 @@ public class KitchenScene : MonoBehaviour
                 {
                     GV.Light_Kitchen = 1;
                     btnImage.sprite = sprites;
+
+                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+                    darkCol.a = 0.3f;
+                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "faucet":

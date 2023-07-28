@@ -21,6 +21,10 @@ public class ChangeScene4 : MonoBehaviour
                 SceneManager.LoadScene("Show_Symmetry");
                 break;
 
+            case "Statistics_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
+
                 //10초 지나면 넘어가는 화면 전환 필요
                 //제한 시간 끝나면 결과 화면으로 전환 필요
 

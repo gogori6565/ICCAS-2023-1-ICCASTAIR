@@ -28,6 +28,8 @@ public class ChangeSceneGameSelect : MonoBehaviour
             case "Statistic":
                 SceneManager.LoadScene("Statistic");
                 break;
+
+
         }
     }
  

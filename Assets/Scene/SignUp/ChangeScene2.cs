@@ -17,6 +17,10 @@ public class ChangeScene2 : MonoBehaviour
                 SceneManager.LoadScene("LogIn");
                 break;
 
+            case "Statistics_Button":
+                SceneManager.LoadScene("Statistic");
+                break;
+
            
         }
     }

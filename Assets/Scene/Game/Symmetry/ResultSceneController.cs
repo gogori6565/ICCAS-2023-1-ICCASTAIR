@@ -115,6 +115,7 @@ public class ResultSceneController : MonoBehaviour
         newGameData = PlaySceneController.myGameData;
 
         myScore = getScore(newGameData);
+        LevelDownController(newGameData.diff, myScore);
         scoreText.text = myScore + "";
         lowLevel.text = "Lv" + newGameData.diff;
         if(newGameData.diff != 3)
@@ -134,6 +135,24 @@ public class ResultSceneController : MonoBehaviour
         LoginController.myPlayData.SymmetryPlay++; // 플레이 횟수
 
         WriteDB(); // firebase에 저장하기
+    }
+
+    public void LevelDownController(int diff,int score)
+    {
+        if(diff == 2)
+        {
+            if(score < 3000)
+            {
+                LevelDownWriteDB();
+            }
+        }
+        else if(diff == 3)
+        {
+            if(score < 6000)
+            {
+                LevelDownWriteDB();
+            }
+        }
     }
 
     // 점수 설정
@@ -238,6 +257,15 @@ public class ResultSceneController : MonoBehaviour
         if(LoginController.myDiffData.SymmetryGameDifficulty != 3)
         {
             LoginController.myDiffData.SymmetryGameDifficulty++;
+            reference.Child(LoginController.myID).Child("SymmetryGameDifficulty").SetValueAsync(LoginController.myDiffData.SymmetryGameDifficulty);
+        }
+    }
+
+    public void LevelDownWriteDB()
+    {
+        if(LoginController.myDiffData.SymmetryGameDifficulty != 1)
+        {
+            LoginController.myDiffData.SymmetryGameDifficulty--;
             reference.Child(LoginController.myID).Child("SymmetryGameDifficulty").SetValueAsync(LoginController.myDiffData.SymmetryGameDifficulty);
         }
     }

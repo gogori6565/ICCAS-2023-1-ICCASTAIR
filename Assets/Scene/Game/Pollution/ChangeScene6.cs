@@ -22,6 +22,7 @@ public class ChangeScene6 : MonoBehaviour
             case "Restart_Button":
                 SceneManager.LoadScene("PollutionRule");
                 break;
+
             //¾À ÀüÈ¯(·£´ý)
             case "GameStart_Button":
                 SceneCall();

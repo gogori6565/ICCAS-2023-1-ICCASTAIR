@@ -33,14 +33,11 @@ public class SignUpSceneController : MonoBehaviour
     public Text yearErrorText;
     public Text genderErrorText;
 
-    public string myGender = "";
-
-    public static string myID = "";
+    private string myGender = "";
 
     // Use this for initialization
     void Start()
     {
-        Debug.Log(gameObject);
         FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
         reference = FirebaseDatabase.DefaultInstance.GetReference("UserData");
         reference2 = FirebaseDatabase.DefaultInstance.GetReference("GameData");
@@ -182,7 +179,6 @@ public class SignUpSceneController : MonoBehaviour
         // 모든 체크가 완료되면 회원가입 성공
         if (checkID && checkPW && checkDay && checkMonth && checkYear && checkGender)
         {
-            myID = idText.text;
             // 회원 정보 저장
             SignUpData myData = new SignUpData(pwText.text,
                 yearText.text + "/" + monthText.text + "/" + dayText.text, myGender);
@@ -202,7 +198,7 @@ public class SignUpSceneController : MonoBehaviour
 
             Debug.Log("회원가입 성공");
 
-            SceneManager.LoadScene("Survey");
+            SceneManager.LoadScene("LogIn");
         }
         else
         {
@@ -224,6 +220,12 @@ public class SignUpSceneController : MonoBehaviour
         genderErrorText.color = Color.blue;
         genderErrorText.text = "Female";
         myGender = "Female";
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     class SignUpData

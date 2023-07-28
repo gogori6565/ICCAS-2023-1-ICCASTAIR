@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConfirmDiffText : MonoBehaviour
+public class CDiffText : MonoBehaviour
 {
     public Text CTextDiff;
     public GameObject CanvasTextC;
@@ -11,13 +11,14 @@ public class ConfirmDiffText : MonoBehaviour
 
     void Start()
     {
-        TextDiff.text = "level of difficulty \n\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
+        CTextDiff.text = "level of difficulty \n\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
     }
 
     void OnMouseDown()
     {
         clickEvent = !clickEvent;
-        CanvasText.SetActive(clickEvent);
+        CanvasTextC.SetActive(clickEvent);
 
     }
 }
+

@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 325813532}
   - component: {fileID: 325813531}
   - component: {fileID: 325813530}
+  - component: {fileID: 325813534}
   m_Layer: 5
   m_Name: CanvasTextC
   m_TagString: Untagged
@@ -386,6 +387,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &325813534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325813529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b412e7609ce852948a36ae9d7f3ebbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581949670
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685578018}
   - component: {fileID: 685578019}
+  - component: {fileID: 685578020}
   m_Layer: 0
   m_Name: donggle
   m_TagString: Untagged
@@ -547,6 +561,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &685578020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685578017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4909957246a9c84f8098af64a058a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CTextDiff: {fileID: 0}
+  CanvasTextC: {fileID: 685578017}
 --- !u!1 &769818108
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,8 +829,9 @@ GameObject:
   - component: {fileID: 1165542892}
   - component: {fileID: 1165542891}
   - component: {fileID: 1165542890}
+  - component: {fileID: 1165542893}
   m_Layer: 5
-  m_Name: TextDiff
+  m_Name: CTextDiff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,6 +922,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165542888}
   m_CullTransparentMesh: 1
+--- !u!114 &1165542893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165542888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4909957246a9c84f8098af64a058a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CTextDiff: {fileID: 1165542891}
+  CanvasTextC: {fileID: 0}
 --- !u!1 &1206248654
 GameObject:
   m_ObjectHideFlags: 0

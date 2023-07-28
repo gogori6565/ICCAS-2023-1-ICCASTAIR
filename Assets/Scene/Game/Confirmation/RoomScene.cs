@@ -18,8 +18,12 @@ public class RoomScene : MonoBehaviour
 
     Color phoneCol, walletCol, darkCol;
 
+    private AudioSource turnSound;
+
     void Start()
     {
+        setAudioSetting();
+
         comObj = GameObject.Find("computer").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_Room").GetComponent<Button>();
         lightObj = GameObject.Find("Light_Room").GetComponent<Button>();
@@ -102,6 +106,13 @@ public class RoomScene : MonoBehaviour
         }
     }
 
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("TurnSound");
+        turnSound = obj.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (!hasFoundToDoList && GV.outside == 1)
@@ -136,6 +147,7 @@ public class RoomScene : MonoBehaviour
             case "computer":
                 if (GV.randomNumbers.IndexOf(11) != -1)
                 {
+                    turnSound.Play();
                     GV.computer = 1;
                     btnImage.sprite = sprites;
                 }
@@ -143,6 +155,7 @@ public class RoomScene : MonoBehaviour
             case "Light_Room":
                 if (GV.randomNumbers.IndexOf(2) != -1)
                 {
+                    turnSound.Play();
                     GV.Light_Room = 1;
                     btnImage.sprite = sprites;
 
@@ -154,6 +167,7 @@ public class RoomScene : MonoBehaviour
             case "PowerStrip_Room":
                 if (GV.randomNumbers.IndexOf(6) != -1)
                 {
+                    turnSound.Play();
                     GV.PowerStrip_Room = 1;
                     btnImage.sprite = sprites;
                 }
@@ -161,6 +175,7 @@ public class RoomScene : MonoBehaviour
             case "Fan_Room":
                 if (GV.randomNumbers.IndexOf(4) != -1)
                 {
+                    turnSound.Play();
                     GV.Fan_Room = 1;
                     btnImage.sprite = sprites;
                 }
@@ -168,6 +183,7 @@ public class RoomScene : MonoBehaviour
             case "Window_Room":
                 if (GV.randomNumbers.IndexOf(14) != -1)
                 {
+                    turnSound.Play();
                     GV.Window_Room = 1;
                     btnImage.sprite = sprites;
                 }

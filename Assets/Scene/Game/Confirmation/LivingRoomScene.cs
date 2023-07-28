@@ -16,8 +16,12 @@ public class LivingRoomScene : MonoBehaviour
 
     Color carkeyCol, housekeyCol, darkCol;
 
+    private AudioSource turnSound;
+
     void Start()
     {
+        setAudioSetting();
+
         tvObj = GameObject.Find("tv").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_LivingRoom").GetComponent<Button>();
         lightObj = GameObject.Find("Light_LivingRoom").GetComponent<Button>();
@@ -100,6 +104,13 @@ public class LivingRoomScene : MonoBehaviour
         }
     }
 
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("TurnSound");
+        turnSound = obj.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (!hasFoundToDoList && GV.outside == 1)
@@ -134,6 +145,7 @@ public class LivingRoomScene : MonoBehaviour
             case "tv":
                 if(GV.randomNumbers.IndexOf(3) != -1)
                 {
+                    turnSound.Play();
                     GV.tv = 1;
                     btnImage.sprite = sprites;
                 }
@@ -141,6 +153,7 @@ public class LivingRoomScene : MonoBehaviour
             case "Light_LivingRoom":
                 if (GV.randomNumbers.IndexOf(0) != -1)
                 {
+                    turnSound.Play();
                     GV.Light_LivingRoom = 1;
                     btnImage.sprite = sprites;
 
@@ -152,6 +165,7 @@ public class LivingRoomScene : MonoBehaviour
             case "PowerStrip_LivingRoom":
                 if (GV.randomNumbers.IndexOf(7) != -1)
                 {
+                    turnSound.Play();
                     GV.PowerStrip_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }
@@ -159,6 +173,7 @@ public class LivingRoomScene : MonoBehaviour
             case "Fan_LivingRoom":
                 if (GV.randomNumbers.IndexOf(5) != -1)
                 {
+                    turnSound.Play();
                     GV.Fan_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }
@@ -166,6 +181,7 @@ public class LivingRoomScene : MonoBehaviour
             case "Window_LivingRoom":
                 if (GV.randomNumbers.IndexOf(12) != -1)
                 {
+                    turnSound.Play();
                     GV.Window_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }

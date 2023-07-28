@@ -9,6 +9,12 @@ public class ChangeScene5 : MonoBehaviour
 {
     public Button outsideBtn;
     private int complete;
+    private AudioSource doorSound, outSound;
+
+    void Start()
+    {
+        setAudioSetting();
+    }
 
     public void ChangeSceneBtn()
     {
@@ -23,10 +29,12 @@ public class ChangeScene5 : MonoBehaviour
                 break;
 
             case "OpenDoor_Button":
+                doorSound.Play();
                 SceneManager.LoadScene("Entrance");
                 break;
 
             case "CloseDoor_Button":
+                doorSound.Play();
                 SceneManager.LoadScene("EntranceOpen");
                 break;
 
@@ -38,6 +46,7 @@ public class ChangeScene5 : MonoBehaviour
                 ActiveOutside();
                 if (complete == 1) //ToDoList complete?
                 {
+                    outSound.Play();
                     GV.outside = 1;
                     GV.startTime = Time.time;
                     SceneManager.LoadScene("Puzzle");
@@ -104,6 +113,16 @@ public class ChangeScene5 : MonoBehaviour
                 SceneManager.LoadScene("Statistic");
                 break;
         }
+    }
+
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("DoorSound");
+        doorSound = obj.GetComponent<AudioSource>();
+
+        GameObject outobj = GameObject.Find("OutSound");
+        outSound = outobj.GetComponent<AudioSource>();
     }
 
     void Update()

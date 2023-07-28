@@ -15,8 +15,12 @@ public class KitchenScene : MonoBehaviour
 
     Color fakCol, tissueCol, darkCol;
 
+    private AudioSource turnSound, foucetSound;
+
     void Start()
     {
+        setAudioSetting();
+
         grObj = GameObject.Find("GasRange").GetComponent<Button>();
         gvObj = GameObject.Find("GasValve").GetComponent<Button>();
         lightObj = GameObject.Find("Light_Kitchen").GetComponent<Button>();
@@ -99,6 +103,16 @@ public class KitchenScene : MonoBehaviour
         }
     }
 
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("TurnSound");
+        turnSound = obj.GetComponent<AudioSource>();
+
+        GameObject fobj = GameObject.Find("FaucetSound");
+        foucetSound = fobj.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (!hasFoundToDoList && GV.outside == 1)
@@ -133,6 +147,7 @@ public class KitchenScene : MonoBehaviour
             case "GasRange":
                 if (GV.randomNumbers.IndexOf(8) != -1)
                 {
+                    turnSound.Play();
                     GV.GasRange = 1;
                     btnImage.sprite = sprites;
                 }
@@ -140,6 +155,7 @@ public class KitchenScene : MonoBehaviour
             case "GasValve":
                 if (GV.randomNumbers.IndexOf(9) != -1)
                 {
+                    turnSound.Play();
                     GV.GasValve = 1;
                     btnImage.sprite = sprites;
                 }
@@ -147,6 +163,7 @@ public class KitchenScene : MonoBehaviour
             case "Light_Kitchen":
                 if (GV.randomNumbers.IndexOf(1) != -1)
                 {
+                    turnSound.Play();
                     GV.Light_Kitchen = 1;
                     btnImage.sprite = sprites;
 
@@ -158,6 +175,7 @@ public class KitchenScene : MonoBehaviour
             case "faucet":
                 if (GV.randomNumbers.IndexOf(10) != -1)
                 {
+                    foucetSound.Play();
                     GV.faucet = 1;
                     btnImage.sprite = sprites;
                 }
@@ -165,6 +183,7 @@ public class KitchenScene : MonoBehaviour
             case "Window_Kitchen":
                 if (GV.randomNumbers.IndexOf(13) != -1)
                 {
+                    turnSound.Play();
                     GV.Window_Kitchen = 1;
                     btnImage.sprite = sprites;
                 }

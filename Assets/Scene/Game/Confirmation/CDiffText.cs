@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class CDiffText : MonoBehaviour
 {
-    public Text CTextDiff;
+    public GameObject TextObj;
     public GameObject CanvasTextC;
     private bool clickEvent = true;
 
     void Start()
     {
-        CTextDiff.text = "level of difficulty \n\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
+        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
     }
 
     void OnMouseDown()

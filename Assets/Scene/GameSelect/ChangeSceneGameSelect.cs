@@ -29,6 +29,10 @@ public class ChangeSceneGameSelect : MonoBehaviour
                 SceneManager.LoadScene("Statistic");
                 break;
 
+            case "MainMenu_Button":
+                SceneManager.LoadScene("LogIn");
+                break;
+
 
         }
     }

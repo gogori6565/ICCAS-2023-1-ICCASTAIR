@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class GamePlay : MonoBehaviour
 {
     public GameObject dirtyObject; // Dirty 오브젝트를 Inspector에서 할당
+
+    public GameObject cleanSound;
+    public AudioSource cleanAudio;
+
+
+
+
     private List<Transform> elements = new List<Transform>(); // Dirty 오브젝트의 자식 요소들을 저장할 리스트
 
     private int clickCount = 0; // 클릭된 요소의 카운트 변수
@@ -21,6 +28,8 @@ public class GamePlay : MonoBehaviour
     private void Start()
     {
         Instance = this;
+
+        cleanAudio = cleanSound.GetComponent<AudioSource>();
 
         //게임요소
         GetElements();
@@ -107,6 +116,7 @@ public class GamePlay : MonoBehaviour
             return; // 클릭 불가능한 상태일 때는 클릭 이벤트를 무시하고 종료
         }
 
+        cleanAudio.Play();
         clickCount++; // 클릭 카운트 증가
         Debug.Log("Click Count: " + clickCount); // 클릭 카운트를 콘솔창에 표시
 

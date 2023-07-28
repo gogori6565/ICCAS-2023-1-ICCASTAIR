@@ -11,10 +11,21 @@ public class WashButton : MonoBehaviour
     public static int subtractPointSum = 0;
     public static int washCounting = 0;
 
+
+    public GameObject washSound;
+    public AudioSource washAudio;
+
+    private void Start()
+    {
+        washAudio = washSound.GetComponent<AudioSource>();
+    }
+
+
     public void OnButtonClick()
     {
         if (washPossible)
         {
+            washAudio.Play();
             washCounting++;
             subtractPointIndex = CursorChanger.cursorIndex;
 

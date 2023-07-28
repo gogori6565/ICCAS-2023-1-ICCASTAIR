@@ -20,6 +20,9 @@ public class ResultScene : MonoBehaviour
     public GameObject emptyGage;
     public GameObject fillGage;
 
+    public GameObject gageSound;
+    public AudioSource gageAudio;
+
     private void Start()
     {
         objectText = GameObject.Find("objectText").GetComponent<Text>();
@@ -95,10 +98,14 @@ public class ResultScene : MonoBehaviour
             resultText4 = "(-)";
         }
 
+        gageAudio = gageSound.GetComponent<AudioSource>();
+
         objectText.text = "Found dirty things: " + ChangeScene6.findDirty.ToString() + "  " + resultText1;
         timeText.text = "Remaining Time : " + ChangeScene6.remainTime.ToString() + "sec  " + resultText2;
         washText.text = "Number of washings : " + WashButton.washCounting.ToString() + "  " + resultText3;
         scoreText.text = "" + totalScore.ToString() + "  " + resultText4;
+
+
     }
 
     private bool gageSetting = false;
@@ -139,11 +146,17 @@ public class ResultScene : MonoBehaviour
         {
             if (temp >= percent) // 설정된 퍼센트값보다 크거나 같으면 애니메이션 종료
             {
+              
                 gageSetting = false;
             }
             fillGage.GetComponent<RectTransform>().anchoredPosition = new Vector3(-(width / 2) + width * temp / 2, y, 0); // 색깔 게이지바의 길이 설정
             fillGage.transform.localScale = new Vector3(temp, 1, 0); // 색깔 게이지바의 위치 설정
             temp += 0.005f;
+
+            if(temp >= 1f)
+            {
+                gageAudio.Play();
+            }
         }
     }
 

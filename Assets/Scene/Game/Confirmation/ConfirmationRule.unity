@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 624, y: 0}
+  m_AnchoredPosition: {x: 705, y: -9}
   m_SizeDelta: {x: 44.01, y: 24.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &100712079
@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 325813532}
   - component: {fileID: 325813531}
   - component: {fileID: 325813530}
-  - component: {fileID: 325813534}
   m_Layer: 5
   m_Name: CanvasTextC
   m_TagString: Untagged
@@ -387,18 +386,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &325813534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325813529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b412e7609ce852948a36ae9d7f3ebbf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &581949670
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685578017}
   m_LocalRotation: {x: -0, y: -0, z: 0.02314434, w: -0.99973214}
-  m_LocalPosition: {x: 667.0943, y: -324.85318, z: -9719.999}
+  m_LocalPosition: {x: 761.4, y: -324.85318, z: -9719.999}
   m_LocalScale: {x: 15.1471615, y: 15.396332, z: 108}
   m_Children: []
   m_Father: {fileID: 1789694153}
@@ -574,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4909957246a9c84f8098af64a058a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CTextDiff: {fileID: 0}
+  TextObj: {fileID: 1165542888}
   CanvasTextC: {fileID: 325813529}
 --- !u!65 &685578021
 BoxCollider:
@@ -867,7 +854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 642, y: 11}
+  m_AnchoredPosition: {x: 723, y: 2}
   m_SizeDelta: {x: 334.28, y: 282.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1165542890
@@ -948,8 +935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4909957246a9c84f8098af64a058a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CTextDiff: {fileID: 1165542891}
-  CanvasTextC: {fileID: 0}
+  TextObj: {fileID: 1165542888}
+  CanvasTextC: {fileID: 325813529}
 --- !u!1 &1206248654
 GameObject:
   m_ObjectHideFlags: 0

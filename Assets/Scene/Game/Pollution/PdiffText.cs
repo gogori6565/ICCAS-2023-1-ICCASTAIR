@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PdiffText : MonoBehaviour
 {
-    public Text PTextDiff;
+    public GameObject TextObj;
     public GameObject CanvasTextP;
     private bool clickEvent = true;
 
     void Start()
     {
-        PTextDiff.text = "level of difficulty \n\n" + "Pollution : " + LoginController.myDiffData.PollutionGameDifficulty.ToString();
+        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Pollution : " + LoginController.myDiffData.PollutionGameDifficulty.ToString();
     }
 
     void OnMouseDown()

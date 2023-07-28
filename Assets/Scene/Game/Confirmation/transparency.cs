@@ -11,21 +11,10 @@ public class transparency : MonoBehaviour
 
     Color color;
 
-    private AudioSource bagSound;
-
     void Start()
     {
-        setAudioSetting();
-
         //클릭 이벤트 연결
         btn.onClick.AddListener(HideObject);
-    }
-
-    // 사운드 소스 불러오기
-    public void setAudioSetting()
-    {
-        GameObject obj = GameObject.Find("BagSound");
-        bagSound = obj.GetComponent<AudioSource>();
     }
 
     public void HideObject()
@@ -39,7 +28,6 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(17) != -1)
                 {
                     GV.Carkey = 1;
-                    bagSound.Play();
 
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
@@ -50,8 +38,7 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(18) != -1)
                 {
                     GV.Housekey = 1;
-                    bagSound.Play();
-
+                    
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
                     btn.GetComponent<UnityEngine.UI.Image>().color = color;
@@ -61,8 +48,7 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(20) != -1)
                 {
                     GV.FirstAidKit = 1;
-                    bagSound.Play();
-
+                    
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
                     btn.GetComponent<UnityEngine.UI.Image>().color = color;
@@ -72,8 +58,7 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(19) != -1)
                 {
                     GV.Tissue = 1;
-                    bagSound.Play();
-
+                    
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
                     btn.GetComponent<UnityEngine.UI.Image>().color = color;
@@ -83,8 +68,7 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(16) != -1)
                 {
                     GV.Phone = 1;
-                    bagSound.Play();
-
+                    
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
                     btn.GetComponent<UnityEngine.UI.Image>().color = color;
@@ -94,8 +78,7 @@ public class transparency : MonoBehaviour
                 if (GV.randomNumbers.IndexOf(15) != -1)
                 {
                     GV.Wallet = 1;
-                    bagSound.Play();
-
+                    
                     color = btn.GetComponent<UnityEngine.UI.Image>().color;
                     color.a = 0.3f;
                     btn.GetComponent<UnityEngine.UI.Image>().color = color;

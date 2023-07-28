@@ -8,19 +8,14 @@ public class KitchenScene : MonoBehaviour
     public Button grObj, gvObj, lightObj, faucetObj, windowObj, fakObj, tissueObj, getbackObj;
     public Sprite grOFF, gvOFF, lightOFF, faucetOFF, windowOFF;
     string grOFFPath, gvOFFpath, lightOFFpath, faucetOFFpath, windowOFFpath;
-    public Image darkObj;
-
+    
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color fakCol, tissueCol, darkCol;
-
-    private AudioSource turnSound, foucetSound;
+    Color fakCol, tissueCol;
 
     void Start()
     {
-        setAudioSetting();
-
         grObj = GameObject.Find("GasRange").GetComponent<Button>();
         gvObj = GameObject.Find("GasValve").GetComponent<Button>();
         lightObj = GameObject.Find("Light_Kitchen").GetComponent<Button>();
@@ -29,8 +24,6 @@ public class KitchenScene : MonoBehaviour
         fakObj = GameObject.Find("FirstAidKit").GetComponent<Button>();
         tissueObj = GameObject.Find("Tissue").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
-
-        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -74,10 +67,6 @@ public class KitchenScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
-
-            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
-            darkCol.a = 0.3f;
-            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.faucet == 1)
         {
@@ -101,16 +90,6 @@ public class KitchenScene : MonoBehaviour
             tissueCol.a = 0.3f;
             tissueObj.GetComponent<UnityEngine.UI.Image>().color = tissueCol;
         }
-    }
-
-    // 사운드 소스 불러오기
-    public void setAudioSetting()
-    {
-        GameObject obj = GameObject.Find("TurnSound");
-        turnSound = obj.GetComponent<AudioSource>();
-
-        GameObject fobj = GameObject.Find("FaucetSound");
-        foucetSound = fobj.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -147,7 +126,6 @@ public class KitchenScene : MonoBehaviour
             case "GasRange":
                 if (GV.randomNumbers.IndexOf(8) != -1)
                 {
-                    turnSound.Play();
                     GV.GasRange = 1;
                     btnImage.sprite = sprites;
                 }
@@ -155,7 +133,6 @@ public class KitchenScene : MonoBehaviour
             case "GasValve":
                 if (GV.randomNumbers.IndexOf(9) != -1)
                 {
-                    turnSound.Play();
                     GV.GasValve = 1;
                     btnImage.sprite = sprites;
                 }
@@ -163,19 +140,13 @@ public class KitchenScene : MonoBehaviour
             case "Light_Kitchen":
                 if (GV.randomNumbers.IndexOf(1) != -1)
                 {
-                    turnSound.Play();
                     GV.Light_Kitchen = 1;
                     btnImage.sprite = sprites;
-
-                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
-                    darkCol.a = 0.3f;
-                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "faucet":
                 if (GV.randomNumbers.IndexOf(10) != -1)
                 {
-                    foucetSound.Play();
                     GV.faucet = 1;
                     btnImage.sprite = sprites;
                 }
@@ -183,7 +154,6 @@ public class KitchenScene : MonoBehaviour
             case "Window_Kitchen":
                 if (GV.randomNumbers.IndexOf(13) != -1)
                 {
-                    turnSound.Play();
                     GV.Window_Kitchen = 1;
                     btnImage.sprite = sprites;
                 }

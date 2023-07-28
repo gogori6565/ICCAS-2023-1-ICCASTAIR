@@ -14,12 +14,8 @@ public class Result : MonoBehaviour
     private string leftlv, rightlv;
     private int hintdiff, faildiff, scorediff; //이전과 차이 (힌트, 오답, 점수)
 
-    private AudioSource levelupSound;
-
     void Start()
     {
-        setAudioSetting();
-
         Score = GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>();
         LeftLV = GameObject.Find("LeftLV").GetComponent<UnityEngine.UI.Text>();
         RightLV = GameObject.Find("RightLV").GetComponent<UnityEngine.UI.Text>();
@@ -196,18 +192,6 @@ public class Result : MonoBehaviour
             fillGage.GetComponent<RectTransform>().anchoredPosition = new Vector3(-(width / 2) + width * temp / 2, y, 0); // 색깔 게이지바의 길이 설정
             fillGage.transform.localScale = new Vector3(temp, 1, 0); // 색깔 게이지바의 위치 설정
             temp += 0.005f;
-
-            if(temp >= 1f)
-            {
-                levelupSound.Play();
-            }
         }
-    }
-
-    // 사운드 소스 불러오기
-    public void setAudioSetting()
-    {
-        GameObject obj = GameObject.Find("LevelupSound");
-        levelupSound = obj.GetComponent<AudioSource>();
     }
 }

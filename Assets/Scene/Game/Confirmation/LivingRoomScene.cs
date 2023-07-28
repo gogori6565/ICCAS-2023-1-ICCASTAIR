@@ -9,19 +9,14 @@ public class LivingRoomScene : MonoBehaviour
     public Button tvObj, psObj, lightObj, fanObj, windowObj, carkeyObj, housekeyObj, getbackObj;
     public Sprite tvOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string tvOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
-    public Image darkObj;
 
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color carkeyCol, housekeyCol, darkCol;
-
-    private AudioSource turnSound;
+    Color carkeyCol, housekeyCol;
 
     void Start()
     {
-        setAudioSetting();
-
         tvObj = GameObject.Find("tv").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_LivingRoom").GetComponent<Button>();
         lightObj = GameObject.Find("Light_LivingRoom").GetComponent<Button>();
@@ -30,8 +25,6 @@ public class LivingRoomScene : MonoBehaviour
         carkeyObj = GameObject.Find("Carkey").GetComponent<Button>();
         housekeyObj = GameObject.Find("Housekey").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
-
-        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -75,10 +68,6 @@ public class LivingRoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
-
-            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
-            darkCol.a = 0.3f;
-            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.Fan_LivingRoom == 1)
         {
@@ -102,13 +91,6 @@ public class LivingRoomScene : MonoBehaviour
             housekeyCol.a = 0.3f;
             housekeyObj.GetComponent<UnityEngine.UI.Image>().color = housekeyCol;
         }
-    }
-
-    // 사운드 소스 불러오기
-    public void setAudioSetting()
-    {
-        GameObject obj = GameObject.Find("TurnSound");
-        turnSound = obj.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -145,7 +127,6 @@ public class LivingRoomScene : MonoBehaviour
             case "tv":
                 if(GV.randomNumbers.IndexOf(3) != -1)
                 {
-                    turnSound.Play();
                     GV.tv = 1;
                     btnImage.sprite = sprites;
                 }
@@ -153,19 +134,13 @@ public class LivingRoomScene : MonoBehaviour
             case "Light_LivingRoom":
                 if (GV.randomNumbers.IndexOf(0) != -1)
                 {
-                    turnSound.Play();
                     GV.Light_LivingRoom = 1;
                     btnImage.sprite = sprites;
-
-                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
-                    darkCol.a = 0.3f;
-                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "PowerStrip_LivingRoom":
                 if (GV.randomNumbers.IndexOf(7) != -1)
                 {
-                    turnSound.Play();
                     GV.PowerStrip_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }
@@ -173,7 +148,6 @@ public class LivingRoomScene : MonoBehaviour
             case "Fan_LivingRoom":
                 if (GV.randomNumbers.IndexOf(5) != -1)
                 {
-                    turnSound.Play();
                     GV.Fan_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }
@@ -181,7 +155,6 @@ public class LivingRoomScene : MonoBehaviour
             case "Window_LivingRoom":
                 if (GV.randomNumbers.IndexOf(12) != -1)
                 {
-                    turnSound.Play();
                     GV.Window_LivingRoom = 1;
                     btnImage.sprite = sprites;
                 }

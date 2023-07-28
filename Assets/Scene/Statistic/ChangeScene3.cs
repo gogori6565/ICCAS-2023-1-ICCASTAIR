@@ -13,8 +13,9 @@ public class ChangeScene3 : MonoBehaviour
                 SceneManager.LoadScene("GameSelect");
                 break;
 
-         
-
+            case "GameSelect_Button":
+                SceneManager.LoadScene("Login");
+                break;
 
         }
     }

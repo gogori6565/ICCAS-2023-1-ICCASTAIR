@@ -33,6 +33,7 @@ public class SignUpSceneController : MonoBehaviour
     public Text yearErrorText;
     public Text genderErrorText;
 
+    public static string myID = "";
     private string myGender = "";
 
     // Use this for initialization
@@ -179,6 +180,7 @@ public class SignUpSceneController : MonoBehaviour
         // 모든 체크가 완료되면 회원가입 성공
         if (checkID && checkPW && checkDay && checkMonth && checkYear && checkGender)
         {
+            myID = idText.text;
             // 회원 정보 저장
             SignUpData myData = new SignUpData(pwText.text,
                 yearText.text + "/" + monthText.text + "/" + dayText.text, myGender);

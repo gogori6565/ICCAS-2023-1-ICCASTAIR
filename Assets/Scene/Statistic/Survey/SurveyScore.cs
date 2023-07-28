@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase;
+using Firebase.Database;
+using System;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SurveyScore : MonoBehaviour
 {
+    public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
+    DatabaseReference reference;
+
     // 30개의 "Question" 게임 오브젝트를 저장할 배열
     private GameObject[] questions = new GameObject[31];
 
@@ -12,6 +19,9 @@ public class SurveyScore : MonoBehaviour
 
     private void Start()
     {
+        FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
+        reference = FirebaseDatabase.DefaultInstance.GetReference("UserData");
+
         // "Question" 게임 오브젝트들을 코드로 찾아와서 배열에 할당합니다.
         for (int i = 1; i <= 30; i++)
         {
@@ -55,11 +65,38 @@ public class SurveyScore : MonoBehaviour
             }
         }
 
-        // Yes 토글이 선택된 개수 출력
-        UnityEngine.Debug.Log("토글 개수 yes : "+ yesCount);
-
         Surveyscore = yesCount + 30;
 
         UnityEngine.Debug.Log(Surveyscore);
+
+        SubmitEvent(Surveyscore);
+    }
+
+    public void SubmitEvent(int score)
+    {
+        UnityEngine.Debug.Log("하이");
+        int diff = 1;
+        if (score <= 43) // 정상
+        {
+            diff = 3;
+        }
+        else if (score <= 48)
+        {
+            diff = 2;
+        }
+        else if (score <= 60)
+        {
+            diff = 1;
+        }
+
+        string jsondata2 = JsonUtility.ToJson(diff);
+
+        reference.Child(SignUpSceneController.myID).Child("ConfirmationGameDifficulty").SetValueAsync(diff);
+        reference.Child(SignUpSceneController.myID).Child("PollutionGameDifficulty").SetValueAsync(diff);
+        reference.Child(SignUpSceneController.myID).Child("SymmetryGameDifficulty").SetValueAsync(diff);
+
+        SignUpSceneController.myID = ""; // id 초기화
+
+        SceneManager.LoadScene("SurveyResult");
     }
 }

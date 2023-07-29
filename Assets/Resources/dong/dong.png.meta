@@ -1,0 +1,387 @@
+fileFormatVersion: 2
+guid: 6d2c5fd82bb82ae4ba10ecee0f405688
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2985557962093973479
+    second: dong_0
+  - first:
+      213: 1075542739598469130
+    second: dong_1
+  - first:
+      213: -6320776396692534082
+    second: dong_2
+  - first:
+      213: -2557157395398235764
+    second: dong_3
+  - first:
+      213: 4866544448128076115
+    second: dong_4
+  - first:
+      213: 2931301771969874304
+    second: dong_5
+  - first:
+      213: 4724617098780347639
+    second: dong_6
+  - first:
+      213: -7006110449460214731
+    second: dong_7
+  - first:
+      213: 1801757965533735214
+    second: dong_8
+  - first:
+      213: -3604578759942224228
+    second: dong_9
+  - first:
+      213: -1448743922419606456
+    second: dong_10
+  - first:
+      213: 6781719472329967797
+    second: dong_11
+  - first:
+      213: -9037669040320791138
+    second: dong_12
+  - first:
+      213: -4529614918969419102
+    second: dong_13
+  - first:
+      213: 8553130690867039942
+    second: dong_14
+  - first:
+      213: -5640810580621765946
+    second: dong_15
+  - first:
+      213: -1587417762465559208
+    second: dong_16
+  - first:
+      213: 959016610435199667
+    second: dong_17
+  - first:
+      213: -5258149707952458213
+    second: dong_18
+  - first:
+      213: -1566888948557312435
+    second: dong_19
+  - first:
+      213: 3349809709887558051
+    second: dong_20
+  - first:
+      213: -5946152536149491602
+    second: dong_21
+  - first:
+      213: -2159854747413199184
+    second: dong_22
+  - first:
+      213: 8515156475014033775
+    second: dong_23
+  - first:
+      213: -4726682047472876646
+    second: dong_24
+  - first:
+      213: -2712314520058375557
+    second: dong_25
+  - first:
+      213: -3645732065856972740
+    second: dong_26
+  - first:
+      213: 535683759169943026
+    second: dong_27
+  - first:
+      213: -6078841709453504663
+    second: dong_28
+  - first:
+      213: 85435134160242898
+    second: dong_29
+  - first:
+      213: 243269237413353401
+    second: dong_30
+  - first:
+      213: -3038070816051948243
+    second: dong_31
+  - first:
+      213: 8968500516856934226
+    second: dong_32
+  - first:
+      213: -4424739159772030444
+    second: dong_33
+  - first:
+      213: -7639880102785168009
+    second: dong_34
+  - first:
+      213: -7012495821056173748
+    second: dong_35
+  - first:
+      213: -4443280322760640727
+    second: dong_36
+  - first:
+      213: 2231479763510144952
+    second: dong_37
+  - first:
+      213: -8428102930199683030
+    second: dong_38
+  - first:
+      213: -106353207944157835
+    second: dong_39
+  - first:
+      213: 53749623752827099
+    second: dong_40
+  - first:
+      213: -8078694028132736065
+    second: dong_41
+  - first:
+      213: -4889986206733226784
+    second: dong_42
+  - first:
+      213: 7621150746010555638
+    second: dong_43
+  - first:
+      213: -184297183079755655
+    second: dong_44
+  - first:
+      213: 6663462094418381681
+    second: dong_45
+  - first:
+      213: 8696049780998083360
+    second: dong_46
+  - first:
+      213: -7894023989624588186
+    second: dong_47
+  - first:
+      213: 4670244019288211049
+    second: dong_48
+  - first:
+      213: 4642353231603900073
+    second: dong_49
+  - first:
+      213: -4917679301581497238
+    second: dong_50
+  - first:
+      213: -8191077038194380531
+    second: dong_51
+  - first:
+      213: 1673666729455670937
+    second: dong_52
+  - first:
+      213: -7704010377871182296
+    second: dong_53
+  - first:
+      213: -3698644133543812113
+    second: dong_54
+  - first:
+      213: 5760017482227056821
+    second: dong_55
+  - first:
+      213: -8287075667942664552
+    second: dong_56
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dong_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3919
+        width: 2059
+        height: 1970
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef43faf525de6920800000000000000
+      internalID: 2985557962093973479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dong_1
+      rect:
+        serializedVersion: 2
+        x: 3847
+        y: 3925
+        width: 2059
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0864865c681dee00800000000000000
+      internalID: 1075542739598469130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dong_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 2059
+        height: 1883
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebcc77a2b571848a0800000000000000
+      internalID: -6320776396692534082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dong_3
+      rect:
+        serializedVersion: 2
+        x: 3841
+        y: 3
+        width: 2059
+        height: 1883
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c896684b5e6238cd0800000000000000
+      internalID: -2557157395398235764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

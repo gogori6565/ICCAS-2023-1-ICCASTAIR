@@ -13,11 +13,6 @@ public class ChangeScene2 : MonoBehaviour
                 SceneManager.LoadScene("LogIn");
                 break;
 
-            case "SignUp_Button":
-                SceneManager.LoadScene("LogIn");
-                break;
-
-           
         }
     }
  

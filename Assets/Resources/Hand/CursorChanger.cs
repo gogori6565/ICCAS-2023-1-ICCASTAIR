@@ -1,14 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class CursorChanger : MonoBehaviour
 {
-
-    public List<string> cursorImagePaths = new List<string> {
+    public Image myHand;
+    public Sprite[] allHand;
+    public RectTransform myHandTrans;
+    public List<string> cursorImagePaths = new List<string>
+    {
         "Hand/손",
         "Hand/손1",
         "Hand/손2",
@@ -26,26 +26,30 @@ public class CursorChanger : MonoBehaviour
     private bool washChange = false; // 커서 이미지 변경 여부를 나타내는 변수
     private bool washflag = false;
 
-    private async void Start()
+    private void Start()
     {
-        foreach (string imagePath in cursorImagePaths)
-        {
-            await LoadCursorImageAsync(imagePath);
-        }
+        Cursor.visible = false;
 
-        LoadCursorImageAsync(cursorImagePaths[cursorIndex]);
+        allHand = Resources.LoadAll<Sprite>("Hand");
 
-        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
+        GameObject obj = GameObject.Find("HandCanvas/Hand");
+        myHand = obj.GetComponent<Image>();
+
+        myHandTrans = myHand.GetComponent<RectTransform>();
     }
 
-
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+    }
     private void OnDisable()
     {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
     }
 
     private void Update()
     {
+        myHandTrans.anchoredPosition = new Vector3(Input.mousePosition.x - 960f + 50f, Input.mousePosition.y - 540f - 50f);
         if (washChange)
         {
             if (LoginController.myDiffData.PollutionGameDifficulty != 3) //난이도 중, 하 에서만 
@@ -64,7 +68,8 @@ public class CursorChanger : MonoBehaviour
 
             cursorIndex = 0;
 
-            LoadCursorImageAsync(cursorImagePaths[0]);
+            myHand.sprite = allHand[0];
+            //LoadCursorImage(cursorImagePaths[0]);
         }
         if (shouldChangeCursor)
         {
@@ -72,7 +77,10 @@ public class CursorChanger : MonoBehaviour
 
             if (LoginController.myDiffData.PollutionGameDifficulty == 3) //난이도 상
             {
-                cursorIndex++;
+                if (cursorIndex < cursorImagePaths.Count)
+                {
+                    cursorIndex++;
+                }
             }
             else  //난이도 하, 중
             {
@@ -93,8 +101,8 @@ public class CursorChanger : MonoBehaviour
                     }
                 }
             }
-
-            LoadCursorImageAsync(cursorImagePaths[cursorIndex]);
+            myHand.sprite = allHand[cursorIndex];
+            //LoadCursorImage(cursorImagePaths[cursorIndex]);
         }
     }
 
@@ -105,35 +113,27 @@ public class CursorChanger : MonoBehaviour
 
     public void WashCursorChange()
     {
+        Debug.Log("Wash");
         washChange = true;
     }
+
     public void CursorIndexCount(int cnt)
     {
         clickCount = cnt;
     }
 
-    private async Task LoadCursorImageAsync(string imagePath)
+    private void LoadCursorImage(string imagePath)
     {
-        var handle = Addressables.LoadAssetAsync<Texture2D>(imagePath);
-        await handle.Task;
+        customCursor = Resources.Load<Texture2D>(imagePath);
 
-        if (handle.Status == AsyncOperationStatus.Succeeded)
+        if (customCursor != null)
         {
-            customCursor = handle.Result;
-
-            if (customCursor != null)
-            {
-                // 커서 이미지 로딩이 완료되면 변경
-                Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
-            }
-            else
-            {
-                Debug.LogError("커서 이미지 파일을 로드할 수 없습니다.");
-            }
+            // 커서 이미지 로딩이 완료되면 변경
+            Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
         }
         else
         {
-            Debug.LogError("커서 이미지 파일을 로드하는 동안 오류가 발생했습니다.");
+            Debug.LogError("커서 이미지 파일을 로드할 수 없습니다.");
         }
     }
 }

@@ -5,21 +5,25 @@ using System.ComponentModel;
 using System.Runtime.Versioning;
 using UnityEngine;
 using UnityEngine.UI;
-//using static System.Net.Mime.MediaTypeNames;
 
 public class RoomScene : MonoBehaviour
 {
     public Button comObj, psObj, lightObj, fanObj, windowObj, phoneObj, walletObj, getbackObj;
     public Sprite comOFF, psOFF, lightOFF, fanOFF, windowOFF;
     string comOFFPath, psOFFpath, lightOFFpath, fanOFFpath, windowOFFpath;
+    public Image darkObj;
 
     private GameObject ToDoListObj;
     private bool hasFoundToDoList = false;
 
-    Color phoneCol, walletCol;
+    Color phoneCol, walletCol, darkCol;
+
+    private AudioSource turnSound;
 
     void Start()
     {
+        setAudioSetting();
+
         comObj = GameObject.Find("computer").GetComponent<Button>();
         psObj = GameObject.Find("PowerStrip_Room").GetComponent<Button>();
         lightObj = GameObject.Find("Light_Room").GetComponent<Button>();
@@ -28,6 +32,7 @@ public class RoomScene : MonoBehaviour
         phoneObj = GameObject.Find("Phone").GetComponent<Button>();
         walletObj = GameObject.Find("Wallet").GetComponent<Button>();
         getbackObj = GameObject.Find("Getback").GetComponent<Button>();
+        darkObj = GameObject.Find("dark").GetComponent<UnityEngine.UI.Image>();
 
         if (GV.outside == 1)
         {
@@ -71,6 +76,10 @@ public class RoomScene : MonoBehaviour
         {
             UnityEngine.UI.Image lightImage = lightObj.image;
             lightImage.sprite = lightOFF;
+
+            darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+            darkCol.a = 0.3f;
+            darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
         }
         if (GV.Fan_Room == 1)
         {
@@ -94,6 +103,13 @@ public class RoomScene : MonoBehaviour
             walletCol.a = 0.3f;
             walletObj.GetComponent<UnityEngine.UI.Image>().color = walletCol;
         }
+    }
+
+    // 사운드 소스 불러오기
+    public void setAudioSetting()
+    {
+        GameObject obj = GameObject.Find("TurnSound");
+        turnSound = obj.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -130,6 +146,7 @@ public class RoomScene : MonoBehaviour
             case "computer":
                 if (GV.randomNumbers.IndexOf(11) != -1)
                 {
+                    turnSound.Play();
                     GV.computer = 1;
                     btnImage.sprite = sprites;
                 }
@@ -137,13 +154,19 @@ public class RoomScene : MonoBehaviour
             case "Light_Room":
                 if (GV.randomNumbers.IndexOf(2) != -1)
                 {
+                    turnSound.Play();
                     GV.Light_Room = 1;
                     btnImage.sprite = sprites;
+
+                    darkCol = darkObj.GetComponent<UnityEngine.UI.Image>().color;
+                    darkCol.a = 0.3f;
+                    darkObj.GetComponent<UnityEngine.UI.Image>().color = darkCol;
                 }
                 break;
             case "PowerStrip_Room":
                 if (GV.randomNumbers.IndexOf(6) != -1)
                 {
+                    turnSound.Play();
                     GV.PowerStrip_Room = 1;
                     btnImage.sprite = sprites;
                 }
@@ -151,6 +174,7 @@ public class RoomScene : MonoBehaviour
             case "Fan_Room":
                 if (GV.randomNumbers.IndexOf(4) != -1)
                 {
+                    turnSound.Play();
                     GV.Fan_Room = 1;
                     btnImage.sprite = sprites;
                 }
@@ -158,6 +182,7 @@ public class RoomScene : MonoBehaviour
             case "Window_Room":
                 if (GV.randomNumbers.IndexOf(14) != -1)
                 {
+                    turnSound.Play();
                     GV.Window_Room = 1;
                     btnImage.sprite = sprites;
                 }

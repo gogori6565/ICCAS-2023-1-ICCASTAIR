@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Scene/Result/Result.unity
     guid: 28f1caa4b21541d4284c536f2f82b68a
   - enabled: 1
-    path: Assets/Scene/Survey/Survey.unity
+    path: Assets/Scene/Statistic/Survey/Survey.unity
     guid: 5d433a537fb84904eabdd970a7bd6d18
   - enabled: 1
-    path: Assets/Scene/Survey/SurveyResult.unity
+    path: Assets/Scene/Statistic/Survey/SurveyResult.unity
     guid: 0157111844892324ab360918e69b1c22
   - enabled: 1
     path: Assets/Scene/GameSelect/GameSelect.unity

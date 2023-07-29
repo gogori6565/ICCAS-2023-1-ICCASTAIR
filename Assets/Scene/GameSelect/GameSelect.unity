@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 123465053}
   - component: {fileID: 123465055}
   - component: {fileID: 123465056}
+  - component: {fileID: 123465057}
   m_Layer: 0
   m_Name: donggle
   m_TagString: Untagged
@@ -367,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextObj: {fileID: 1799646958}
   CanvasText: {fileID: 1526878409}
+  donggleObj: {fileID: 123465052}
 --- !u!65 &123465056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,6 +382,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 23.620003, y: 23.62, z: 0.2}
   m_Center: {x: 0, y: -0.0000038146973, z: 0}
+--- !u!95 &123465057
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123465052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40e1ca618725645459153b8476902fab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &287607191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,3 +2254,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextObj: {fileID: 1799646958}
   CanvasText: {fileID: 1526878409}
+  donggleObj: {fileID: 123465052}

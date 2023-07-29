@@ -7,6 +7,7 @@ public class PdiffText : MonoBehaviour
 {
     public GameObject TextObj;
     public GameObject CanvasTextP;
+    public GameObject donggleObj;
     private bool clickEvent = true;
 
     void Start()
@@ -17,6 +18,14 @@ public class PdiffText : MonoBehaviour
     void OnMouseDown()
     {
         clickEvent = !clickEvent;
+        if (clickEvent)
+        {
+            donggleObj.GetComponent<Animator>().speed = 1f;
+        }
+        else
+        {
+            donggleObj.GetComponent<Animator>().speed = 0f;
+        }
         CanvasTextP.SetActive(clickEvent);
 
     }

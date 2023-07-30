@@ -12,7 +12,7 @@ public class PdiffText : MonoBehaviour
 
     void Start()
     {
-        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Pollution : " + LoginController.myDiffData.PollutionGameDifficulty.ToString();
+        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Contamination : " + LoginController.myDiffData.PollutionGameDifficulty.ToString();
     }
 
     void OnMouseDown()

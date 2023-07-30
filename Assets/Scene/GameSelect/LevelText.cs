@@ -13,7 +13,7 @@ public class LevelText : MonoBehaviour
     void Start()
     {
         TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Symmetry : " + LoginController.myDiffData.SymmetryGameDifficulty.ToString() + "\n"
-            + "Pollution : " + LoginController.myDiffData.PollutionGameDifficulty.ToString() + "\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
+            + "Contamination : " + LoginController.myDiffData.PollutionGameDifficulty.ToString() + "\n" + "Checking : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
     }
 
     void OnMouseDown()

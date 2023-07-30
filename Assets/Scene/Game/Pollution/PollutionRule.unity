@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -675, y: 453.27}
-  m_SizeDelta: {x: 501.67, y: 129.4}
+  m_AnchoredPosition: {x: -640.08, y: 453.27}
+  m_SizeDelta: {x: 571.52, y: 129.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &115979523
 MonoBehaviour:
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pollution
+  m_Text: Contamination
 --- !u!222 &115979524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_Text: 'level of difficulty
 
 
-    Confirmation : 1'
+    Contamination : 1'
 --- !u!222 &2035883984
 CanvasRenderer:
   m_ObjectHideFlags: 0

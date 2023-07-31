@@ -456,7 +456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Confirmation
+  m_Text: Checking
 --- !u!222 &581949673
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Text: 'level of difficulty
 
 
-    Confirmation : 1'
+    Checking : 1'
 --- !u!222 &1165542892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1178,8 +1178,8 @@ MonoBehaviour:
   m_Text: "Follow the To Do List before leaving your house.\r\nMake sure you remember
     the actions you did.\r\n\nSolve the puzzle to go for the next step. (or Wait
     1 minutes)\r\nYou can always check back to see the condition of your house \nby
-    pressing the \"Confirmation Hint\" button while solving the puzzle.\r\n(But,
-    the time limit for hint is 5s.)\n\nAfter the puzzle, some questions will be asked
+    pressing the \"Checking Hint\" button while solving the puzzle.\r\n(But, the
+    time limit for hint is 5s.)\n\nAfter the puzzle, some questions will be asked
     related to the To Do List. \r"
 --- !u!222 &1319884473
 CanvasRenderer:

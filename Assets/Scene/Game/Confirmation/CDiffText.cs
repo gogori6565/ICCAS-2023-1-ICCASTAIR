@@ -12,7 +12,7 @@ public class CDiffText : MonoBehaviour
 
     void Start()
     {
-        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Confirmation : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
+        TextObj.GetComponent<Text>().text = "level of difficulty \n\n" + "Checking : " + LoginController.myDiffData.ConfirmationGameDifficulty.ToString();
     }
 
     void OnMouseDown()

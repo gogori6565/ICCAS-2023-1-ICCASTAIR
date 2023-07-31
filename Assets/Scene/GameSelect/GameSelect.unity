@@ -715,10 +715,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 43715e060c4187d4f886595e090fb11a, type: 3}
-    m_FontSize: 63
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 65
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -726,7 +726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pollution
+  m_Text: 'Contamination
 
     Compulsion'
 --- !u!222 &588357109
@@ -1229,7 +1229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Confirmation
+  m_Text: 'Checking
 
     Compulsion'
 --- !u!222 &922859905
@@ -2228,9 +2228,9 @@ MonoBehaviour:
 
     Symmetry: 1
 
-    Pollution : 1
+    Contamination : 1
 
-    Confirmation
+    Checking
     : 1'
 --- !u!222 &1799646962
 CanvasRenderer:

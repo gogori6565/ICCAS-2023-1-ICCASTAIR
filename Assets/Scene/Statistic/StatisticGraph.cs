@@ -138,11 +138,11 @@ public class StatisticGraph : MonoBehaviour
             newDotArray[count].transform.position = v;
             if(i == 0)
             {
-                dotStr[count] = "Confirmation Average\n" + score[i];
+                dotStr[count] = "Checking Average\n" + score[i];
             }
             else if(i == 1)
             {
-                dotStr[count] = "Pollution Average\n" + score[i];
+                dotStr[count] = "Contamination Average\n" + score[i];
             }
             else if(i == 2)
             {

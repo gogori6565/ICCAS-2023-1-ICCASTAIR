@@ -7,3 +7,6 @@ Team: `ICCASTAIR` <br>
 팀원 - 충북대학교 이진택 <br>
 팀원 - 인제대학교 김민곤 <br>
 팀원 - 원광대학교 문지양 <br>
+
+## Design
+<img src="https://github.com/gogori6565/ICCAS-2023-1-ICCASTAIR/assets/81895590/c8fec158-bb46-4f59-b36c-1a0ea1cfd0a3" width="40%" height="40%">

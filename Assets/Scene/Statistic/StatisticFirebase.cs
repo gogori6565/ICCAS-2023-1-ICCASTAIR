@@ -40,6 +40,20 @@ public class StatisticFirebase : MonoBehaviour
 
     void Start()
     {
+        // 배열 요소를 0으로 초기화
+        for (int i = 0; i < cScore.Length; i++)
+        {
+            cScore[i] = 0;
+        }
+        for (int i = 0; i < pScore.Length; i++)
+        {
+            pScore[i] = 0;
+        }
+        for (int i = 0; i < sScore.Length; i++)
+        {
+            sScore[i] = 0;
+        }
+
         cPlay = LoginController.myPlayData.ConfirmationPlay;
         pPlay = LoginController.myPlayData.PollutionPlay;
         sPlay = LoginController.myPlayData.SymmetryPlay;
@@ -57,14 +71,12 @@ public class StatisticFirebase : MonoBehaviour
             cReadDB(cPlay, i);
             cPlay--;
         }
-
         for (int i = 0; i < 7; i++)
         {
             if (pPlay <= 0) break;
             pReadDB(pPlay, i);
             pPlay--;
         }
-
         for (int i = 0; i < 7; i++)
         {
             if (sPlay <= 0) break;
@@ -134,16 +146,19 @@ public class StatisticFirebase : MonoBehaviour
         if (game == "Confirmation")
         {
             cAverage = (float)cSum / (float)LoginController.myPlayData.ConfirmationPlay;
+            UnityEngine.Debug.Log("cAverage : " + cAverage);
         }
         else if (game == "Pollution")
         {
             pAverage = (float)pSum / (float)LoginController.myPlayData.PollutionPlay;
+            UnityEngine.Debug.Log("pAverage : " + pAverage);
         }
         else if (game == "Symmetry")
         {
             sAverage = (float)sSum / (float)LoginController.myPlayData.SymmetryPlay;
+            UnityEngine.Debug.Log("sAverage : " + sAverage);
 
-            Graph.GetComponent<StatisticGraph>().Graph(); //graph 그리기
+            //Graph.GetComponent<StatisticGraph>().Graph(); //graph 그리기
         }
     }
 

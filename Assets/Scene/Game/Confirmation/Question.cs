@@ -11,8 +11,14 @@ public class Question : MonoBehaviour
     public Button btn; // Yes/No
     public Text Qtext;
 
+    GameObject BackgroundMusic;
+    AudioSource backmusic;
+
     void Start()
     {
+        BackgroundMusic = GameObject.Find("cMusic");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
+
         Qtext = GameObject.Find("Qtext").GetComponent<UnityEngine.UI.Text>();
 
         if (GV.Qnumber == 1)
@@ -49,6 +55,7 @@ public class Question : MonoBehaviour
         }
         else
         {
+            backmusic.Stop();
             SceneManager.LoadScene("Result_Confirmation");
         }
     }

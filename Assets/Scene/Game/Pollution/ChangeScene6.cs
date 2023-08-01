@@ -7,6 +7,15 @@ public class ChangeScene6 : MonoBehaviour
 {
     string[] scenes = { "Kitchen_p", "Restroom", "Room_p" };
 
+    GameObject BackgroundMusic;
+    AudioSource backmusic;
+
+    void Start()
+    {
+        BackgroundMusic = GameObject.Find("pMusic");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
+    }
+
     public void ChangeSceneBtn()
     {
         switch (this.gameObject.name)
@@ -39,6 +48,7 @@ public class ChangeScene6 : MonoBehaviour
         remainTime = cleartime;
         StartCoroutine(DelayedSceneChange());
     }
+
     public void ClickCnt(int click)
     {
         findDirty = click;
@@ -102,6 +112,7 @@ public class ChangeScene6 : MonoBehaviour
             ResultScene.totalScore = (remainTime * 20) + (findDirty * 500) - WashButton.subtractPointSum; //»ó
         }
 
+        backmusic.Stop();
         SceneManager.LoadScene("Result_Pollution");
     }
 }

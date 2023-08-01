@@ -26,7 +26,7 @@ public class StatisticGraph : MonoBehaviour
 
     public Text cText, pText, sText;
 
-    public void Graph()
+    public void Start()
     {
         Array.Reverse(StatisticFirebase.cUsedHint);
         Array.Reverse(StatisticFirebase.cWrongAnswer);

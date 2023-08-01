@@ -11,7 +11,7 @@ public class GiveUpController : MonoBehaviour
 {
     public GameObject[] surveyDiff = new GameObject[5];
     public GameObject surveyText;
-    public GameObject popup;
+    public GameObject popup, popup2;
     public Text text;
     public string DBurl = "https://pattern-breaker-1cbe6-default-rtdb.firebaseio.com/";
     DatabaseReference reference;
@@ -20,6 +20,7 @@ public class GiveUpController : MonoBehaviour
     void Start()
     {
         popup.SetActive(false);
+        popup2.SetActive(false);
         text = surveyText.GetComponent<Text>();
         FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(DBurl);
         reference = FirebaseDatabase.DefaultInstance.GetReference("UserData");
@@ -44,7 +45,16 @@ public class GiveUpController : MonoBehaviour
 
         if(index >= 3) // 어려움 또는 매우 어려움을 선택했을때
         {
-            popup.SetActive(true);
+            if(gameType == "Symmetry" && LoginController.myDiffData.SymmetryGameDifficulty == 1 ||
+                gameType == "Pollution" && LoginController.myDiffData.PollutionGameDifficulty == 1 ||
+                gameType == "Confirmation" && LoginController.myDiffData.ConfirmationGameDifficulty == 1)
+            {
+                popup2.SetActive(true);
+            }
+            else
+            {
+                popup.SetActive(true);
+            }
         }
         else
         {
@@ -63,15 +73,8 @@ public class GiveUpController : MonoBehaviour
         DatabaseReference re = reference.Child(LoginController.myID).Child("Survey");
         if (gameType == "Symmetry")
         {
-            if(LoginController.myDiffData.SymmetryGameDifficulty == 1)
-            {
-                // 의사와 상의 필요 <- 추후 제작
-            }
-            else
-            {
-                LoginController.myDiffData.SymmetryGameDifficulty--;
-                reference.Child(LoginController.myID).Child("SymmetryGameDifficulty").SetValueAsync(LoginController.myDiffData.SymmetryGameDifficulty);
-            }
+            LoginController.myDiffData.SymmetryGameDifficulty--;
+            reference.Child(LoginController.myID).Child("SymmetryGameDifficulty").SetValueAsync(LoginController.myDiffData.SymmetryGameDifficulty);
             if (text.text != "")
             {
                 re.Child(gameType).Child(DateTime.Now.ToString()).SetValueAsync(text.text);
@@ -79,15 +82,8 @@ public class GiveUpController : MonoBehaviour
         }
         else if(gameType == "Pollution")
         {
-            if(LoginController.myDiffData.PollutionGameDifficulty == 1)
-            {
-
-            }
-            else
-            {
-                LoginController.myDiffData.PollutionGameDifficulty--;
-                reference.Child(LoginController.myID).Child("PollutionGameDifficulty").SetValueAsync(LoginController.myDiffData.PollutionGameDifficulty);
-            }
+            LoginController.myDiffData.PollutionGameDifficulty--;
+            reference.Child(LoginController.myID).Child("PollutionGameDifficulty").SetValueAsync(LoginController.myDiffData.PollutionGameDifficulty);
             if (text.text != "")
             {
                 re.Child(gameType).Child(DateTime.Now.ToString()).SetValueAsync(text.text);
@@ -95,15 +91,8 @@ public class GiveUpController : MonoBehaviour
         }
         else if(gameType == "Confirmation")
         {
-            if(LoginController.myDiffData.ConfirmationGameDifficulty == 1)
-            {
-
-            }
-            else
-            {
-                LoginController.myDiffData.ConfirmationGameDifficulty--;
-                reference.Child(LoginController.myID).Child("ConfirmationGameDifficulty").SetValueAsync(LoginController.myDiffData.ConfirmationGameDifficulty);
-            }
+            LoginController.myDiffData.ConfirmationGameDifficulty--;
+            reference.Child(LoginController.myID).Child("ConfirmationGameDifficulty").SetValueAsync(LoginController.myDiffData.ConfirmationGameDifficulty);
             if (text.text != "")
             {
                 re.Child(gameType).Child(DateTime.Now.ToString()).SetValueAsync(text.text);
@@ -115,6 +104,12 @@ public class GiveUpController : MonoBehaviour
 
     public void NoChangeLevel()
     {
+        if (text.text != "")
+        {
+            DatabaseReference re = reference.Child(LoginController.myID).Child("Survey").Child(gameType).Child(DateTime.Now.ToString());
+            re.SetValueAsync(text.text);
+        }
+
         SceneManager.LoadScene("GameSelect");
     }
 

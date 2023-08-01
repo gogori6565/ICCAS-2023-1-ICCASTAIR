@@ -19,10 +19,16 @@ public class PlaySceneController : MonoBehaviour
     public static gameData myGameData;
     private AudioSource clickSound, failClickSound, successClickSound;
 
+    GameObject BackgroundMusic;
+    AudioSource backmusic;
+
     // Start is called before the first frame update
     void Start()
     {
         setAudioSetting();
+
+        BackgroundMusic = GameObject.Find("sMusic");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
 
         myGameData = new gameData();
         myGameData.setEmpty();
@@ -239,6 +245,11 @@ public class PlaySceneController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnDestroy()
+    {
+        backmusic.Stop();
     }
 
     public int getSymmetryCount(int diff)

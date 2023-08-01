@@ -11,9 +11,6 @@ public class GamePlay : MonoBehaviour
     public GameObject cleanSound;
     public AudioSource cleanAudio;
 
-
-
-
     private List<Transform> elements = new List<Transform>(); // Dirty 오브젝트의 자식 요소들을 저장할 리스트
 
     private int clickCount = 0; // 클릭된 요소의 카운트 변수
@@ -147,8 +144,6 @@ public class GamePlay : MonoBehaviour
     {
         return clickCount; // 클릭 카운트 반환
     }
-
-
 }
 
 public class ElementClickHandler : MonoBehaviour

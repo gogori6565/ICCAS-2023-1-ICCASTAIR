@@ -46,6 +46,15 @@ public class GiveUpController : MonoBehaviour
         {
             popup.SetActive(true);
         }
+        else
+        {
+            if (text.text != "")
+            {
+                DatabaseReference re = reference.Child(LoginController.myID).Child("Survey").Child(gameType).Child(DateTime.Now.ToString());
+                re.SetValueAsync(text.text);
+            }
+            SceneManager.LoadScene("GameSelect");
+        }
     }
 
     bool levelDownComplete = false;

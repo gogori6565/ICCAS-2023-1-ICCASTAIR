@@ -27,6 +27,11 @@ public class Question : MonoBehaviour
         }
     }
 
+    public void OnDestroy()
+    {
+        backmusic.Stop();
+    }
+
     // Yes/No button clicked
     public void NextQuestion()
     {
@@ -55,7 +60,6 @@ public class Question : MonoBehaviour
         }
         else
         {
-            backmusic.Stop();
             SceneManager.LoadScene("Result_Confirmation");
         }
     }

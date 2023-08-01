@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Music : MonoBehaviour
+public class SurveyMusic : MonoBehaviour
 {
     GameObject BackgroundMusic;
     AudioSource backmusic;
 
     void Awake()
     {
-        BackgroundMusic = GameObject.Find("cMusic");
+        BackgroundMusic = GameObject.Find("SurveyMusic");
         backmusic = BackgroundMusic.GetComponent<AudioSource>();
         DontDestroyOnLoad(BackgroundMusic);
+
+        backmusic.Play();
     }
 
-    public void MusicStart()
+    public void OnDestroy()
     {
-        backmusic.Play();
+        backmusic.Stop();
     }
 
     public void MusicStop()

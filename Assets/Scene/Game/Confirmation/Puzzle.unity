@@ -332,6 +332,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154027841}
   m_CullTransparentMesh: 1
+--- !u!1 &246252174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246252178}
+  - component: {fileID: 246252177}
+  - component: {fileID: 246252176}
+  - component: {fileID: 246252175}
+  m_Layer: 5
+  m_Name: CanvasDonggle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &246252175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246252174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &246252176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246252174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &246252177
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246252174}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 1
+  m_Camera: {fileID: 385637874}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &246252178
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246252174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 439577266}
+  - {fileID: 812650917}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &385637873
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +632,7 @@ RectTransform:
   - {fileID: 783160060}
   - {fileID: 732279335}
   - {fileID: 1278128401}
+  - {fileID: 605181443}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,6 +641,93 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &439577265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439577266}
+  - component: {fileID: 439577267}
+  m_Layer: 0
+  m_Name: chat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &439577266
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439577265}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8, y: 14, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246252178}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 722, y: -11.395}
+  m_SizeDelta: {x: 42.951, y: 22.79}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &439577267
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439577265}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 534345753
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 1157a65a3e46700449daef80e02f365e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49411765}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 41.48, y: 22.96793}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &477256823
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +805,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477256823}
   m_CullTransparentMesh: 1
+--- !u!1 &605181442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605181443}
+  - component: {fileID: 605181445}
+  - component: {fileID: 605181444}
+  m_Layer: 0
+  m_Name: donggle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &605181443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605181442}
+  m_LocalRotation: {x: -0, y: -0, z: 0.02314434, w: -0.99973214}
+  m_LocalPosition: {x: 807.00006, y: -324.85327, z: -9720}
+  m_LocalScale: {x: 15.146999, y: 15.396479, z: 108}
+  m_Children: []
+  m_Father: {fileID: 407788704}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.652}
+--- !u!95 &605181444
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605181442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40e1ca618725645459153b8476902fab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &605181445
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605181442}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -950258435
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e3deef62dfa431e41882bee489954706, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.96862745}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 23.62, y: 23.62}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &650723430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1382,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783160059}
   m_CullTransparentMesh: 1
+--- !u!1 &812650916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812650917}
+  - component: {fileID: 812650920}
+  - component: {fileID: 812650919}
+  - component: {fileID: 812650918}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &812650917
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812650916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246252178}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 721.99994, y: 0}
+  m_SizeDelta: {x: 334.28, y: 282.58}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &812650918
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812650916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 534345753
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &812650919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812650916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ecb788b4ee8e1b841bf1595191e47483, type: 3}
+    m_FontSize: 37
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &812650920
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812650916}
+  m_CullTransparentMesh: 1
 --- !u!1 &1278128400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1724,187 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359099039}
   m_CullTransparentMesh: 1
+--- !u!1 &1679321741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679321743}
+  - component: {fileID: 1679321742}
+  m_Layer: 0
+  m_Name: Messagedir
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1679321742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679321741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b04df8fdf6aa944ab57f920be837c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  donggle: {fileID: 605181442}
+  CanvasDonggle: {fileID: 246252174}
+  encourageText: {fileID: 812650916}
+  encouragement_messages:
+  - Difficulties are temporary. Hang in there a little longer.
+  - What you're going through is solvable.
+  - I'm truly moved by your dedication during your OCD cognitive-behavioral therapy.
+  - I genuinely appreciate your efforts.
+  - I'll be watching your growth and progress. You'll see a better version of yourself.
+  - No matter how tough it gets, I'll always be by your side.
+  - Take pride in persevering and making progress step by step.
+  - It's inspiring to see how actively you engage in your therapy.
+  - Believe that you can overcome OCD.
+  - You'll become stronger through your battles with OCD.
+  - You're stronger than you think.
+  - I'm here to listen to your story whenever you need.
+  - Everything will be okay. Trust me.
+  - You have the ability to conquer your OCD.
+  - Take pride in enduring through this challenging time.
+  - I believe you can overcome OCD.
+  - You are much stronger than you believe.
+  - Focus on making progress, even if it's just a little each day.
+  - You have the power to improve your skills.
+  - Thank you for your daily efforts. They mean a lot.
+  - Let's overcome this difficult time together.
+  - Feel proud of yourself for enduring this challenging phase.
+  - Your efforts will never go in vain.
+  - I'll support you in becoming even stronger.
+  - You are more resilient than you know.
+  - It's okay to experience all kinds of emotions. It's normal.
+  - I see the effort you're putting into overcoming your challenges.
+  - I acknowledge and recognize what you're going through.
+  - I believe you can overcome your current difficulties.
+  - Your determination in fighting OCD is truly admirable.
+  - You have my full support in what you're enduring.
+  - You'll overcome this difficult time.
+  - You believe in yourself, and that's amazing.
+  - You'll become stronger through what you're experiencing.
+  - Your proactive approach to tackling challenges is impressive.
+  - I'll be by your side, sharing your pain and struggles.
+  - Your resilience in coping with life's challenges is impressive.
+  - Everything you're going through now is part of your growth.
+  - I know how strong you are. There's nothing you can't overcome.
+  - I'm amazed by your efforts in fighting against your OCD.
+  - You're inspiring me with your dedication.
+  - I believe you can make it through. We'll go through this together.
+  - You have the strength to overcome what you're facing.
+  - You're working towards a better life, and that's incredible.
+  - Your tenacity in fighting alongside fear is truly remarkable.
+  - Remember that you love yourself.
+  - You'll find happiness in the future.
+  - Your efforts will never be in vain.
+  - It's amazing to see you working hard to overcome your current challenges.
+  - You're moving towards a better life. Keep going, and I'll be there with you.
+  asymmetry_messages:
+  - It's okay not to make things symmetrical, asymmetry looks cool too.
+  - Asymmetry is beautiful too, feel free to create that way.
+  - You don't need symmetry, asymmetry can be lovely.
+  - It's fine if it's not symmetrical, draw with freedom.
+  - Your artwork can be fantastic even without symmetry, draw as you like.
+  - It's okay if it's not symmetrical, your unique style is great.
+  - Don't worry about symmetry, asymmetry can be wonderful.
+  - Even without symmetry, your artwork is impressive.
+  - Asymmetry is beautiful, express yourself freely.
+  - It doesn't have to be symmetrical, go ahead and draw with creativity.
+  - Even without symmetry, your artwork is amazing, express yourself freely.
+  - It's okay if it's not symmetrical, draw with freedom.
+  - Asymmetry is also lovely, be creative in your own way.
+  - Even without symmetry, your artwork can be beautiful, draw as you like.
+  - You don't need to make it symmetrical, express yourself freely.
+  - Asymmetry is beautiful too, feel free to create that way.
+  - It's okay if it's not symmetrical, your unique style is great.
+  - Don't worry about symmetry, asymmetry can be wonderful.
+  - Even without symmetry, your artwork is impressive.
+  - Asymmetry is beautiful, express yourself freely.
+  checking_messages:
+  - Believe a little and take comfort, it's okay not to check.
+  - It's okay not to check, everything will be fine.
+  - Have faith and take comfort, you don't need to check.
+  - It's okay not to check, just believe.
+  - There won't be any problem without checking, put your mind at ease.
+  - You don't need to worry, it's okay not to check.
+  - You don't need to worry, no need to check.
+  - Relax, it's okay not to check.
+  - It's okay not to check, everything will work out.
+  - Relax your mind, it's okay not to check.
+  - It's okay not to check, no need to worry.
+  - Relax, it's okay not to check.
+  - It's okay not to check, everything will fall into place.
+  - You don't need to worry, it's okay not to check.
+  - Have faith and believe, it's okay not to check.
+  - It's okay not to check, put your mind at ease.
+  - It's okay not to check, everything will be fine.
+  - You don't need to worry, it's okay not to check.
+  - Relax, it's okay not to check.
+  - It's okay not to check, everything will work out.
+  - Relax your mind, it's okay not to check.
+  - It's okay not to check, no need to worry.
+  - Relax, it's okay not to check.
+  - It's okay not to check, everything will fall into place.
+  - You don't need to worry, it's okay not to check.
+  - Relax, it's okay not to check.
+  - It's okay not to check, put your mind at ease.
+  - It's okay not to check, everything will be fine.
+  - Relax, it's okay not to check.
+  - It's okay not to check, everything will work out.
+  handwashing_messages:
+  - Handwashing is good, but you don't need to do it too vigorously.
+  - You don't have to wash your hands too vigorously, just wash them thoroughly.
+  - It's okay to wash your hands gently.
+  - Handwashing is good, you don't have to do it too forcefully.
+  - It's good to wash your hands frequently, but you can do it less forcefully.
+  - Of course, handwashing is good, but you don't have to do it too forcefully.
+  - It's good to wash your hands gently, no need to do it forcefully.
+  - You don't need to wash your hands too vigorously, just wash them thoroughly.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - Just wash your hands gently, you don't have to do it too forcefully.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - It's good to wash your hands gently, no need to do it forcefully.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - Washing your hands will make them clean, no need to do it too forcefully.
+  - Washing your hands frequently is good, just wash them gently.
+  - You don't have to wash your hands too forcefully, just wash them thoroughly.
+  - Washing your hands gently is good, no need to do it too forcefully.
+  - Washing your hands is good, but you don't have to do it too forcefully.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - Just wash your hands gently, you don't have to do it too forcefully.
+  - Washing your hands frequently is good, no need to do it too forcefully.
+  - Washing your hands gently is good, just wash them thoroughly.
+  - Washing your hands is good, but you don't have to do it too forcefully.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - Just wash your hands gently, you don't have to do it too forcefully.
+  - Washing your hands frequently will make them clean, just wash them gently.
+  - Washing your hands gently is good, no need to do it too forcefully.
+  - Washing your hands is good, but you don't have to do it too forcefully.
+  - Washing your hands frequently is good, but you don't have to do it too forcefully.
+  - Just wash your hands gently, you don't have to do it too forcefully.
+  - Washing your hands frequently will make them clean, just wash them gently.
+--- !u!4 &1679321743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679321741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685515063
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,14 +14,17 @@ public class ChangeSceneGameSelect : MonoBehaviour
                 break;
 
             case "Symmetry_Compulsion":
+                GiveUpController.gameType = "Symmetry";
                 SceneManager.LoadScene("SymmetryRule");
                 break;
 
             case "Pollution_Compulsion":
+                GiveUpController.gameType = "Pollution";
                 SceneManager.LoadScene("PollutionRule");
                 break;
 
             case "Confirmation_Compulsion":
+                GiveUpController.gameType = "Confirmation";
                 SceneManager.LoadScene("ConfirmationRule");
                 break;
 

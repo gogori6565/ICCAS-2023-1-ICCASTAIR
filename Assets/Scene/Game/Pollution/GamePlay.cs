@@ -24,6 +24,8 @@ public class GamePlay : MonoBehaviour
 
     private void Start()
     {
+        ChangeScene6.findDirty = 0;
+
         Instance = this;
 
         cleanAudio = cleanSound.GetComponent<AudioSource>();

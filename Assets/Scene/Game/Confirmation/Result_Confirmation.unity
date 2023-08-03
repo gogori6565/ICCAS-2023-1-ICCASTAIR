@@ -1879,8 +1879,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1832736969}
-        m_TargetAssemblyTypeName: ChangeScene5, Assembly-CSharp
-        m_MethodName: ChangeSceneBtn
+        m_TargetAssemblyTypeName: ChangeSceneStatistic, Assembly-CSharp
+        m_MethodName: ToStatistic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1937,10 +1937,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1832736964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec2ebf7197eb045a0278202a2f7501, type: 3}
+  m_Script: {fileID: 11500000, guid: 83fb534fe1d0cb44cabbeaa9918cf560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outsideBtn: {fileID: 0}
 --- !u!1 &1878076692
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@
 This game aims to treat compulsions by providing patients with a highly detailed simulation environment and personalized treatment processes. 
 We expect that this game will serve as an effective tool for treating individuals with OCD. By offering personalized and optimized therapy through individualized difficulty recommendations.
 
+## Poster
+![EKC2023-Posters_ICCASTAIR](https://github.com/user-attachments/assets/35ef129f-7842-4cae-b965-84a1ff6ed53c)
+
 ## Authors
 Team: `ICCASTAIR` <br>
 
